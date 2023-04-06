@@ -1,0 +1,26 @@
+{
+  "name": "alpamed_sap_api",
+  "version": "1.0.0",
+  "description": "alpamed sap integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianallenderussek/alpamed_sap_api.git"
+  },
+  "author": "Julian Allende",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianallenderussek/alpamed_sap_api/issues"
+  },
+  "homepage": "https://github.com/julianallenderussek/alpamed_sap_api#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "read-excel-file": "^5.6.1"
+  }
+}
