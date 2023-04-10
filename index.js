@@ -7,6 +7,7 @@ const { log } = require("console");
 const readXlsxFile = require('read-excel-file/node')
 const fs = require("fs")
 
+// cors -> 
 
 app.get("/", function (req, res) {
   return res
@@ -14,9 +15,8 @@ app.get("/", function (req, res) {
     .json({ success: true, message: "Integration Server Running" });
 });
 
-app.get("/read", async function (req, res) {
-  await readXlsxFile("./templates/ordr.xlsx").then((data) => {
-    console.log(data);
+app.get("/purchase_order/create", async function (req, res) {
+  await readXlsxFile("./templates/purchase_order/ordr.xlsx").then((data) => {
     
     const filtered = {
       columns: [],
@@ -84,7 +84,6 @@ function createTxtFile(arr1, arr2, arr3) {
   transverseArr(arr1)
   transverseArr(arr2)
   transverseArr(arr3)
-  console.log(text)
 
   fs.writeFile(
     "output.txt",
@@ -96,7 +95,6 @@ function createTxtFile(arr1, arr2, arr3) {
       }
      }
   )
-
 
 }
 
