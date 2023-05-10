@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const readXlsxFile = require("read-excel-file/node");
 const fs = require("fs");
 const ExcelJS = require('exceljs');
-
+const queries = require("./queries/queries");
+const callSAPServer = require("./queries/sapQuery");
 const app = express();
 
 
@@ -99,6 +100,26 @@ app.get("/purchase_order", async function (req, res) {
 
     return res.status(200).json({ success: true, data: data });
   });
+});
+
+app.get("/sap/queries", async function (req, res) {
+  
+  console.log(queries)
+  return res.status(200).json({message: "This are the sap query options", queries})
+});
+
+app.post("/sap/query", async function (req, res) {
+  const { table, query } = req.body;
+
+  console.log(table, query)
+  if (!table || !query || !queries[table][query]) {
+    return res.status(400).json({message: "Please provide a valid query"})
+  }
+
+  const sqlQuery = queries[table][query]
+  const result = await callSAPServer(sqlQuery) 
+
+  return res.status(200).json({message: "Guacuamole", data: result})
 });
 
 

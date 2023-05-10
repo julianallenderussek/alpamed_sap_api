@@ -1,3 +1,3 @@
-const purchaseOrder = {
+export default purchaseOrder = {
         
 }
