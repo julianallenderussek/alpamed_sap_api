@@ -69,7 +69,7 @@ app.post("/test", function (req, res) {
 
       createTxtFile(result[0], result[1], result[2]);
 
-      return res.status(200).json({ success: true, message: "Integration Server Running" });
+      return res.status(200).json({ success: true, message: "Succesfully created plain text file" });
     })
     .catch((err) => {
       console.log(err.message);
@@ -111,7 +111,6 @@ app.get("/sap/queries", async function (req, res) {
 app.post("/sap/query", async function (req, res) {
   const { table, query } = req.body;
 
-  console.log(table, query)
   if (!table || !query || !queries[table][query]) {
     return res.status(400).json({message: "Please provide a valid query"})
   }
