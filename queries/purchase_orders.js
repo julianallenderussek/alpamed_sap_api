@@ -5,8 +5,8 @@ const test = async() => {
     try {
         // make sure that any items are correctly URL encoded in the connection string
         await sql.connect('Server=localhost,1433;Database=AMD_Entrenamiento;User Id=U002;Password=S@p123;Encrypt=true')
-        const result = await sql.query`select * from ORDR`
-        console.dir(result)
+        const result = await sql.query(`select * from ORDR`)
+        console.log(result)
     } catch (err) {
         // ... error checks
     }
