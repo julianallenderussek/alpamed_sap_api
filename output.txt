@@ -1,3 +1,3 @@
-DocNum	DocDate	DocDueDate	CardCode
-DocNum	DocDate	DocDueDate	CardCode
-1	20230412	20230412	
+DocNum	DocDate	DocDueDate	CardCode	Comments
+DocNum	DocDate	DocDueDate	CardCode	Comments
+1	20230412	20230412	CL002	Cliente va entregar en dos partidas
