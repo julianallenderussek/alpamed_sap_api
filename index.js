@@ -8,6 +8,7 @@ const fs = require("fs");
 const ExcelJS = require('exceljs');
 const queries = require("./queries/queries");
 const callSAPServer = require("./queries/sapQuery");
+const morgan = require("morgan");
 const app = express();
 
 
@@ -16,6 +17,8 @@ let wb = new ExcelJS.Workbook();
 
 // Middleware
 app.use(bodyParser.json());
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+
 // cors ->
 
 app.get("/", function (req, res) {
