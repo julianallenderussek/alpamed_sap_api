@@ -151,28 +151,7 @@ async function createTxtFile(arr1, arr2, arr3) {
   });
 }
 
-app.post("/purchase_order", function (req, res) {
-  const fs = require("fs");
-
-  const content = "Some content!";
-
-  fs.writeFile(
-    "./files/purchase_order/create/purchase_order.txt",
-    content,
-    (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      console.log("Running script");
-      runScript("./executables/hello.sh");
-    }
-  );
-
-  return res
-    .status(200)
-    .json({ success: true, message: "Integration Server Running" });
-});
+app.use('/purchaseOrder', purchaseOrderRouter);
 
 app.put("/purchase_order", function (req, res) {
   return res
