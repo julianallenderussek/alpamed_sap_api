@@ -118,7 +118,9 @@ app.post("/sap/query", async function (req, res) {
   const sqlQuery = queries[table][query]
   const result = await callSAPServer(sqlQuery) 
 
-  return res.status(200).json({message: "Guacuamole", data: result})
+  console.log(result)
+
+  return res.status(200).json({message: "Check this", result: result})
 });
 
 

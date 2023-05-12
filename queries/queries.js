@@ -6,6 +6,9 @@ const queries = {
     articles: {
         getAllArticles: `select * from RDRI`, 
     },
+    dropdowns: {
+        getServicesAndContainers: `SELECT * FROM dbo.OITM WHERE ItemCode LIKE '%SER%' OR itemCode LIKE '%CON%';`
+    },
     tables: {
         getTables: `select * from RDRI`, 
     }

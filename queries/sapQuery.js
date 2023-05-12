@@ -22,8 +22,8 @@ try {
   // make sure that any items are correctly URL encoded in the connection string
   await sql.connect(sqlConfig)
   const result = await sql.query(query)
-  console.log(result.recordset)
   
+  return result.recordset
  } catch (err) {
   // ... error checks
   console.log("ERROR", err)
@@ -42,5 +42,7 @@ queries = {
         getTables: `select * from RDRI`, 
     }
 }
+
+// Comment
 
 module.exports = callSAPServer
