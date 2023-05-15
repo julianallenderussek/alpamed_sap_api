@@ -33,6 +33,7 @@ try {
 queries = {
     orders: {
         getAllOrders: `select * from ORDR`,
+        getOrder: `SELECT * FROM ORDR WHERE DocNum = 2`,
         insertOrder: `INSERT INTO ORDR (DocNum) VALUES (2)` 
     },
     articles: {

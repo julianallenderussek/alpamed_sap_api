@@ -8,6 +8,7 @@ const fs = require("fs");
 const ExcelJS = require('exceljs');
 const queries = require("./queries/queries");
 const callSAPServer = require("./queries/sapQuery");
+const purchaseOrderRouter = require("./routes/purchaseOrders");
 const app = express();
 
 
@@ -116,6 +117,7 @@ app.post("/sap/query", async function (req, res) {
   }
 
   const sqlQuery = queries[table][query]
+  console.log(sqlQuery)
   const result = await callSAPServer(sqlQuery) 
 
   console.log(result)
@@ -159,8 +161,10 @@ app.put("/purchase_order", function (req, res) {
     .json({ success: true, message: "Integration Server Running" });
 });
 
-app.listen(4000, () => {
-  console.log("Listening on port 4000");
+const PORT = 4000;
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
 
 function runScript(scriptPath) {

@@ -34,4 +34,4 @@ purchaseOrderRouter.post('/create', (req, res) => {
 
 
 
-exports = purchaseOrderRouter;
+module.exports = purchaseOrderRouter;
