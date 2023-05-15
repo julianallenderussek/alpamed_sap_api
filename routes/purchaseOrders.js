@@ -24,9 +24,9 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   await createTxtFile(path.join('files', 'purchase_order', 'create', 'ordr.txt'), purchaseOrderArr);
   await createTxtFile(path.join('files', 'purchase_order', 'create', 'rdrd.txt'), articlesArr);
 
-  runScript(path.join('executables', 'purchase_order', 'create', 'example.bat'))
+  await runScript(path.join('executables', 'purchase_order', 'create', 'example.bat'))
 
-  return res.status(200).json({message: "Here is the template"})
+  return res.status(200).json({message: "Running DTW Sap"})
 })
 
 const filteredResArr = async (arr, template) => {

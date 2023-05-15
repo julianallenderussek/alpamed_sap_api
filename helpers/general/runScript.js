@@ -1,8 +1,8 @@
 const { spawn } = require('child_process');
 
-const runScript = (scriptPath) => {
+const runScript = async (scriptPath) => {
     // Spawn a new process to execute the script
-    const child = spawn("bash", [scriptPath]);
+    const child = spawn("bash", [scriptPath])
   
     child.stdout.on("data", (data) => {
       console.log(`stdout: ${data}`);
