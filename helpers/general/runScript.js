@@ -1,3 +1,5 @@
+const { spawn } = require('child_process');
+
 const runScript = (scriptPath) => {
     // Spawn a new process to execute the script
     const child = spawn("bash", [scriptPath]);

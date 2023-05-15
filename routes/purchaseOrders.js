@@ -2,6 +2,7 @@ const readTemplateSingle = require('../helpers/general/readTemplateSingle');
 const { createTxtFiles, createTxtFile } = require('../helpers/general/createTxtFile');
 const runScript = require('../helpers/general/runScript');
 const purchaseOrderRouter = require('express').Router();
+const path = require('path');
 
 purchaseOrderRouter.get('/getAll', (req, res) => {
   res.send('Hello World!');
@@ -14,17 +15,16 @@ purchaseOrderRouter.post('/create', async (req, res) => {
     return res.status(403).json({success: false, message: "Please provide purchase order and articles"})
   }
 
-  const purchaseOrderTemplate = await readTemplateSingle('helpers/templates/purchase_order/ordr.xlsx');
-  const articlesTemplate = await readTemplateSingle('helpers/templates/articles/rdr1.xlsx');
+  const purchaseOrderTemplate = await readTemplateSingle(path.join('helpers', 'templates', 'purchase_order', 'ordr.xlsx'));
+  const articlesTemplate = await readTemplateSingle(path.join('helpers', 'templates', 'articles', 'rdr1.xlsx'));
   
   const purchaseOrderArr = await filteredResArr([purchaseOrder], purchaseOrderTemplate);  
   const articlesArr = await filteredResArr(articles, articlesTemplate);
   
+  await createTxtFile(path.join('files', 'purchase_order', 'create', 'ordr.txt'), purchaseOrderArr);
+  await createTxtFile(path.join('files', 'purchase_order', 'create', 'rdrd.txt'), articlesArr);
 
-  await createTxtFile("../files/purchase_order/create/ordr.txt", purchaseOrderArr);
-  await createTxtFile("../files/purchase_order/create/rdrd.txt", articlesArr);
-
-  runScript("../executables/purchase_order/create/create.bat")
+  runScript(path.join('executables', 'purchase_order', 'create', 'example.bat'))
 
   return res.status(200).json({message: "Here is the template"})
 })
