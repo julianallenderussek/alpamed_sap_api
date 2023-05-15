@@ -1,5 +1,6 @@
 const readTemplateSingle = require('../helpers/general/readTemplateSingle');
 const { createTxtFiles, createTxtFile } = require('../helpers/general/createTxtFile');
+const runScript = require('../helpers/general/runScript');
 const purchaseOrderRouter = require('express').Router();
 
 purchaseOrderRouter.get('/getAll', (req, res) => {
@@ -20,8 +21,10 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   const articlesArr = await filteredResArr(articles, articlesTemplate);
   
 
-  await createTxtFile("purchaseOrder.txt", purchaseOrderArr);
-  await createTxtFile("articles.txt", articlesArr);
+  await createTxtFile("../files/purchase_order/create/ordr.txt", purchaseOrderArr);
+  await createTxtFile("../files/purchase_order/create/rdrd.txt", articlesArr);
+
+  runScript("../executables/purchase_order/create/create.bat")
 
   return res.status(200).json({message: "Here is the template"})
 })
@@ -52,7 +55,6 @@ const filteredResArr = async (arr, template) => {
   })
 
   rowsArr.forEach(row => {
-    console.log("ROW ROW")
     resultArr.push(row)
   });
 
