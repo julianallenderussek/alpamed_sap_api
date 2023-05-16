@@ -1,8 +1,9 @@
 const queries = {
     orders: {
         getAllOrders: `select * from ORDR`,
-        getOrder: `SELECT * FROM ORDR WHERE DocNum = 24`,
-        insertOrder: `INSERT INTO ORDR (DocNum) VALUES (2)`
+        insertOrder: `INSERT INTO ORDR (DocNum) VALUES (2)`, 
+        getOrder: `SELECT * FROM ORDR WHERE DocNum = 1`,
+        getSeries: `SELECT * FROM NNM1`
     },
     articles: {
         getAllArticles: `select * from RDRI`, 

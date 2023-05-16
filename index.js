@@ -12,9 +12,6 @@ const purchaseOrderRouter = require("./routes/purchaseOrders");
 const app = express();
 
 
-let wb = new ExcelJS.Workbook();
-
-
 // Middleware
 app.use(bodyParser.json());
 // cors ->
@@ -27,8 +24,8 @@ app.get("/", function (req, res) {
 
 app.post("/test", function (req, res) {
   const { body } = req; 
-
-  const fileName = "./templates/purchase_order/ordr.xlsx"
+  let wb = new ExcelJS.Workbook();
+  const fileName = "helpers/templates/purchase_order/ordr.xlsx"
   
   wb.xlsx
     .readFile(fileName)
@@ -39,11 +36,10 @@ app.post("/test", function (req, res) {
       let secondRow = ws.getRow(2).values;
       let thirdRow = ws.getRow(3);
 
+
       firstRow.shift()
       secondRow.shift()
 
-      const entries = Object.entries(body)
-      const keys = Object.keys(body)
 
       let result = [[], [], []];
 
@@ -153,7 +149,7 @@ async function createTxtFile(arr1, arr2, arr3) {
   });
 }
 
-app.use('/purchaseOrder', purchaseOrderRouter);
+app.use('/purchaseOrder', purchaseOrderRouter );
 
 app.put("/purchase_order", function (req, res) {
   return res
@@ -166,24 +162,3 @@ const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
-
-function runScript(scriptPath) {
-  // Replace 'path/to/script.sh' with the path to your bash script
-
-  // Spawn a new process to execute the script
-  const child = spawn("bash", [scriptPath]);
-
-  child.stdout.on("data", (data) => {
-    console.log(`stdout: ${data}`);
-  });
-
-  // Log any errors that occur while executing the script
-  child.stderr.on("data", (data) => {
-    console.error(`stderr: ${data}`);
-  });
-
-  // Log a message when the script has finished executing
-  child.on("close", (code) => {
-    console.log(`child process exited with code ${code}`);
-  });
-}
