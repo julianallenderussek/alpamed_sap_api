@@ -17,18 +17,18 @@ content-type: application/json
         "U_Ref_AA":"",
         "U_Direccion_Consig":"This is the test",
         "U_N_Capt":"",
-        "CardCode": "CL002"
+        "CardCode": "CLI0002"
 }, 
 	"articles": [
 		{
-				"ParentKey": "1",
+				"DocNum": "1",
 				"LineItem": "0",
 				"Price": "25",
 				"Quantity":"1",
 				"ItemCode": "SER-013"
 		},
 			{
-				"ParentKey": "1",
+				"DocNum": "1",
 				"LineItem": "1",
 				"Price": "22",
 				"Quantity":"2",
