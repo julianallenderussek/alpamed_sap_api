@@ -42,10 +42,10 @@ const filteredResArr = async (arr, template) => {
     const keys = Object.keys(obj);
     
     const result = [];
-    for (let i = 0; i < firstRow.length; i++) {
-      const keyFirstRow = firstRow[i];
-      if (keys.includes(keyFirstRow)) {
-        const entry = entries.find(entry => entry[0] === keyFirstRow);
+    for (let i = 0; i < secondRow.length; i++) {
+      const keySecondRow = secondRow[i];
+      if (keys.includes(keySecondRow)) {
+        const entry = entries.find(entry => entry[0] === keySecondRow);
         result.push(entry[1])
         continue
       }

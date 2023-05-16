@@ -1,0 +1,38 @@
+POST http://127.0.0.1:4000/purchaseOrder/create HTTP/1.1
+content-type: application/json
+
+{
+	"purchaseOrder": { 
+        "CardName":"",
+        "CntctCode":"",
+        "NumAtCard":"",
+        "DocCur":"USD",
+        "DocNum": "1",
+        "DocDate": "20230412",
+        "DocDueDate": "20230412",
+        "TaxDate":"20230412",
+        "U_ID_OV":"",
+        "U_Agencia":"",
+        "U_C_AA":"",
+        "U_Ref_AA":"",
+        "U_Direccion_Consig":"This is the test",
+        "U_N_Capt":"",
+        "CardCode": "CL002"
+}, 
+	"articles": [
+		{
+				"ParentKey": "1",
+				"LineItem": "0",
+				"Price": "25",
+				"Quantity":"1",
+				"ItemCode": "SER-013"
+		},
+			{
+				"ParentKey": "1",
+				"LineItem": "1",
+				"Price": "22",
+				"Quantity":"2",
+				"ItemCode": "SER-013"
+			}
+	]
+}
