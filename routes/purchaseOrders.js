@@ -24,7 +24,7 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   await createTxtFile(path.join('files', 'purchase_order', 'create', 'ordr.txt'), purchaseOrderArr);
   await createTxtFile(path.join('files', 'purchase_order', 'create', 'rdrd.txt'), articlesArr);
 
-  await runScript(path.join('executables', 'purchase_order', 'create', 'Create.bat'))
+  //await runScript(path.join('executables', 'purchase_order', 'create', 'Create.bat'))
 
   return res.status(200).json({message: "Running DTW Sap"})
 })
