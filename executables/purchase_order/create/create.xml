@@ -25,8 +25,8 @@
     </Extorlogin>
     <FilesTypes>2</FilesTypes>
     <Files>
-      <Documents>C:\Users\U002\Desktop\Archivos_Prueba\create\ejemplo_ordr_create.txt</Documents>
-      <Document_Lines>C:\Users\U002\Desktop\Archivos_Prueba\create\rdrd_crear_exemplo.txt</Document_Lines>
+      <Documents>C:\Users\RFE ALPAMED\Desktop\alpamed_sap_api\files\purchase_order\create\ordr.txt</Documents>
+      <Document_Lines>C:\Users\RFE ALPAMED\Desktop\alpamed_sap_api\files\purchase_order\create\rdrd.txt</Document_Lines>
     </Files>
   </FileExtractor>
   <Map>

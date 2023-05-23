@@ -13,7 +13,14 @@ const queries = {
     },
     tables: {
         getTables: `select * from RDR1`, 
-        getClientCodes: `SELECT CardCode, CardName FROM dbo.OCRD WHERE CardCode LIKE 'CL%';`
+        getClientCodes: `SELECT CardCode, CardName FROM dbo.OCRD WHERE CardCode LIKE 'CL%';`,       
+        getNaveria: `SELECT FldValue, Descr FROM dbo.UFD1 WHERE TableID LIKE '%ORDR%' AND FieldID = 11`,
+        getRegimen: `SELECT FldValue, Descr FROM dbo.UFD1 WHERE TableID LIKE '%ORDR%' AND FieldID = 20`,
+        getEstatus: `SELECT FldValue, Descr FROM dbo.UFD1 WHERE TableID LIKE '%ORDR%' AND FieldID = 27`,
+        getIMO: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@IMO]`,
+        getTransporte: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@TRANSPORTE]`,
+        getPuertoOrigen: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_ORIGEN]`,
+        getPuertoDestin: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_DESTINO]`,
     }
 };
 
