@@ -29,6 +29,22 @@ app.get("/", function (req, res) {
     .json({ success: true, message: "Integration Server Running" });
 });
 
+app.get("/updateBash", function (req, res) {
+  const XMLObject = require('dynamic-xml-builder');
+  const data = new XMLObject('data');
+  data.Transfer
+  data.Logon
+  data.ObjectCode = oOrders;
+  data.FileExtractor
+  data.FileExtractor.Extorlogin.ExID
+  data.FileExtractor.Extorlogin.ExPW 
+  data.FileExtractor.Extorlogin.ExDSN 
+
+  return res
+    .status(200)
+    .json({ success: true, message: data.toXML() });
+});
+
 app.post("/test", function (req, res) {
   const { body } = req; 
   let wb = new ExcelJS.Workbook();
