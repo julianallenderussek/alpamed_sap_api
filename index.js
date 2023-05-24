@@ -5,16 +5,23 @@ const { spawn } = require("child_process");
 const bodyParser = require('body-parser');
 const readXlsxFile = require("read-excel-file/node");
 const fs = require("fs");
+const cors = require("cors");
+const morgan = require("morgan")
 const ExcelJS = require('exceljs');
 const queries = require("./queries/queries");
 const callSAPServer = require("./queries/sapQuery");
 const purchaseOrderRouter = require("./routes/purchaseOrders");
 const app = express();
 
-
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+app.use(cors({
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}));
 // Middleware
 app.use(bodyParser.json());
-// cors ->
 
 app.get("/", function (req, res) {
   return res
