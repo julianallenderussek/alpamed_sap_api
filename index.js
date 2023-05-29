@@ -14,6 +14,8 @@ const purchaseOrderRouter = require("./routes/purchaseOrders");
 const path = require("path");
 const { xml, testModeOn } = require("./filePaths");
 const { log } = require("console");
+const { runInNewContext } = require("vm");
+const filePaths = require("./filePaths");
 const app = express();
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -174,6 +176,23 @@ app.post("/test", function (req, res) {
       .status(400)
       .json({ success: false, message: "Error on integration" });
     });
+});
+
+app.post("/runBat", function (req, res) {
+
+  exec(filePaths.executables.bat.purchaseOrder, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`Output: ${stdout}`);
+  });
+
+  return res.status(200).json({message: "Running bat"})
 });
 
 app.get("/purchase_order", async function (req, res) {
