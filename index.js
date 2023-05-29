@@ -11,6 +11,9 @@ const ExcelJS = require('exceljs');
 const queries = require("./queries/queries");
 const callSAPServer = require("./queries/sapQuery");
 const purchaseOrderRouter = require("./routes/purchaseOrders");
+const path = require("path");
+const { xml, testModeOn } = require("./filePaths");
+const { log } = require("console");
 const app = express();
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -27,6 +30,96 @@ app.get("/", function (req, res) {
   return res
     .status(200)
     .json({ success: true, message: "Integration Server Running" });
+});
+
+    
+
+app.get("/updateBash", function (req, res) {
+  const data = new XMLObject('data');
+  data.Transfer = "FKcIkJgJnJHKCIfMn"
+  
+  data.Logon
+  data.Logon.UserName = "manager";
+  data.Logon.Password = "FKcIkJgJnJHKCIfMnA";
+  data.Logon.Company = "AMD_Entrenamiento";
+  data.Logon.Server = "SAPSERVER";
+  data.Logon.UserAuthentication = "False";
+  data.Logon.Language
+  data.Logon.LicenseServer
+  data.Logon.ChooseDB = "False"
+  data.Logon.DBType = "15"
+  data.Logon.DBUser
+  data.Logon.SybasePort
+  data.Logon.DBPassword
+  data.ObjectCode = "oOrders";
+  
+  data.FileExtractor
+  data.FileExtractor.Extorlogin.ExID
+  data.FileExtractor.Extorlogin.ExPW 
+  data.FileExtractor.Extorlogin.ExDSN 
+  data.FileExtractor.FileTypes = 2
+  data.FileExtractor.Files
+  data.FileExtractor.Files.Documents = testModeOn ? xml.test.purchaseOrder : xml.production.purchaseOrder 
+  data.FileExtractor.Files.Document_Lines = testModeOn ? xml.production.purchaseOrder : xml.production.purchaseOrder
+  data.Map
+  data.Fields
+  data.Documents
+  data.Documents_Lines
+  data.Fields
+
+  const sourceFieldsPurchaseOrder = [ "RecordKey" ,"ParentKey", "LineNum"];
+  for (let i =0; i < sourceFieldsPurchaseOrder.length;i++) {
+    const field = sourceFieldsPurchaseOrder[i]
+    data.Fields.Documents.SourceFields[field]
+  }
+
+  const targetFieldsPurchaseOrder = [ "RecordKey", "LineNum", "ItemCode"];
+  for (let i =0; i < targetFieldsPurchaseOrder.length;i++) {
+    const field = targetFieldsPurchaseOrder[i]
+    data.Fields.Documents.TargetFields[field] = field
+  }
+
+  const sourceFieldsArticles = [ "RecordKey","ParentKey", "LineNum"];
+  for (let i =0; i < sourceFieldsArticles.length;i++) {
+    const field = sourceFieldsArticles[i]
+    data.Fields.Document_Lines.SourceFields[field]
+  }
+
+  const targetFieldArticles = [ "RecordKey","ParentKey", "LineNum"];
+  for (let i =0; i < targetFieldArticles.length;i++) {
+    const field = targetFieldArticles[i]
+    data.Fields.Document_Lines.TargetFields[field] = field
+  }
+
+  const options = [ 
+    ["Import", 1],
+    ["Rollback", "False"],
+    ["MaxError",10],
+    ["Update", 0],
+    ["TestRun", 0],
+    ["AddAllItems","Checked"],
+    ["LineData",0],
+    ["DataType",2],
+    ["MultiThread","False"],
+    ["ThreadNum", 4]
+  ];
+    
+  for (let i =0; i < options.length;i++) {
+    const option = options[i]
+    console.log(option)
+    data.Fields.Document_Lines.TargetFields[option[0]] = option[1]
+  }
+
+  const echo = spawn('echo', [data.toXML()]);
+
+  const writeStream = fs.createWriteStream(filePath);
+  echo.stdout.pipe(writeStream);
+
+  writeStream.on('finish', () => {
+    console.log(`XML file written successfully at: ${filePath}`);
+  });
+
+  return res.send( {xml: data.toXML()})
 });
 
 app.post("/test", function (req, res) {
@@ -73,7 +166,7 @@ app.post("/test", function (req, res) {
 
       createTxtFile(result[0], result[1], result[2]);
 
-      return res.status(200).json({ success: true, message: "Succesfully created plain text file" });
+      return res.status(200).json({ success: true, message: "Successfully created plain text file" });
     })
     .catch((err) => {
       console.log(err.message);
