@@ -119,9 +119,6 @@ app.get("/updateBash", function (req, res) {
     console.log(`XML file written successfully at: ${filePath}`);
   });
 
-  
-
-
   return res.send( {xml: data.toXML()})
 });
 
