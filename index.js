@@ -166,7 +166,7 @@ app.post("/test", function (req, res) {
 
       createTxtFile(result[0], result[1], result[2]);
 
-      return res.status(200).json({ success: true, message: "Succesfully created plain text file" });
+      return res.status(200).json({ success: true, message: "Successfully created plain text file" });
     })
     .catch((err) => {
       console.log(err.message);
