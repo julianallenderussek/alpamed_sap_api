@@ -11,5 +11,6 @@ async function deleteFile(filePath) {
   }
 }
 
-// Usage
-deleteFile(path.join(filePaths.test.exampleHome))
+module.exports = {
+  deleteFile
+}

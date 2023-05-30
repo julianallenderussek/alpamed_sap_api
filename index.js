@@ -20,6 +20,8 @@ const app = express();
 const XMLObject = require('dynamic-xml-builder');
 const readTemplateSingle = require("./helpers/general/readTemplateSingle");
 const { create } = require('xmlbuilder2');
+const { runScript } = require("./helpers/general/runScript");
+
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(cors({
@@ -241,7 +243,6 @@ app.post("/test", function (req, res) {
 });
 
 app.post("/runBat", function (req, res) {
-
   exec(filePaths.executables.test.purchaseOrder, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
@@ -254,8 +255,28 @@ app.post("/runBat", function (req, res) {
     console.log(`Output: ${stdout}`);
     return res.status(200).json({result: `Output: ${stdout}`})
   });
-
 });
+
+app.post("/runScript", function (req, res) {
+  runScript(filePaths.test.bat)
+  .then((stdout) => {
+    console.log('Output:', stdout);
+    fs.unlink(filePaths.purchaseOrder.txt, (err) => {
+      if (err) {
+        console.error('Error deleting file:', err);
+      } else {
+        console.log('File deleted successfully');
+      }
+    });
+    return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
+  })
+  .catch((error) => {
+    console.error('Error:', error.message);
+    return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
+  });  
+});
+
+
 
 app.get("/purchase_order", async function (req, res) {
   await readXlsxFile("./templates/purchase_order/ordr.xlsx").then( async (data) => {
