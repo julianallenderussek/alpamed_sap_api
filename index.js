@@ -17,6 +17,9 @@ const { log } = require("console");
 const { runInNewContext } = require("vm");
 const filePaths = require("./filePaths");
 const app = express();
+const XMLObject = require('dynamic-xml-builder');
+const readTemplateSingle = require("./helpers/general/readTemplateSingle");
+const { create } = require('xmlbuilder2');
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(cors({
@@ -36,61 +39,117 @@ app.get("/", function (req, res) {
 
     
 
-app.get("/updateBash", function (req, res) {
-  const data = new XMLObject('data');
-  data.Transfer = "FKcIkJgJnJHKCIfMn"
+app.get("/updateBash", async (req, res) => {
   
-  data.Logon
-  data.Logon.UserName = "manager";
-  data.Logon.Password = "FKcIkJgJnJHKCIfMnA";
-  data.Logon.Company = "AMD_Entrenamiento";
-  data.Logon.Server = "SAPSERVER";
-  data.Logon.UserAuthentication = "False";
-  data.Logon.Language
-  data.Logon.LicenseServer
-  data.Logon.ChooseDB = "False"
-  data.Logon.DBType = "15"
-  data.Logon.DBUser
-  data.Logon.SybasePort
-  data.Logon.DBPassword
-  data.ObjectCode = "oOrders";
-  
-  data.FileExtractor
-  data.FileExtractor.Extorlogin.ExID
-  data.FileExtractor.Extorlogin.ExPW 
-  data.FileExtractor.Extorlogin.ExDSN 
-  data.FileExtractor.FileTypes = 2
-  data.FileExtractor.Files
-  data.FileExtractor.Files.Documents = testModeOn ? xml.test.purchaseOrder : xml.production.purchaseOrder 
-  data.FileExtractor.Files.Document_Lines = testModeOn ? xml.production.purchaseOrder : xml.production.purchaseOrder
-  data.Map
-  data.Fields
-  data.Documents
-  data.Documents_Lines
-  data.Fields
+  const logonObject = {
+    UserName: "manager",
+    Password: "FKcIkJgJnJHKCIfMnA",
+    Company: "AMD_Entrenamiento",
+    Server: "SAPSERVER",
+    UserAuthentication: "False",
+    Language: {},
+    LicenseServer: {},
+    ChooseDB: "False",
+    DBType: "15",
+    DBUser: {},
+    SybasePort: {},
+    DBPassword: {},
+  }
 
-  const sourceFieldsPurchaseOrder = [ "RecordKey" ,"ParentKey", "LineNum"];
+  const obj = {
+    Transfer: {
+      Logon: {
+        ...logonObject
+      },
+      ObjectCode : { 
+        ObjectCode: "oOrders"
+      },
+      FileExtractor: {
+        Extorlogin: {},
+        Files: {
+          Documents: {},
+          Document_Lines: {}
+        }
+      },
+      Map: {
+        Fields: {
+          Documents: {
+            SourceFields: {},
+            TargetFields: {}
+          },
+          Document_Lines: {
+            SourceFields: {},
+            TargetFields: {}
+          },
+        }
+      },
+      Run: {}
+    }
+  }
+    
+  obj.Transfer.FileExtractor.Extorlogin
+  obj.Transfer.FileExtractor.Extorlogin.ExID
+  obj.Transfer.FileExtractor.Extorlogin.ExPW 
+  obj.Transfer.FileExtractor.Extorlogin.ExDSN 
+  obj.Transfer.FileExtractor.FileTypes = 2
+  obj.Transfer.FileExtractor.Files
+  obj.Transfer.FileExtractor.Files.Documents = testModeOn ? filePaths.xml.test.purchaseOrder : filePaths.xml.production.purchaseOrder 
+  obj.Transfer.FileExtractor.Files.Document_Lines = testModeOn ? filePaths.xml.test.articles : filePaths.xml.production.articles
+  
+  const sourceFieldsPurchaseOrder = [
+    "RecordKey",
+    "DocNum",
+    "DocDate",    
+    "DocDueDate",
+    "CardCode",
+    "CardName",
+    "NumAtCard",
+    "SalesPersonCode",
+    "TaxDate",
+    "U_ID_OV",
+    "U_Agencia",
+    "U_C_AA",
+    "U_Ref_AA",
+    "U_N_Capt",
+    "U_Naviera",
+    "U_Direccion_Consig",
+    "U_RFC",
+    "U_Regimen",
+    "U_H_Solicitado",
+    "U_Estatus_contenedor",
+    "U_ID_WMS",
+    "U_Puerto"
+  ];
+  
   for (let i =0; i < sourceFieldsPurchaseOrder.length;i++) {
     const field = sourceFieldsPurchaseOrder[i]
-    data.Fields.Documents.SourceFields[field]
+    obj.Transfer.Map.Fields.Documents.SourceFields[field] = {}
   }
 
-  const targetFieldsPurchaseOrder = [ "RecordKey", "LineNum", "ItemCode"];
-  for (let i =0; i < targetFieldsPurchaseOrder.length;i++) {
-    const field = targetFieldsPurchaseOrder[i]
-    data.Fields.Documents.TargetFields[field] = field
+  for (let i =0; i < sourceFieldsPurchaseOrder.length;i++) {
+    const field = sourceFieldsPurchaseOrder[i]
+    obj.Transfer.Map.Fields.Documents.TargetFields[field] = field
   }
 
-  const sourceFieldsArticles = [ "RecordKey","ParentKey", "LineNum"];
+  const sourceFieldsArticles = [
+    "RecordKey",
+    "ParentKey",
+    "LineNum",
+    "ItemCode",
+    "Quantity",
+    "WarehouseCode",
+    "FreeText",
+    "ImportLog"
+  ];
+  
   for (let i =0; i < sourceFieldsArticles.length;i++) {
     const field = sourceFieldsArticles[i]
-    data.Fields.Document_Lines.SourceFields[field]
+    obj.Transfer.Map.Fields.Document_Lines.SourceFields[field] = {}
   }
 
-  const targetFieldArticles = [ "RecordKey","ParentKey", "LineNum"];
-  for (let i =0; i < targetFieldArticles.length;i++) {
-    const field = targetFieldArticles[i]
-    data.Fields.Document_Lines.TargetFields[field] = field
+  for (let i =0; i < sourceFieldsArticles.length;i++) {
+    const field = sourceFieldsArticles[i]
+    obj.Transfer.Map.Fields.Document_Lines.TargetFields[field] = field
   }
 
   const options = [ 
@@ -109,19 +168,22 @@ app.get("/updateBash", function (req, res) {
   for (let i =0; i < options.length;i++) {
     const option = options[i]
     console.log(option)
-    data.Fields.Document_Lines.TargetFields[option[0]] = option[1]
+    obj.Transfer.Run[option[0]] = option[1]
   }
 
-  const echo = spawn('echo', [data.toXML()]);
+  
+  const doc = create(obj);
+  const xml = doc.end({ prettyPrint: true });
 
-  const writeStream = fs.createWriteStream(filePath);
-  echo.stdout.pipe(writeStream);
+  fs.writeFile(filePaths.xml.production.purchaseOrder, xml, (err) => {
+    if(err) {
+      return console.log(err);
+    }
+    console.log(`The file was saved! in ${filePaths.xml.production.purchaseOrder}`);
+    return res.status(200).json({message: "Done updating file"})
+  })
 
-  writeStream.on('finish', () => {
-    console.log(`XML file written successfully at: ${filePath}`);
-  });
 
-  return res.send( {xml: data.toXML()})
 });
 
 app.post("/test", function (req, res) {
@@ -180,7 +242,7 @@ app.post("/test", function (req, res) {
 
 app.post("/runBat", function (req, res) {
 
-  exec(filePaths.executables.bat.purchaseOrder, (error, stdout, stderr) => {
+  exec(filePaths.executables.test.purchaseOrder, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       return;
@@ -190,9 +252,9 @@ app.post("/runBat", function (req, res) {
       return;
     }
     console.log(`Output: ${stdout}`);
+    return res.status(200).json({result: `Output: ${stdout}`})
   });
 
-  return res.status(200).json({message: "Running bat"})
 });
 
 app.get("/purchase_order", async function (req, res) {
@@ -237,6 +299,17 @@ app.post("/sap/query", async function (req, res) {
 
   console.log(result)
 
+  return res.status(200).json({message: "Check this", result: result})
+});
+
+app.get("/sap/purchaseOrder/wms/:id", async function (req, res) {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({message: "Please provide an id"})
+  }
+  const result = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS=${id}`) 
+  
   return res.status(200).json({message: "Check this", result: result})
 });
 

@@ -3,6 +3,7 @@ const { createTxtFiles, createTxtFile } = require('../helpers/general/createTxtF
 const runScript = require('../helpers/general/runScript');
 const purchaseOrderRouter = require('express').Router();
 const path = require('path');
+const filePaths = require('../filePaths');
 
 purchaseOrderRouter.get('/getAll', (req, res) => {
   res.send('Hello World!');
@@ -15,18 +16,24 @@ purchaseOrderRouter.post('/create', async (req, res) => {
     return res.status(403).json({success: false, message: "Please provide purchase order and articles"})
   }
 
-  const purchaseOrderTemplate = await readTemplateSingle(path.join('helpers', 'templates', 'purchase_order', 'ordr.xlsx'));
-  const articlesTemplate = await readTemplateSingle(path.join('helpers', 'templates', 'articles', 'rdr1.xlsx'));
+  const purchaseOrderTemplate = await readTemplateSingle(filePaths.purchaseOrder.excel);
+  const articlesTemplate = await readTemplateSingle(filePaths.articles.excel);
   
   const purchaseOrderArr = await filteredResArr([purchaseOrder], purchaseOrderTemplate);  
   const articlesArr = await filteredResArr(articles, articlesTemplate);
   
-  await createTxtFile(path.join('files', 'purchase_order', 'create', 'ordr.txt'), purchaseOrderArr);
-  await createTxtFile(path.join('files', 'purchase_order', 'create', 'rdrd.txt'), articlesArr);
+  await createTxtFile(filePaths.purchaseOrder.txt, purchaseOrderArr);
+  await createTxtFile(filePaths.articles.txt, articlesArr);
 
-  //await runScript(path.join('executables', 'purchase_order', 'create', 'Create.bat'))
-
-  return res.status(200).json({message: "Running DTW Sap"})
+  runScript(filePaths.purchaseOrder.bat)
+  .then((stdout) => {
+    console.log('Output:', stdout);
+    return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
+  })
+  .catch((error) => {
+    console.error('Error:', error.message);
+    return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
+  });
 })
 
 const filteredResArr = async (arr, template) => {
@@ -63,7 +70,7 @@ const filteredResArr = async (arr, template) => {
   return resultArr
 }
 
-purchaseOrderRouter.put('/create', async (req, res) => {
+purchaseOrderRouter.put('/update', async (req, res) => {
   const purchaseOrderTemplate = await readTemplateSingle('helpers/templates/purchase_order/ordr.xlsx');
   const articlesTemplate = await readTemplateSingle('helpers/templates/articles/rdr1.xlsx');
   

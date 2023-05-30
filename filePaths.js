@@ -2,42 +2,17 @@ const path = require("path");
 
 module.exports = {
     testModeOn: true,
-    text: {
-        test: {
-            purchaseOrder: path.join(__dirname, 'files', 'purchase_order', 'create', 'test', 'ordr.xml'),
-            articles: path.join(__dirname, 'files', 'purchase_order', 'create', 'test', 'rdrd.xml')
-        },
-        production: {
-            purchaseOrder: path.join(__dirname, 'files', 'purchase_order', 'create', 'ordr.txt'),
-            articles: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt')
-        }
+    test: {
+        bat: path.join(__dirname, 'executables', 'purchase_order', 'test', 'test.bat'),
     },
-    xml: {
-        test: {
-            purchaseOrder: path.join(__dirname, 'files', 'purchase_order', 'create', 'test', 'ordr.xml'),
-            articles: path.join(__dirname, 'files', 'purchase_order', 'create', 'test', 'rdrd.xml')
-        },
-        production: {
-            purchaseOrder: path.join(__dirname, 'files', 'purchase_order', 'create', 'ordr.txt'),
-            articles: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt')
-        }
+    purchaseOrder: {
+        bat: path.join(__dirname, 'executables', 'purchase_order', 'create', 'create.bat'),
+        xml: path.join(__dirname, 'executables', 'purchase_order', 'create', 'create.xml'),
+        txt: path.join(__dirname, 'files', 'purchase_order', 'create', 'ordr.txt'),
+        excel: path.join(__dirname, 'helpers', 'templates', 'purchase_order', 'ordr.xlsx'),
     },
-    bat: {
-        test: {
-            purchaseOrder: path.join(__dirname, 'files', 'purchase_order', 'create', 'test', 'ordr.xml'),
-            articles: path.join(__dirname, 'files', 'purchase_order', 'create', 'test', 'rdrd.xml')
-        },
-        production: {
-            purchaseOrder: path.join(__dirname, 'files', 'purchase_order', 'create', 'ordr.txt'),
-            articles: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt')
-        }
-    },
-    executables: {
-        bat: {
-            purchaseOrder: path.join(__dirname, 'executables', 'purchase_order', 'create', 'create.bat'),
-        },
-        xml: {
-            purchaseOrder: path.join(__dirname, 'executables', 'purchase_order', 'create', 'create.xml'),
-        }
+    articles: {
+        txt: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt'),
+        excel: path.join(__dirname, 'helpers', 'templates', 'articles', 'rdr1.xlsx')
     }
 }

@@ -1,22 +1,26 @@
 const { spawn } = require('child_process');
 
-const runScript = async (scriptPath) => {
-    // Spawn a new process to execute the script
-    const child = spawn("bash", [scriptPath])
-  
-    child.stdout.on("data", (data) => {
-      console.log(`stdout: ${data}`);
+function runScript(scriptPath) {
+  return new Promise((resolve, reject) => {
+    const bat = spawn(scriptPath);
+    let stdout = '';
+
+    bat.stdout.on('data', (data) => {
+      stdout += data.toString();
     });
-  
-    // Log any errors that occur while executing the script
-    child.stderr.on("data", (data) => {
-      console.error(`stderr: ${data}`);
+
+    bat.stderr.on('data', (data) => {
+      reject(new Error(data.toString()));
     });
-  
-    // Log a message when the script has finished executing
-    child.on("close", (code) => {
-      console.log(`child process exited with code ${code}`);
+
+    bat.on('exit', (code) => {
+      if (code === 0) {
+        resolve(stdout);
+      } else {
+        reject(new Error(`Process exited with code ${code}`));
+      }
     });
+  });
 }
 
-module.exports =  runScript;
+module.export = { runScript };
