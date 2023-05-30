@@ -28,6 +28,13 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   runScript(filePaths.purchaseOrder.bat)
   .then((stdout) => {
     console.log('Output:', stdout);
+    fs.unlink(filePaths.purchaseOrder.txt, (err) => {
+      if (err) {
+        console.error('Error deleting file:', err);
+      } else {
+        console.log('File deleted successfully');
+      }
+    });
     return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
   })
   .catch((error) => {

@@ -4,6 +4,7 @@ module.exports = {
     testModeOn: true,
     test: {
         bat: path.join(__dirname, 'executables', 'purchase_order', 'test', 'test.bat'),
+        exampleHome: path.join(__dirname, 'example.txt'),
     },
     purchaseOrder: {
         bat: path.join(__dirname, 'executables', 'purchase_order', 'create', 'create.bat'),
