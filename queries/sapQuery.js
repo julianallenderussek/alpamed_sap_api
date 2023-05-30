@@ -4,7 +4,7 @@ const sqlConfig = {
   user: "sap",
   password: "S@p123",
   database: "AMD_Entrenamiento",
-  server: "rfeamd.dyndns.org",
+  server: "localhost",
   pool: {
     max: 10,
     min: 0,
