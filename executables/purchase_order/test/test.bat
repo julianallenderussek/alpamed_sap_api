@@ -1,4 +1,4 @@
 @echo off
 
-echo "Bat file executed"
+echo "Print file executed"
 exit

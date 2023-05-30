@@ -257,7 +257,7 @@ app.post("/runBat", function (req, res) {
   });
 });
 
-app.post("/runScript", function (req, res) {
+app.post("/runScript/test", function (req, res) {
   runScript(filePaths.test.bat)
   .then((stdout) => {
     console.log('Output:', stdout);
@@ -276,6 +276,35 @@ app.post("/runScript", function (req, res) {
   });  
 });
 
+app.post("/runScript/deleteFile", function (req, res) {
+  fs.unlink(filePaths.purchaseOrder.txt, (err) => {
+    if (err) {
+      console.error('Error deleting file:', err);
+    } else {
+      console.log('File deleted successfully');
+      return res.status(200).json({message: "Sending message back"})
+    }
+  });
+});
+
+app.post("/runScript/integrateSap", function (req, res) {
+  runScript(filePaths.purchaseOrder.bat)
+  .then((stdout) => {
+    console.log('Output:', stdout);
+    // fs.unlink(filePaths.purchaseOrder.txt, (err) => {
+    //   if (err) {
+    //     console.error('Error deleting file:', err);
+    //   } else {
+    //     console.log('File deleted successfully');
+    //   }
+    // });
+    return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
+  })
+  .catch((error) => {
+    console.error('Error:', error.message);
+    return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
+  });  
+});
 
 
 app.get("/purchase_order", async function (req, res) {
