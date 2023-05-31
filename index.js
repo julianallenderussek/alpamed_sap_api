@@ -260,10 +260,10 @@ app.post("/runBat", function (req, res) {
 });
 
 app.post("/runScript/test", function (req, res) {
-  runScript(filePaths.test.bat)
+  runScript(filePaths.purchaseOrder.bat)
   .then((stdout) => {
     console.log('Output:', stdout);
-    logger.info('info', 'Success: runned /runsScript/rest')
+    logger.info('info', 'Success: runned /runsScript/test')
     return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
   })
   .catch((error) => {
