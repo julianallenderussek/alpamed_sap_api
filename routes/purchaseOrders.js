@@ -10,9 +10,18 @@ purchaseOrderRouter.get('/getAll', (req, res) => {
 });
 
 purchaseOrderRouter.post('/create', async (req, res) => {
+  await logger.log('info', { message: "Hitting route /purchaseOrder/create" }, { 
+    app: "SAP-API",
+    route: "/purchaseOrder/create",
+    body: req.body 
+  });
   const { articles, purchaseOrder } = req.body
 
   if (!articles || !purchaseOrder) {
+    await logger.log('info', { message: "User did not provide article or purchase order on req.body" }, { 
+      app: "SAP-API",
+      route: "/purchaseOrder/create" 
+    });
     return res.status(403).json({success: false, message: "Please provide purchase order and articles"})
   }
 
@@ -25,16 +34,39 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   await createTxtFile(filePaths.purchaseOrder.txt, purchaseOrderArr);
   await createTxtFile(filePaths.articles.txt, articlesArr);
 
-  runScript(filePaths.purchaseOrder.bat)
-  .then((stdout) => {
-    console.log('Output:', stdout);
-    fs.unlink(filePaths.purchaseOrder.txt, (err) => {
+  await logger.log('info', { message: "Purchase order + Articles txt files succesfully created" }, { 
+    app: "SAP-API",
+    route: "/purchaseOrder/create" 
+  });
+
+  await runScript(filePaths.purchaseOrder.bat)
+  .then(async (stdout) => {
+    await logger.log('info', { message: `Succesfully runned script in url: ${filePaths.purchaseOrder.bat}`}, { 
+      app: "SAP-API",
+      route: "/purchaseOrder/create", 
+      stdout: `Output .bat file: ${stdout}` 
+    });
+    fs.unlink(filePaths.purchaseOrder.txt, async (err) => {
       if (err) {
+        await logger.log('info', { message: `Error deleting : ${filePaths.purchaseOrder.bat}`}, { 
+          app: "SAP-API",
+          route: "/purchaseOrder/create", 
+          err: `Error: file ${err}` 
+        });
         console.error('Error deleting file:', err);
       } else {
+        await logger.log('info', { message: `Succesfully deleted file: ${filePaths.purchaseOrder.bat}`}, { 
+          app: "SAP-API",
+          route: "/purchaseOrder/create" 
+        });
         console.log('File deleted successfully');
       }
     });
+    await logger.log('info', { message: `Succesfully created purchase order in SAP`}, { 
+      app: "SAP-API",
+      route: "/purchaseOrder/create" 
+    });
+    
     return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
   })
   .catch((error) => {

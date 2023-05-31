@@ -32,7 +32,10 @@ async function setPermission() {
 logsRouter.get('/all', async (req, res) => {
   fs.readFile(filePaths.logs, 'utf8', async (err, data) => {
     if (err) {
-      await logger.log('info', 'Testing logger')
+      await logger.log('info', { message: "Error reading logs file" }, { 
+        app: "SAP-API",
+        route: "/logs/all" 
+      });
       await setPermission()
       return res.status(400).json({success: false, err: err, message: "Error querying logs form system" })
     } else {
@@ -57,7 +60,7 @@ logsRouter.get('/write', async (req, res) => {
 
 logsRouter.delete('/reset', async (req, res) => {
   await deleteFile(filePaths.logs)
-  return res.status(200).json({message: "Restared log file"})
+  return res.status(200).json({message: "Restarted log file"})
 })
 
 
