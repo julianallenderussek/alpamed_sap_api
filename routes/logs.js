@@ -48,12 +48,15 @@ logsRouter.get('/all', async (req, res) => {
 });
 
 logsRouter.get('/write', async (req, res) => {
-  logger.log('info', 'Testing logger')
-  return res.status(200).json({message: "Added log", succes: true})
+  await logger.log('info', { message: "hey there" }, { 
+    app: "SAP-API",
+    route: "/logs/write" 
+  })
+  return res.status(200).json({message: "Added log", success: true})
 });
 
 logsRouter.delete('/reset', async (req, res) => {
-  deleteFile(filePaths.logs)
+  await deleteFile(filePaths.logs)
   return res.status(200).json({message: "Restared log file"})
 })
 

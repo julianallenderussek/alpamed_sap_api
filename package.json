@@ -21,6 +21,7 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.1.1",
     "dynamic-xml-builder": "^0.1.8",
     "exceljs": "^4.3.0",
     "express": "^4.18.2",
@@ -30,6 +31,7 @@
     "path": "^0.12.7",
     "read-excel-file": "^5.6.1",
     "winston": "^3.9.0",
+    "winston-mongodb": "^5.1.1",
     "xmlbuilder2": "^3.1.1"
   }
 }

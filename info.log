@@ -1,1 +1,10 @@
 {"level":"info","message":"Testing logger","timestamp":"2023-05-31T00:46:14.610Z"}
+{"level":"info","message":"Testing logger","timestamp":"2023-05-31T02:29:44.173Z"}
+{"level":"info","message":"Testing logger","meta":{"app":"SAP-API","route":"/logs/write"},"timestamp":"2023-05-31T02:32:43.030Z"}
+{"level":"info","message":"Testing logger","meta":{"app":"SAP-API","route":"/logs/write"},"timestamp":"2023-05-31T02:33:44.733Z"}
+{"app":"SAP-API","level":"info","message":"Testing logger","route":"/logs/write","timestamp":"2023-05-31T02:35:38.257Z"}
+{"app":"SAP-API","level":"info","message":"Testing logger","route":"/logs/write","timestamp":"2023-05-31T02:36:00.261Z"}
+{"level":"info","message":"Testing logger","meta":{"app":"SAP-API","route":"/logs/write"},"timestamp":"2023-05-31T02:36:54.848Z"}
+{"level":"info","message":"Testing logger","meta":{"app":"SAP-API","route":"/logs/write"},"timestamp":"2023-05-31T02:36:56.405Z"}
+{"level":"info","message":"Testing logger","metadata":{"meta":{"app":"SAP-API","route":"/logs/write"},"timestamp":"2023-05-31T02:39:02.186Z"}}
+{"level":"info","message":{"message":"hey there"},"metadata":{"app":"SAP-API","route":"/logs/write","timestamp":"2023-05-31T02:40:17.153Z"}}
