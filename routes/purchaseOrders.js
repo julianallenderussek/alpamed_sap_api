@@ -5,6 +5,7 @@ const path = require('path');
 const filePaths = require('../filePaths');
 const logger = require('../config/logger');
 const { runScript } = require('../helpers/general/runScript');
+const fs = require('fs')
 
 purchaseOrderRouter.get('/getAll', (req, res) => {
   res.send('Hello World!');
@@ -65,9 +66,10 @@ purchaseOrderRouter.post('/create', async (req, res) => {
     });
     await logger.log('info', { message: `Succesfully created purchase order in SAP`}, { 
       app: "SAP-API",
-      route: "/purchaseOrder/create" 
+      route: "/purchaseOrder/create",
+      type: "Error",
+      stdout: stdout
     });
-    
     return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
   })
   .catch((error) => {
