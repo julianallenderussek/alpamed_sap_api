@@ -41,7 +41,6 @@ purchaseOrderRouter.post('/create', async (req, res) => {
     app: "SAP-API",
     route: "/purchaseOrder/create" 
   });
-
   // runScript(filePaths.purchaseOrder.bat)
   // .then(async (stdout) => {
   //   await logger.log('info', { message: `Succesfully runned script in url: ${filePaths.purchaseOrder.bat}`}, { 
@@ -81,16 +80,26 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   return res.status(403).json({message: "Running DTW Sap"})
 })
 
-purchaseOrderRouter.post("/runScript/create", function (req, res) {
+purchaseOrderRouter.post("/runScript/create/wms_id/:wms_id", function (req, res) {
+  const { wms_id } = req.params
   runScript(filePaths.purchaseOrder.bat)
-  .then((stdout) => {
+  .then(async (stdout) => {
     console.log('Output:', stdout);
-    logger.info('info', 'Success: runned /runsScript/test')
-    return res.status(200).json({ message: "Running DTW Sap", stdout: stdout})
+    await logger.log('info', { message: `Purchase Order Successfully Created in Sap : ${wms_id}` }, { 
+      app: "SAP-API",
+      route: "/runScript/create/wms_id/:wms_id",
+      stdout: stdout,
+      wms_id: wms_id
+    });
+    return res.status(200).json({ message: "`Purchase Order Successfully Created in Sap", stdout: stdout, wms_id: wms_id})
   })
-  .catch((error) => {
+  .catch(async (error) => {
     console.error('Error:', error.message);
-    logger.info('info', 'Error: runned /purchseOrder/runScript/create')
+    await logger.log('info', { message: `Purchase Order Successfully Created in Sap : ${wms_id}` }, { 
+      app: "SAP-API",
+      route: "/runScript/create/wms_id/:wms_id",
+      error: error
+    });
     return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
   });  
 });
@@ -133,10 +142,19 @@ purchaseOrderRouter.put('/update', async (req, res) => {
   const purchaseOrderTemplate = await readTemplateSingle('helpers/templates/purchase_order/ordr.xlsx');
   const articlesTemplate = await readTemplateSingle('helpers/templates/articles/rdr1.xlsx');
   
-  
-
   return res.status(200).json({message: "Here is the template", data: articlesTemplate})
 })
+
+purchaseOrderRouter.get("/sap/wms_id/:id", async function (req, res) {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({message: "Please provide an id"})
+  }
+  const result = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS=${id}`) 
+  
+  return res.status(200).json({message: "Check this", result: result})
+});
 
 
 

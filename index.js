@@ -345,17 +345,6 @@ app.post("/sap/query", async function (req, res) {
   return res.status(200).json({message: "Check this", result: result})
 });
 
-app.get("/sap/purchaseOrder/wms/:id", async function (req, res) {
-  const { id } = req.params;
-
-  if (!id) {
-    return res.status(400).json({message: "Please provide an id"})
-  }
-  const result = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS=${id}`) 
-  
-  return res.status(200).json({message: "Check this", result: result})
-});
-
 async function createTxtFile(arr1, arr2, arr3) {
   let text = "";
 
