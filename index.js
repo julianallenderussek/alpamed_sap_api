@@ -262,29 +262,26 @@ app.post("/runScript/test", function (req, res) {
   runScript(filePaths.test.bat)
   .then((stdout) => {
     console.log('Output:', stdout);
-    fs.unlink(filePaths.purchaseOrder.txt, (err) => {
-      if (err) {
-        console.error('Error deleting file:', err);
-      } else {
-        console.log('File deleted successfully');
-      }
-    });
+    logger.info('info', 'Success: runned /runsScript/rest')
     return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
   })
   .catch((error) => {
     console.error('Error:', error.message);
+    logger.info('info', 'Error: runned /runsScript/rest')
     return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
   });  
 });
 
 app.post("/runScript/deleteFile", function (req, res) {
-  
   fs.unlink(filePaths.purchaseOrder.txt, (err) => {
     if (err) {
       console.error('Error deleting file:', err);
+      logger.info('info', 'Error: runned /runScript/deletFile')
+      return res.status(200).json({message: "Error deleting purchase order files"})
     } else {
       console.log('File deleted successfully');
-      return res.status(200).json({message: "Sending message back"})
+      logger.info('info', 'Success: runned /runScript/deleteFile')
+      return res.status(200).json({message: "Delete purchase Order Files"})
     }
   });
 });
@@ -293,14 +290,15 @@ app.post("/runScript/integrateSap", function (req, res) {
   runScript(filePaths.purchaseOrder.bat)
   .then((stdout) => {
     console.log('Output:', stdout);
+    logger.info('info', `Success: runned /runScript/deleteFile => stdout: ${stdout}`)
     return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
   })
   .catch((error) => {
     console.error('Error:', error.message);
+    logger.info('info', `Error: runned /runScript/deleteFile => error: ${error.message}`)
     return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
   });  
 });
-
 
 app.get("/purchase_order", async function (req, res) {
   await readXlsxFile("./templates/purchase_order/ordr.xlsx").then( async (data) => {
@@ -326,7 +324,6 @@ app.get("/purchase_order", async function (req, res) {
 });
 
 app.get("/sap/queries", async function (req, res) {
-  
   console.log(queries)
   return res.status(200).json({message: "This are the sap query options", queries})
 });
@@ -357,7 +354,6 @@ app.get("/sap/purchaseOrder/wms/:id", async function (req, res) {
   
   return res.status(200).json({message: "Check this", result: result})
 });
-
 
 async function createTxtFile(arr1, arr2, arr3) {
   let text = "";
