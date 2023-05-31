@@ -4,6 +4,7 @@ const runScript = require('../helpers/general/runScript');
 const purchaseOrderRouter = require('express').Router();
 const path = require('path');
 const filePaths = require('../filePaths');
+const logger = require('../config/logger');
 
 purchaseOrderRouter.get('/getAll', (req, res) => {
   res.send('Hello World!');
