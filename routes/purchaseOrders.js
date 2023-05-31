@@ -1,10 +1,10 @@
 const readTemplateSingle = require('../helpers/general/readTemplateSingle');
 const { createTxtFiles, createTxtFile } = require('../helpers/general/createTxtFile');
-const runScript = require('../helpers/general/runScript');
 const purchaseOrderRouter = require('express').Router();
 const path = require('path');
 const filePaths = require('../filePaths');
 const logger = require('../config/logger');
+const { runScript } = require('../helpers/general/runScript');
 
 purchaseOrderRouter.get('/getAll', (req, res) => {
   res.send('Hello World!');
