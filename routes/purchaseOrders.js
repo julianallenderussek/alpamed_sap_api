@@ -81,7 +81,7 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   return res.status(403).json({message: "Running DTW Sap"})
 })
 
-app.post("/runScript/create", function (req, res) {
+purchaseOrderRouter.post("/runScript/create", function (req, res) {
   runScript(filePaths.purchaseOrder.bat)
   .then((stdout) => {
     console.log('Output:', stdout);
