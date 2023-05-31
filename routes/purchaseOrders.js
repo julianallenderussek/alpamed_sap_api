@@ -42,41 +42,43 @@ purchaseOrderRouter.post('/create', async (req, res) => {
     route: "/purchaseOrder/create" 
   });
 
-  runScript(filePaths.purchaseOrder.bat)
-  .then(async (stdout) => {
-    await logger.log('info', { message: `Succesfully runned script in url: ${filePaths.purchaseOrder.bat}`}, { 
-      app: "SAP-API",
-      route: "/purchaseOrder/create", 
-      stdout: `Output .bat file: ${stdout}` 
-    });
-    fs.unlink(filePaths.purchaseOrder.txt, async (err) => {
-      if (err) {
-        await logger.log('info', { message: `Error deleting : ${filePaths.purchaseOrder.bat}`}, { 
-          app: "SAP-API",
-          route: "/purchaseOrder/create", 
-          err: `Error: file ${err}` 
-        });
-        console.error('Error deleting file:', err);
-      } else {
-        await logger.log('info', { message: `Succesfully deleted file: ${filePaths.purchaseOrder.bat}`}, { 
-          app: "SAP-API",
-          route: "/purchaseOrder/create" 
-        });
-        console.log('File deleted successfully');
-      }
-    });
-    await logger.log('info', { message: `Succesfully created purchase order in SAP`}, { 
-      app: "SAP-API",
-      route: "/purchaseOrder/create",
-      type: "Error",
-      stdout: stdout
-    });
-    return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
-  })
-  .catch((error) => {
-    console.error('Error:', error.message);
-    return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
-  });
+  // runScript(filePaths.purchaseOrder.bat)
+  // .then(async (stdout) => {
+  //   await logger.log('info', { message: `Succesfully runned script in url: ${filePaths.purchaseOrder.bat}`}, { 
+  //     app: "SAP-API",
+  //     route: "/purchaseOrder/create", 
+  //     stdout: `Output .bat file: ${stdout}` 
+  //   });
+  //   fs.unlink(filePaths.purchaseOrder.txt, async (err) => {
+  //     if (err) {
+  //       await logger.log('info', { message: `Error deleting : ${filePaths.purchaseOrder.bat}`}, { 
+  //         app: "SAP-API",
+  //         route: "/purchaseOrder/create", 
+  //         err: `Error: file ${err}` 
+  //       });
+  //       console.error('Error deleting file:', err);
+  //     } else {
+  //       await logger.log('info', { message: `Succesfully deleted file: ${filePaths.purchaseOrder.bat}`}, { 
+  //         app: "SAP-API",
+  //         route: "/purchaseOrder/create" 
+  //       });
+  //       console.log('File deleted successfully');
+  //     }
+  //   });
+  //   await logger.log('info', { message: `Succesfully created purchase order in SAP`}, { 
+  //     app: "SAP-API",
+  //     route: "/purchaseOrder/create",
+  //     type: "Error",
+  //     stdout: stdout
+  //   });
+  //   return res.status(200).json({message: "Running DTW Sap"})
+  // })
+  // .catch((error) => {
+  //   console.error('Error:', error.message);
+  //   return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
+  // });
+  // Takeout
+  return res.status(403).json({message: "Running DTW Sap"})
 })
 
 const filteredResArr = async (arr, template) => {
