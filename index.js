@@ -22,6 +22,7 @@ const readTemplateSingle = require("./helpers/general/readTemplateSingle");
 const { create } = require('xmlbuilder2');
 const { runScript } = require("./helpers/general/runScript");
 const logsRouter = require("./routes/logs");
+const logger = require("./config/logger");
 
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
