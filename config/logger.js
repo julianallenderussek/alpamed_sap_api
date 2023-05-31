@@ -7,7 +7,6 @@ require("winston-mongodb");
 require('dotenv').config();
 
 const { MONGO_URL } = process.env
-console.log(process.env)
 
 const logger = createLogger({
     transports: [

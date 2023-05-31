@@ -10,6 +10,7 @@ purchaseOrderRouter.get('/getAll', (req, res) => {
 });
 
 purchaseOrderRouter.post('/create', async (req, res) => {
+  console.log("HITTIN THIS BAD BOY");
   await logger.log('info', { message: "Hitting route /purchaseOrder/create" }, { 
     app: "SAP-API",
     route: "/purchaseOrder/create",
