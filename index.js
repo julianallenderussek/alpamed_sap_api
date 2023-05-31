@@ -21,6 +21,7 @@ const XMLObject = require('dynamic-xml-builder');
 const readTemplateSingle = require("./helpers/general/readTemplateSingle");
 const { create } = require('xmlbuilder2');
 const { runScript } = require("./helpers/general/runScript");
+const logsRouter = require("./routes/logs");
 
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -277,6 +278,7 @@ app.post("/runScript/test", function (req, res) {
 });
 
 app.post("/runScript/deleteFile", function (req, res) {
+  
   fs.unlink(filePaths.purchaseOrder.txt, (err) => {
     if (err) {
       console.error('Error deleting file:', err);
@@ -291,13 +293,6 @@ app.post("/runScript/integrateSap", function (req, res) {
   runScript(filePaths.purchaseOrder.bat)
   .then((stdout) => {
     console.log('Output:', stdout);
-    // fs.unlink(filePaths.purchaseOrder.txt, (err) => {
-    //   if (err) {
-    //     console.error('Error deleting file:', err);
-    //   } else {
-    //     console.log('File deleted successfully');
-    //   }
-    // });
     return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
   })
   .catch((error) => {
@@ -392,6 +387,8 @@ async function createTxtFile(arr1, arr2, arr3) {
 }
 
 app.use('/purchaseOrder', purchaseOrderRouter );
+app.use('/logs', logsRouter );
+
 
 app.put("/purchase_order", function (req, res) {
   return res

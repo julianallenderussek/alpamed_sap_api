@@ -29,6 +29,7 @@
     "nodemon": "^2.0.22",
     "path": "^0.12.7",
     "read-excel-file": "^5.6.1",
+    "winston": "^3.9.0",
     "xmlbuilder2": "^3.1.1"
   }
 }

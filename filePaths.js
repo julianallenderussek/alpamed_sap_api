@@ -15,5 +15,6 @@ module.exports = {
     articles: {
         txt: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt'),
         excel: path.join(__dirname, 'helpers', 'templates', 'articles', 'rdr1.xlsx')
-    }
+    },
+    logs: path.join(__dirname, 'info.log')
 }
