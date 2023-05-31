@@ -81,6 +81,20 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   return res.status(403).json({message: "Running DTW Sap"})
 })
 
+app.post("/runScript/create", function (req, res) {
+  runScript(filePaths.purchaseOrder.bat)
+  .then((stdout) => {
+    console.log('Output:', stdout);
+    logger.info('info', 'Success: runned /runsScript/test')
+    return res.status(200).json({ message: "Running DTW Sap", stdout: stdout})
+  })
+  .catch((error) => {
+    console.error('Error:', error.message);
+    logger.info('info', 'Error: runned /purchseOrder/runScript/create')
+    return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
+  });  
+});
+
 const filteredResArr = async (arr, template) => {
 
   let resultArr = [];
