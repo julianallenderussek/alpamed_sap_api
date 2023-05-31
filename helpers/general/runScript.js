@@ -1,7 +1,7 @@
 const { spawn } = require('child_process');
 
 const runScript = (scriptPath) => {
-  return new Promise((resolve, reject) => {
+  const promise = new Promise((resolve, reject) => {
     const bat = spawn(scriptPath);
     let stdout = '';
 
@@ -10,7 +10,7 @@ const runScript = (scriptPath) => {
     });
 
     bat.stderr.on('data', (data) => {
-      reject(new Error(data.toString()));
+      reject(new  Error(data.toString()));
     });
 
     bat.on('exit', (code) => {
@@ -21,6 +21,7 @@ const runScript = (scriptPath) => {
       }
     });
   });
+  return promise
 }
 
 module.exports = {

@@ -26,3 +26,13 @@
 {"level":"info","message":{"message":"Succesfully runned script in url: C:\\Users\\julia\\Documents\\GitHub\\alpamed_sap_api\\executables\\purchase_order\\create\\create.bat"},"metadata":{"app":"SAP-API","route":"/purchaseOrder/create","stdout":"Output .bat file: No File found - C:\\Users\\U002\\Desktop\\alpamed_sap_api\\files\\purchase_order\\create\\ordr.txt\r\n","timestamp":"2023-05-31T04:07:38.077Z"}}
 {"level":"info","message":{"message":"Succesfully created purchase order in SAP"},"metadata":{"app":"SAP-API","route":"/purchaseOrder/create","stdout":"No File found - C:\\Users\\U002\\Desktop\\alpamed_sap_api\\files\\purchase_order\\create\\ordr.txt\r\n","timestamp":"2023-05-31T04:07:38.077Z","type":"Error"}}
 {"level":"info","message":{"message":"Succesfully deleted file: C:\\Users\\julia\\Documents\\GitHub\\alpamed_sap_api\\executables\\purchase_order\\create\\create.bat"},"metadata":{"app":"SAP-API","route":"/purchaseOrder/create","timestamp":"2023-05-31T04:07:38.085Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:20:18.943Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:20:20.319Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:20:20.832Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:20:21.341Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:20:21.792Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:21:06.038Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:21:06.605Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:21:06.809Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:21:07.036Z"}}
+{"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:21:07.111Z"}}
