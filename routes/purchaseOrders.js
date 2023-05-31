@@ -41,6 +41,10 @@ purchaseOrderRouter.post('/create', async (req, res) => {
     route: "/purchaseOrder/create" 
   });
 
+  const result = await runScript(filePaths.purchaseOrder.bat)
+
+  console.log(result)
+
   await runScript(filePaths.purchaseOrder.bat)
   .then(async (stdout) => {
     await logger.log('info', { message: `Succesfully runned script in url: ${filePaths.purchaseOrder.bat}`}, { 
