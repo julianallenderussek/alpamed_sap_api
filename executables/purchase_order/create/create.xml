@@ -65,7 +65,6 @@
           <WarehouseCode />
           <FreeText />
           <ImportLog />
-          <U_Des_Mer/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -74,7 +73,6 @@
           <Quantity>Quantity</Quantity>
           <WarehouseCode>WarehouseCode</WarehouseCode>
           <FreeText>FreeText</FreeText>
-          <U_Des_Mer>U_Des_Mer</U_Des_Mer>
         </TargetFields>
       </Document_Lines>
     </Fields>
