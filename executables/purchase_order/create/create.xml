@@ -74,7 +74,7 @@
           <Quantity>Quantity</Quantity>
           <WarehouseCode>WarehouseCode</WarehouseCode>
           <FreeText>FreeText</FreeText>
-          <U_Des_Mer>U_Des_Mer<U_Des_Mer>
+          <U_Des_Mer>U_Des_Mer</U_Des_Mer>
         </TargetFields>
       </Document_Lines>
     </Fields>

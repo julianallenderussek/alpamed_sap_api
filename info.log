@@ -36,3 +36,4 @@
 {"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:21:06.809Z"}}
 {"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:21:07.036Z"}}
 {"level":"info","message":"info","metadata":{"timestamp":"2023-05-31T04:21:07.111Z"}}
+{"level":"info","message":{"message":"Purchase Order Successfully Created in Sap : 12345"},"metadata":{"app":"SAP-API","route":"/runScript/create/wms_id/:wms_id","stdout":"No File found - C:\\Users\\U002\\Desktop\\alpamed_sap_api\\files\\purchase_order\\create\\ordr.txt\r\n","timestamp":"2023-06-01T00:11:20.836Z","wms_id":"12345"}}
