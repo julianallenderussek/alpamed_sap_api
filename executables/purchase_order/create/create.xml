@@ -40,7 +40,8 @@
           <NumAtCard />
           <SalesPersonCode />
           <DocDueDate />
-	  <U_ID_WMS/>
+	        <U_ID_WMS/>
+          <U_Referencia/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -50,6 +51,7 @@
           <NumAtCard>NumAtCard</NumAtCard>
           <SalesPersonCode>SalesPersonCode</SalesPersonCode>
           <DocDueDate>DocDueDate</DocDueDate>
+          <U_Referencia>U_Referencia</U_Referencia>
 	  <U_ID_WMS>U_ID_WMS</U_ID_WMS>
         </TargetFields>
       </Documents>
@@ -63,6 +65,7 @@
           <WarehouseCode />
           <FreeText />
           <ImportLog />
+          <U_Des_Mer/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -71,6 +74,7 @@
           <Quantity>Quantity</Quantity>
           <WarehouseCode>WarehouseCode</WarehouseCode>
           <FreeText>FreeText</FreeText>
+          <U_Des_Mer>U_Des_Mer<U_Des_Mer>
         </TargetFields>
       </Document_Lines>
     </Fields>

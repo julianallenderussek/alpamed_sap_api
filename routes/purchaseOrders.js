@@ -11,7 +11,7 @@ const { runScript } = require("../helpers/general/runScript");
 purchaseOrderRouter.get('/getAll', (req, res) => {
   res.send('Hello World!');
 });
-
+// Step One
 purchaseOrderRouter.post('/create', async (req, res) => {
   await logger.log('info', { message: "Hitting route /purchaseOrder/create" }, { 
     app: "SAP-API",
@@ -77,9 +77,10 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   //   return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
   // });
   // Takeout
-  return res.status(403).json({message: "Running DTW Sap"})
+  return res.status(200).json({message: "Text files created in SAP Server"})
 })
 
+// Step two
 purchaseOrderRouter.post("/runScript/create/wms_id/:wms_id", function (req, res) {
   const { wms_id } = req.params
   runScript(filePaths.purchaseOrder.bat)
@@ -96,7 +97,7 @@ purchaseOrderRouter.post("/runScript/create/wms_id/:wms_id", function (req, res)
   .catch(async (error) => {
     console.error('Error:', error.message);
     await logger.log('info', { message: `Purchase Order Successfully Created in Sap : ${wms_id}` }, { 
-      app: "SAP-API",
+      app: "SAP-API", 
       route: "/runScript/create/wms_id/:wms_id",
       error: error
     });
@@ -145,6 +146,7 @@ purchaseOrderRouter.put('/update', async (req, res) => {
   return res.status(200).json({message: "Here is the template", data: articlesTemplate})
 })
 
+// Step three
 purchaseOrderRouter.get("/sap/wms_id/:id", async function (req, res) {
   const { id } = req.params;
 
