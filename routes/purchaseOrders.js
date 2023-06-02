@@ -6,6 +6,7 @@ const filePaths = require('../filePaths');
 const logger = require('../config/logger');
 const fs = require('fs')
 const { runScript } = require("../helpers/general/runScript");
+const callSAPServer = require('../queries/sapQuery');
 
 
 purchaseOrderRouter.get('/getAll', (req, res) => {
@@ -13,33 +14,33 @@ purchaseOrderRouter.get('/getAll', (req, res) => {
 });
 // Step One
 purchaseOrderRouter.post('/create', async (req, res) => {
-  await logger.log('info', { message: "Hitting route /purchaseOrder/create" }, { 
+  await logger.log('info', { message: "Hitting route /purchaseOrder/create" }, {
     app: "SAP-API",
     route: "/purchaseOrder/create",
-    body: req.body 
+    body: req.body
   });
   const { articles, purchaseOrder } = req.body
 
   if (!articles || !purchaseOrder) {
-    await logger.log('info', { message: "User did not provide article or purchase order on req.body" }, { 
+    await logger.log('info', { message: "User did not provide article or purchase order on req.body" }, {
       app: "SAP-API",
-      route: "/purchaseOrder/create" 
+      route: "/purchaseOrder/create"
     });
-    return res.status(403).json({success: false, message: "Please provide purchase order and articles"})
+    return res.status(403).json({ success: false, message: "Please provide purchase order and articles" })
   }
 
   const purchaseOrderTemplate = await readTemplateSingle(filePaths.purchaseOrder.excel);
   const articlesTemplate = await readTemplateSingle(filePaths.articles.excel);
-  
-  const purchaseOrderArr = await filteredResArr([purchaseOrder], purchaseOrderTemplate);  
+
+  const purchaseOrderArr = await filteredResArr([purchaseOrder], purchaseOrderTemplate);
   const articlesArr = await filteredResArr(articles, articlesTemplate);
-  
+
   await createTxtFile(filePaths.purchaseOrder.txt, purchaseOrderArr);
   await createTxtFile(filePaths.articles.txt, articlesArr);
 
-  await logger.log('info', { message: "Purchase order + Articles txt files succesfully created" }, { 
+  await logger.log('info', { message: "Purchase order + Articles txt files succesfully created" }, {
     app: "SAP-API",
-    route: "/purchaseOrder/create" 
+    route: "/purchaseOrder/create"
   });
   // runScript(filePaths.purchaseOrder.bat)
   // .then(async (stdout) => {
@@ -77,46 +78,46 @@ purchaseOrderRouter.post('/create', async (req, res) => {
   //   return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
   // });
   // Takeout
-  return res.status(200).json({message: "Text files created in SAP Server"})
+  return res.status(200).json({ message: "Text files created in SAP Server" })
 })
 
 // Step two
 purchaseOrderRouter.post("/runScript/create/wms_id/:wms_id", function (req, res) {
   const { wms_id } = req.params
   runScript(filePaths.purchaseOrder.bat)
-  .then(async (stdout) => {
-    console.log('Output:', stdout);
-    await logger.log('info', { message: `Purchase Order Successfully Created in Sap : ${wms_id}` }, { 
-      app: "SAP-API",
-      route: "/runScript/create/wms_id/:wms_id",
-      stdout: stdout,
-      wms_id: wms_id
+    .then(async (stdout) => {
+      console.log('Output:', stdout);
+      await logger.log('info', { message: `Purchase Order Successfully Created in Sap : ${wms_id}` }, {
+        app: "SAP-API",
+        route: "/runScript/create/wms_id/:wms_id",
+        stdout: stdout,
+        wms_id: wms_id
+      });
+      return res.status(200).json({ message: "`Purchase Order Successfully Created in Sap", stdout: stdout, wms_id: wms_id })
+    })
+    .catch(async (error) => {
+      console.error('Error:', error.message);
+      await logger.log('info', { message: `Purchase Order Successfully Created in Sap : ${wms_id}` }, {
+        app: "SAP-API",
+        route: "/runScript/create/wms_id/:wms_id",
+        error: error
+      });
+      return res.status(403).json({ message: "Running DTW Sap", stdout: error.message })
     });
-    return res.status(200).json({ message: "`Purchase Order Successfully Created in Sap", stdout: stdout, wms_id: wms_id})
-  })
-  .catch(async (error) => {
-    console.error('Error:', error.message);
-    await logger.log('info', { message: `Purchase Order Successfully Created in Sap : ${wms_id}` }, { 
-      app: "SAP-API", 
-      route: "/runScript/create/wms_id/:wms_id",
-      error: error
-    });
-    return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
-  });  
 });
 
 const filteredResArr = async (arr, template) => {
 
   let resultArr = [];
   const { firstRow, secondRow } = template.template
-  
+
   resultArr.push(firstRow);
   resultArr.push(secondRow);
 
-  const rowsArr =  await arr.map((obj) => {
+  const rowsArr = await arr.map((obj) => {
     const entries = Object.entries(obj);
     const keys = Object.keys(obj);
-    
+
     const result = [];
     for (let i = 0; i < secondRow.length; i++) {
       const keySecondRow = secondRow[i];
@@ -135,15 +136,15 @@ const filteredResArr = async (arr, template) => {
   });
 
   console.log(resultArr)
-  
+
   return resultArr
 }
 
 purchaseOrderRouter.put('/update', async (req, res) => {
   const purchaseOrderTemplate = await readTemplateSingle('helpers/templates/purchase_order/ordr.xlsx');
   const articlesTemplate = await readTemplateSingle('helpers/templates/articles/rdr1.xlsx');
-  
-  return res.status(200).json({message: "Here is the template", data: articlesTemplate})
+
+  return res.status(200).json({ message: "Here is the template", data: articlesTemplate })
 })
 
 // Step three
@@ -151,11 +152,11 @@ purchaseOrderRouter.get("/sap/wms_id/:id", async function (req, res) {
   const { id } = req.params;
 
   if (!id) {
-    return res.status(400).json({message: "Please provide an id"})
+    return res.status(400).json({ message: "Please provide an id" })
   }
-  const result = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS=${id}`) 
-  
-  return res.status(200).json({message: "Check this", result: result})
+  const result = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS=${id}`)
+
+  return res.status(200).json({ message: "Check this", result: result })
 });
 
 
