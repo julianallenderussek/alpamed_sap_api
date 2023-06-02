@@ -1,7 +1,7 @@
 <Transfer>
   <Logon>
     <UserName>manager</UserName>
-    <Password>FKcIkJgJnJHKCIfMnA</Password>
+    <Password>HM8MnKgJmIENEKaJoD</Password>
     <Company>AMD_Entrenamiento</Company>
     <Server>SAPSERVER</Server>
     <UserAuthentication>False</UserAuthentication>
@@ -25,8 +25,8 @@
     </Extorlogin>
     <FilesTypes>2</FilesTypes>
     <Files>
-      <Documents>C:\Users\U002\Desktop\alpamed_sap_api\files\purchase_order\create\ordr.txt</Documents>
-      <Document_Lines>C:\Users\U002\Desktop\alpamed_sap_api\files\purchase_order\create\rdrd.txt</Document_Lines>
+      <Documents>C:\Users\U002\Desktop\alpamed_sap_api\executables\purchase_order\create\ordr.txt</Documents>
+      <Document_Lines>C:\Users\U002\Desktop\alpamed_sap_api\executables\purchase_order\create\rdr1.txt</Document_Lines>
     </Files>
   </FileExtractor>
   <Map>
@@ -35,26 +35,238 @@
         <SourceFields>
           <RecordKey />
           <DocNum />
+          <DocType />
+          <HandWritten />
+          <Printed />
           <DocDate />
-          <CardCode />
-          <NumAtCard />
-          <SalesPersonCode />
           <DocDueDate />
-	  <U_ID_WMS/>
-    <U_Agencia/>
-<U_Naviera/>
+          <CardCode />
+          <CardName />
+          <Address />
+          <NumAtCard />
+          <DocCurrency />
+          <DocRate />
+          <DocTotal />
+          <Reference1 />
+          <Reference2 />
+          <Comments />
+          <JournalMemo />
+          <PaymentGroupCode />
+          <DocTime />
+          <SalesPersonCode />
+          <TransportationCode />
+          <Confirmed />
+          <ImportFileNum />
+          <SummeryType />
+          <ContactPersonCode />
+          <ShowSCN />
+          <Series />
+          <TaxDate />
+          <PartialSupply />
+          <DocObjectCode />
+          <ShipToCode />
+          <Indicator />
+          <FederalTaxID />
+          <DiscountPercent />
+          <PaymentReference />
+          <DocTotalFc />
+          <Form1099 />
+          <Box1099 />
+          <RevisionPo />
+          <RequriedDate />
+          <CancelDate />
+          <BlockDunning />
+          <Pick />
+          <PaymentMethod />
+          <PaymentBlock />
+          <PaymentBlockEntry />
+          <CentralBankIndicator />
+          <MaximumCashDiscount />
+          <Project />
+          <ExemptionValidityDateFrom />
+          <ExemptionValidityDateTo />
+          <WareHouseUpdateType />
+          <Rounding />
+          <ExternalCorrectedDocNum />
+          <InternalCorrectedDocNum />
+          <DeferredTax />
+          <TaxExemptionLetterNum />
+          <AgentCode />
+          <NumberOfInstallments />
+          <ApplyTaxOnFirstInstallment />
+          <VatDate />
+          <DocumentsOwner />
+          <FolioPrefixString />
+          <FolioNumber />
+          <DocumentSubType />
+          <BPChannelCode />
+          <BPChannelContact />
+          <Address2 />
+          <PayToCode />
+          <ManualNumber />
+          <UseShpdGoodsAct />
+          <IsPayToBank />
+          <PayToBankCountry />
+          <PayToBankCode />
+          <PayToBankAccountNo />
+          <PayToBankBranch />
+          <BPL_IDAssignedToInvoice />
+          <DownPayment />
+          <ReserveInvoice />
+          <LanguageCode />
+          <TrackingNumber />
+          <PickRemark />
+          <ClosingDate />
+          <SequenceCode />
+          <SequenceSerial />
+          <SeriesString />
+          <SubSeriesString />
+          <SequenceModel />
+          <UseCorrectionVATGroup />
+          <DownPaymentAmount />
+          <DownPaymentPercentage />
+          <DownPaymentType />
+          <DownPaymentAmountSC />
+          <DownPaymentAmountFC />
+          <VatPercent />
+          <ServiceGrossProfitPercent />
+          <OpeningRemarks />
+          <ClosingRemarks />
+          <RoundingDiffAmount />
+          <ControlAccount />
+          <InsuranceOperation347 />
+          <ArchiveNonremovableSalesQuotation />
+          <U_example />
+          <U_ID_OV />
+          <U_Agencia />
+          <U_C_AA />
+          <U_Ref_AA />
+          <U_N_Capt />
+          <U_N_Tarja />
+          <U_FechaPago />
+          <U_Naviera />
+          <U_Nombre_Consig />
+          <U_Direccion_Consig />
+          <U_Proveedor />
+          <U_C_Proveedor />
+          <U_RFC />
+          <U_R_Social />
+          <U_Embarcador_Merc />
+          <U_Regimen />
+          <U_H_Solicitado />
+          <U_Estatus_contenedor />
+          <U_P_MBV />
+          <U_Aduana />
+          <U_DTA />
+          <U_Patente />
+          <U_V_Aduana />
+          <U_ID_WMS />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
           <DocNum>DocNum</DocNum>
+          <DocType>DocType</DocType>
+          <HandWritten>HandWritten</HandWritten>
+          <Printed>Printed</Printed>
           <DocDate>DocDate</DocDate>
-          <CardCode>CardCode</CardCode>
-          <NumAtCard>NumAtCard</NumAtCard>
-          <SalesPersonCode>SalesPersonCode</SalesPersonCode>
           <DocDueDate>DocDueDate</DocDueDate>
-	  <U_ID_WMS>U_ID_WMS</U_ID_WMS>
-	  <U_Agencia>U_Agencia</U_Agencia>
-	<U_Naviera>U_Naviera</U_Naviera>
+          <CardCode>CardCode</CardCode>
+          <CardName>CardName</CardName>
+          <Address>Address</Address>
+          <NumAtCard>NumAtCard</NumAtCard>
+          <DocCurrency>DocCurrency</DocCurrency>
+          <DocRate>DocRate</DocRate>
+          <DocTotal>DocTotal</DocTotal>
+          <Reference1>Reference1</Reference1>
+          <Reference2>Reference2</Reference2>
+          <Comments>Comments</Comments>
+          <JournalMemo>JournalMemo</JournalMemo>
+          <PaymentGroupCode>PaymentGroupCode</PaymentGroupCode>
+          <DocTime>DocTime</DocTime>
+          <SalesPersonCode>SalesPersonCode</SalesPersonCode>
+          <TransportationCode>TransportationCode</TransportationCode>
+          <Confirmed>Confirmed</Confirmed>
+          <ImportFileNum>ImportFileNum</ImportFileNum>
+          <SummeryType>SummeryType</SummeryType>
+          <ContactPersonCode>ContactPersonCode</ContactPersonCode>
+          <ShowSCN>ShowSCN</ShowSCN>
+          <Series>Series</Series>
+          <TaxDate>TaxDate</TaxDate>
+          <PartialSupply>PartialSupply</PartialSupply>
+          <DocObjectCode>DocObjectCode</DocObjectCode>
+          <ShipToCode>ShipToCode</ShipToCode>
+          <Indicator>Indicator</Indicator>
+          <FederalTaxID>FederalTaxID</FederalTaxID>
+          <DiscountPercent>DiscountPercent</DiscountPercent>
+          <PaymentReference>PaymentReference</PaymentReference>
+          <DocTotalFc>DocTotalFc</DocTotalFc>
+          <Form1099>Form1099</Form1099>
+          <Box1099>Box1099</Box1099>
+          <RevisionPo>RevisionPo</RevisionPo>
+          <RequriedDate>RequriedDate</RequriedDate>
+          <CancelDate>CancelDate</CancelDate>
+          <BlockDunning>BlockDunning</BlockDunning>
+          <Pick>Pick</Pick>
+          <PaymentMethod>PaymentMethod</PaymentMethod>
+          <PaymentBlock>PaymentBlock</PaymentBlock>
+          <PaymentBlockEntry>PaymentBlockEntry</PaymentBlockEntry>
+          <CentralBankIndicator>CentralBankIndicator</CentralBankIndicator>
+          <MaximumCashDiscount>MaximumCashDiscount</MaximumCashDiscount>
+          <Project>Project</Project>
+          <ExemptionValidityDateFrom>ExemptionValidityDateFrom</ExemptionValidityDateFrom>
+          <ExemptionValidityDateTo>ExemptionValidityDateTo</ExemptionValidityDateTo>
+          <WareHouseUpdateType>WareHouseUpdateType</WareHouseUpdateType>
+          <Rounding>Rounding</Rounding>
+          <ExternalCorrectedDocNum>ExternalCorrectedDocNum</ExternalCorrectedDocNum>
+          <InternalCorrectedDocNum>InternalCorrectedDocNum</InternalCorrectedDocNum>
+          <DeferredTax>DeferredTax</DeferredTax>
+          <TaxExemptionLetterNum>TaxExemptionLetterNum</TaxExemptionLetterNum>
+          <AgentCode>AgentCode</AgentCode>
+          <NumberOfInstallments>NumberOfInstallments</NumberOfInstallments>
+          <ApplyTaxOnFirstInstallment>ApplyTaxOnFirstInstallment</ApplyTaxOnFirstInstallment>
+          <VatDate>VatDate</VatDate>
+          <DocumentsOwner>DocumentsOwner</DocumentsOwner>
+          <FolioPrefixString>FolioPrefixString</FolioPrefixString>
+          <FolioNumber>FolioNumber</FolioNumber>
+          <DocumentSubType>DocumentSubType</DocumentSubType>
+          <BPChannelCode>BPChannelCode</BPChannelCode>
+          <BPChannelContact>BPChannelContact</BPChannelContact>
+          <Address2>Address2</Address2>
+          <PayToCode>PayToCode</PayToCode>
+          <ManualNumber>ManualNumber</ManualNumber>
+          <UseShpdGoodsAct>UseShpdGoodsAct</UseShpdGoodsAct>
+          <IsPayToBank>IsPayToBank</IsPayToBank>
+          <PayToBankCountry>PayToBankCountry</PayToBankCountry>
+          <PayToBankCode>PayToBankCode</PayToBankCode>
+          <PayToBankAccountNo>PayToBankAccountNo</PayToBankAccountNo>
+          <PayToBankBranch>PayToBankBranch</PayToBankBranch>
+          <BPL_IDAssignedToInvoice>BPL_IDAssignedToInvoice</BPL_IDAssignedToInvoice>
+          <DownPayment>DownPayment</DownPayment>
+          <ReserveInvoice>ReserveInvoice</ReserveInvoice>
+          <LanguageCode>LanguageCode</LanguageCode>
+          <TrackingNumber>TrackingNumber</TrackingNumber>
+          <PickRemark>PickRemark</PickRemark>
+          <ClosingDate>ClosingDate</ClosingDate>
+          <SequenceCode>SequenceCode</SequenceCode>
+          <SequenceSerial>SequenceSerial</SequenceSerial>
+          <SeriesString>SeriesString</SeriesString>
+          <SubSeriesString>SubSeriesString</SubSeriesString>
+          <SequenceModel>SequenceModel</SequenceModel>
+          <UseCorrectionVATGroup>UseCorrectionVATGroup</UseCorrectionVATGroup>
+          <DownPaymentAmount>DownPaymentAmount</DownPaymentAmount>
+          <DownPaymentPercentage>DownPaymentPercentage</DownPaymentPercentage>
+          <DownPaymentType>DownPaymentType</DownPaymentType>
+          <DownPaymentAmountSC>DownPaymentAmountSC</DownPaymentAmountSC>
+          <DownPaymentAmountFC>DownPaymentAmountFC</DownPaymentAmountFC>
+          <VatPercent>VatPercent</VatPercent>
+          <ServiceGrossProfitPercent>ServiceGrossProfitPercent</ServiceGrossProfitPercent>
+          <OpeningRemarks>OpeningRemarks</OpeningRemarks>
+          <ClosingRemarks>ClosingRemarks</ClosingRemarks>
+          <RoundingDiffAmount>RoundingDiffAmount</RoundingDiffAmount>
+          <ControlAccount>ControlAccount</ControlAccount>
+          <InsuranceOperation347>InsuranceOperation347</InsuranceOperation347>
+          <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
+          <U_example>U_example</U_example>
         </TargetFields>
       </Documents>
       <Document_Lines>
@@ -63,25 +275,280 @@
           <ParentKey />
           <LineNum />
           <ItemCode />
+          <ItemDescription />
           <Quantity />
+          <ShipDate />
+          <Price />
+          <PriceAfterVAT />
+          <Currency />
+          <Rate />
+          <DiscountPercent />
+          <VendorNum />
+          <SerialNum />
           <WarehouseCode />
+          <SalesPersonCode />
+          <CommisionPercent />
+          <TreeType />
+          <AccountCode />
+          <UseBaseUnits />
+          <SupplierCatNum />
+          <CostingCode />
+          <ProjectCode />
+          <BarCode />
+          <VatGroup />
+          <Height1 />
+          <Hight1Unit />
+          <Height2 />
+          <Height2Unit />
+          <Lengh1 />
+          <Lengh1Unit />
+          <Lengh2 />
+          <Lengh2Unit />
+          <Weight1 />
+          <Weight1Unit />
+          <Weight2 />
+          <Weight2Unit />
+          <Factor1 />
+          <Factor2 />
+          <Factor3 />
+          <Factor4 />
+          <BaseType />
+          <BaseEntry />
+          <BaseLine />
+          <Volume />
+          <VolumeUnit />
+          <Width1 />
+          <Width1Unit />
+          <Width2 />
+          <Width2Unit />
+          <Address />
+          <TaxCode />
+          <TaxType />
+          <TaxLiable />
+          <BackOrder />
           <FreeText />
-          <ImportLog />
+          <ShippingMethod />
+          <CorrectionInvoiceItem />
+          <CorrInvAmountToStock />
+          <CorrInvAmountToDiffAcct />
+          <WTLiable />
+          <DeferredTax />
+          <MeasureUnit />
+          <UnitsOfMeasurment />
+          <LineTotal />
+          <TaxPercentagePerRow />
+          <TaxTotal />
+          <ConsumerSalesForecast />
+          <ExciseAmount />
+          <CountryOrg />
+          <SWW />
+          <TransactionType />
+          <DistributeExpense />
+          <ShipToCode />
+          <RowTotalFC />
+          <CFOPCode />
+          <CSTCode />
+          <Usage />
+          <TaxOnly />
+          <UnitPrice />
+          <LineStatus />
+          <LineType />
+          <COGSCostingCode />
+          <COGSAccountCode />
+          <ChangeAssemlyBoMWarehouse />
+          <GrossBuyPrice />
+          <GrossBase />
+          <GrossProfitTotalBasePrice />
+          <CostingCode2 />
+          <CostingCode3 />
+          <CostingCode4 />
+          <CostingCode5 />
+          <ItemDetails />
+          <LocationCode />
+          <ActualDeliveryDate />
+          <ExLineNo />
+          <RequiredDate />
+          <RequiredQuantity />
+          <COGSCostingCode2 />
+          <COGSCostingCode3 />
+          <COGSCostingCode4 />
+          <COGSCostingCode5 />
+          <WithoutInventoryMovement />
+          <AgrementNo />
+          <AgreementRowNumber />
+          <ShipToDescription />
+          <U_Booking />
+          <U_IMO />
+          <U_transporte />
+          <U_Placas />
+          <U_N_Operador />
+          <U_Bultos />
+          <U_Peso_Neto />
+          <U_Cont />
+          <U_V_Comercial />
+          <U_BL />
+          <U_E_Mercancia />
+          <U_N_Pedimento />
+          <U_L_Mecancia_P />
+          <U_L_Clave_Mercancia_P />
+          <U_L_Remitente />
+          <U_L_Clave_Pedimento />
+          <U_UMComercial />
+          <U_PaisOrigen />
+          <U_NoFactura />
+          <U_MontoUSD />
+          <U_Monto_IVA />
+          <U_Forma_pago_IVA />
+          <U_Tasa_IVA />
+          <U_C_U_Tarifa />
+          <U_U_M_Tarifa />
+          <U_COVE />
+          <U_Sec_pedimento />
+          <U_TCC />
+          <U_M_Comp />
+          <U_F_PCC />
+          <U_P_Vendedor />
+          <U_Lote />
+          <U_Seguros />
+          <U_Fletes />
+          <U_Embalajes />
+          <U_Otros />
+          <U_Incoterm />
+          <U_F_increm />
+          <U_FACTORME />
+          <U_Marca />
+          <U_Modelo />
+          <U_Serie />
+          <U_P_Comprador />
+          <U_FechaPedimento />
+          <U_PaisDestino />
+          <U_FraccionA />
+          <U_C_original />
+          <U_C_actual />
+          <U_M_D_original />
+          <U_M_D_actual />
+          <U_P_consumo />
+          <U_T_Tasa />
+          <U_M_IGI />
+          <U_FP_IGI />
+          <U_FActualizacion />
+          <U_IGI_actual />
+          <U_NSalida />
+          <U_Buque1 />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
           <LineNum>LineNum</LineNum>
           <ItemCode>ItemCode</ItemCode>
+          <ItemDescription>ItemDescription</ItemDescription>
           <Quantity>Quantity</Quantity>
+          <ShipDate>ShipDate</ShipDate>
+          <Price>Price</Price>
+          <PriceAfterVAT>PriceAfterVAT</PriceAfterVAT>
+          <Currency>Currency</Currency>
+          <Rate>Rate</Rate>
+          <DiscountPercent>DiscountPercent</DiscountPercent>
+          <VendorNum>VendorNum</VendorNum>
+          <SerialNum>SerialNum</SerialNum>
           <WarehouseCode>WarehouseCode</WarehouseCode>
+          <SalesPersonCode>SalesPersonCode</SalesPersonCode>
+          <CommisionPercent>CommisionPercent</CommisionPercent>
+          <TreeType>TreeType</TreeType>
+          <AccountCode>AccountCode</AccountCode>
+          <UseBaseUnits>UseBaseUnits</UseBaseUnits>
+          <SupplierCatNum>SupplierCatNum</SupplierCatNum>
+          <CostingCode>CostingCode</CostingCode>
+          <ProjectCode>ProjectCode</ProjectCode>
+          <BarCode>BarCode</BarCode>
+          <VatGroup>VatGroup</VatGroup>
+          <Height1>Height1</Height1>
+          <Hight1Unit>Hight1Unit</Hight1Unit>
+          <Height2>Height2</Height2>
+          <Height2Unit>Height2Unit</Height2Unit>
+          <Lengh1>Lengh1</Lengh1>
+          <Lengh1Unit>Lengh1Unit</Lengh1Unit>
+          <Lengh2>Lengh2</Lengh2>
+          <Lengh2Unit>Lengh2Unit</Lengh2Unit>
+          <Weight1>Weight1</Weight1>
+          <Weight1Unit>Weight1Unit</Weight1Unit>
+          <Weight2>Weight2</Weight2>
+          <Weight2Unit>Weight2Unit</Weight2Unit>
+          <Factor1>Factor1</Factor1>
+          <Factor2>Factor2</Factor2>
+          <Factor3>Factor3</Factor3>
+          <Factor4>Factor4</Factor4>
+          <BaseType>BaseType</BaseType>
+          <BaseEntry>BaseEntry</BaseEntry>
+          <BaseLine>BaseLine</BaseLine>
+          <Volume>Volume</Volume>
+          <VolumeUnit>VolumeUnit</VolumeUnit>
+          <Width1>Width1</Width1>
+          <Width1Unit>Width1Unit</Width1Unit>
+          <Width2>Width2</Width2>
+          <Width2Unit>Width2Unit</Width2Unit>
+          <Address>Address</Address>
+          <TaxCode>TaxCode</TaxCode>
+          <TaxType>TaxType</TaxType>
+          <TaxLiable>TaxLiable</TaxLiable>
+          <BackOrder>BackOrder</BackOrder>
           <FreeText>FreeText</FreeText>
+          <ShippingMethod>ShippingMethod</ShippingMethod>
+          <CorrectionInvoiceItem>CorrectionInvoiceItem</CorrectionInvoiceItem>
+          <CorrInvAmountToStock>CorrInvAmountToStock</CorrInvAmountToStock>
+          <CorrInvAmountToDiffAcct>CorrInvAmountToDiffAcct</CorrInvAmountToDiffAcct>
+          <WTLiable>WTLiable</WTLiable>
+          <DeferredTax>DeferredTax</DeferredTax>
+          <MeasureUnit>MeasureUnit</MeasureUnit>
+          <UnitsOfMeasurment>UnitsOfMeasurment</UnitsOfMeasurment>
+          <LineTotal>LineTotal</LineTotal>
+          <TaxPercentagePerRow>TaxPercentagePerRow</TaxPercentagePerRow>
+          <TaxTotal>TaxTotal</TaxTotal>
+          <ConsumerSalesForecast>ConsumerSalesForecast</ConsumerSalesForecast>
+          <ExciseAmount>ExciseAmount</ExciseAmount>
+          <CountryOrg>CountryOrg</CountryOrg>
+          <SWW>SWW</SWW>
+          <TransactionType>TransactionType</TransactionType>
+          <DistributeExpense>DistributeExpense</DistributeExpense>
+          <ShipToCode>ShipToCode</ShipToCode>
+          <RowTotalFC>RowTotalFC</RowTotalFC>
+          <CFOPCode>CFOPCode</CFOPCode>
+          <CSTCode>CSTCode</CSTCode>
+          <Usage>Usage</Usage>
+          <TaxOnly>TaxOnly</TaxOnly>
+          <UnitPrice>UnitPrice</UnitPrice>
+          <LineStatus>LineStatus</LineStatus>
+          <LineType>LineType</LineType>
+          <COGSCostingCode>COGSCostingCode</COGSCostingCode>
+          <COGSAccountCode>COGSAccountCode</COGSAccountCode>
+          <ChangeAssemlyBoMWarehouse>ChangeAssemlyBoMWarehouse</ChangeAssemlyBoMWarehouse>
+          <GrossBuyPrice>GrossBuyPrice</GrossBuyPrice>
+          <GrossBase>GrossBase</GrossBase>
+          <GrossProfitTotalBasePrice>GrossProfitTotalBasePrice</GrossProfitTotalBasePrice>
+          <CostingCode2>CostingCode2</CostingCode2>
+          <CostingCode3>CostingCode3</CostingCode3>
+          <CostingCode4>CostingCode4</CostingCode4>
+          <CostingCode5>CostingCode5</CostingCode5>
+          <ItemDetails>ItemDetails</ItemDetails>
+          <LocationCode>LocationCode</LocationCode>
+          <ActualDeliveryDate>ActualDeliveryDate</ActualDeliveryDate>
+          <ExLineNo>ExLineNo</ExLineNo>
+          <RequiredDate>RequiredDate</RequiredDate>
+          <RequiredQuantity>RequiredQuantity</RequiredQuantity>
+          <COGSCostingCode2>COGSCostingCode2</COGSCostingCode2>
+          <COGSCostingCode3>COGSCostingCode3</COGSCostingCode3>
+          <COGSCostingCode4>COGSCostingCode4</COGSCostingCode4>
+          <COGSCostingCode5>COGSCostingCode5</COGSCostingCode5>
+          <WithoutInventoryMovement>WithoutInventoryMovement</WithoutInventoryMovement>
+          <AgreementRowNumber>AgreementRowNumber</AgreementRowNumber>
+          <ShipToDescription>ShipToDescription</ShipToDescription>
+          <U_Booking>U_Booking</U_Booking>
         </TargetFields>
       </Document_Lines>
     </Fields>
   </Map>
   <Run>
     <Import>1</Import>
-    <Rollback>False</Rollback>
+    <Rollback>True</Rollback>
     <MaxError>10</MaxError>
     <Update>0</Update>
     <TestRun>0</TestRun>

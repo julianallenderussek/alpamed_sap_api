@@ -40,8 +40,13 @@
           <NumAtCard />
           <SalesPersonCode />
           <DocDueDate />
-	        <U_ID_WMS/>
+	  <U_ID_WMS/>
+<U_C_AA/>
+<U_Ref_AA/>
+<U_N_Capt/>
           <U_Referencia/>
+	  <U_Agencia/>
+          <U_Naviera/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -51,8 +56,13 @@
           <NumAtCard>NumAtCard</NumAtCard>
           <SalesPersonCode>SalesPersonCode</SalesPersonCode>
           <DocDueDate>DocDueDate</DocDueDate>
-          <U_Referencia>U_Referencia</U_Referencia>
 	  <U_ID_WMS>U_ID_WMS</U_ID_WMS>
+<U_C_AA>U_C_AA</U_C_AA>
+<U_Ref_AA>U_Ref_AA</U_Ref_AA>
+<U_N_Capt>U_N_Capt</U_N_Capt>
+          <U_Referencia>U_Referencia</U_Referencia>
+          <U_Agencia>U_Agencia</U_Agencia>
+	  <U_Naviera>U_Naviera</U_Naviera>
         </TargetFields>
       </Documents>
       <Document_Lines>
