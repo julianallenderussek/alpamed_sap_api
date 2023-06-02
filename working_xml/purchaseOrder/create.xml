@@ -41,6 +41,8 @@
           <SalesPersonCode />
           <DocDueDate />
 	  <U_ID_WMS/>
+    <U_Agencia/>
+<U_Naviera/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -51,6 +53,8 @@
           <SalesPersonCode>SalesPersonCode</SalesPersonCode>
           <DocDueDate>DocDueDate</DocDueDate>
 	  <U_ID_WMS>U_ID_WMS</U_ID_WMS>
+	  <U_Agencia>U_Agencia</U_Agencia>
+	<U_Naviera>U_Naviera</U_Naviera>
         </TargetFields>
       </Documents>
       <Document_Lines>
