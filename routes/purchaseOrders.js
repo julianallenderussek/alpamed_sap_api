@@ -154,9 +154,10 @@ purchaseOrderRouter.get("/sap/wms_id/:id", async function (req, res) {
   if (!id) {
     return res.status(400).json({ message: "Please provide an id" })
   }
-  const result = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS=${id}`)
+  const resultPurchseOrder = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS=${id}`)
+  const resultArticle = await callSAPServer(`SELECT * FROM RDR1`)
 
-  return res.status(200).json({ message: "Check this", result: result })
+  return res.status(200).json({ message: "Check this", result: resultPurchseOrder, articles: resultArticle })
 });
 
 
