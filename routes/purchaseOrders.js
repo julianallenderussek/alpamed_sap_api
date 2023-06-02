@@ -87,7 +87,9 @@ purchaseOrderRouter.post("/runScript/create/wms_id/:wms_id", async function (req
 
   const resultPurchseOrder = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
   console.log(resultPurchseOrder)
-  if (resultPurchseOrder.length > 0) return
+  if (resultPurchseOrder.length > 0) {
+    return res.status(403).json({ message: "`Purchase Order With ID Already Created in Sap", data: resultPurchseOrder })
+  }
   runScript(filePaths.purchaseOrder.bat)
     .then(async (stdout) => {
       console.log('Output:', stdout);
