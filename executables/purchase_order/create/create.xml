@@ -175,6 +175,7 @@
                <U_NSalida />
                <U_Buque1 />
                <ImportLog />
+	       <U_U_IDL_WMS />
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
@@ -244,6 +245,7 @@
                <U_IGI_actual>U_IGI_actual</U_IGI_actual>
                <U_NSalida>U_NSalida</U_NSalida>
                <U_Buque1>U_Buque1</U_Buque1>
+	       <U_U_IDL_WMS>U_U_IDL_WMS</U_U_IDL_WMS> 
             </TargetFields>
          </Document_Lines>
       </Fields>
