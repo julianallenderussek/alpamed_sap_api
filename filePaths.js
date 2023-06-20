@@ -8,7 +8,9 @@ module.exports = {
     },
     purchaseOrder: {
         bat: path.join(__dirname, 'executables', 'purchase_order', 'create', 'create.bat'),
+        batUpdate: path.join(__dirname, 'executables', 'purchase_order', 'update', 'update.bat'),
         xml: path.join(__dirname, 'executables', 'purchase_order', 'create', 'create.xml'),
+        xmlUpdate: path.join(__dirname, 'executables', 'purchase_order', 'update', 'update.xml'),
         txt: path.join(__dirname, 'files', 'purchase_order', 'create', 'ordr.txt'),
         txtupdate: path.join(__dirname, 'files', 'purchase_order', 'update', 'ordr.txt'),
         excel: path.join(__dirname, 'helpers', 'templates', 'purchase_order', 'ordr.xlsx'),

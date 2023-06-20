@@ -150,41 +150,6 @@ purchaseOrderRouter.post('/update', async (req, res) => {
     app: "SAP-API",
     route: "/purchaseOrder/update"
   });
-  // runScript(filePaths.purchaseOrder.bat)
-  // .then(async (stdout) => {
-  //   await logger.log('info', { message: `Succesfully runned script in url: ${filePaths.purchaseOrder.bat}`}, { 
-  //     app: "SAP-API",
-  //     route: "/purchaseOrder/update", 
-  //     stdout: `Output .bat file: ${stdout}` 
-  //   });
-  //   fs.unlink(filePaths.purchaseOrder.txt, async (err) => {
-  //     if (err) {
-  //       await logger.log('info', { message: `Error deleting : ${filePaths.purchaseOrder.bat}`}, { 
-  //         app: "SAP-API",
-  //         route: "/purchaseOrder/update", 
-  //         err: `Error: file ${err}` 
-  //       });
-  //       console.error('Error deleting file:', err);
-  //     } else {
-  //       await logger.log('info', { message: `Succesfully deleted file: ${filePaths.purchaseOrder.bat}`}, { 
-  //         app: "SAP-API",
-  //         route: "/purchaseOrder/update" 
-  //       });
-  //       console.log('File deleted successfully');
-  //     }
-  //   });
-  //   await logger.log('info', { message: `Succesfully created purchase order in SAP`}, { 
-  //     app: "SAP-API",
-  //     route: "/purchaseOrder/update",
-  //     type: "Error",
-  //     stdout: stdout
-  //   });
-  //   return res.status(200).json({message: "Running DTW Sap"})
-  // })
-  // .catch((error) => {
-  //   console.error('Error:', error.message);
-  //   return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
-  // });
   // Takeout
   return res.status(200).json({ message: "Text files updated in SAP Server" })
 })
@@ -197,7 +162,7 @@ purchaseOrderRouter.post("/runScript/update/wms_id/:wms_id", async function (req
   if (resultPurchseOrder.length <= 0) {
     return res.status(403).json({ message: "`Purchase Order With ID does not exists in Sap", data: resultPurchseOrder })
   }
-  runScript(filePaths.purchaseOrder.bat)
+  runScript(filePaths.purchaseOrder.batUpdate)
     .then(async (stdout) => {
       console.log('Output:', stdout);
       await logger.log('info', { message: `Purchase Order Successfully updated in Sap : ${wms_id}` }, {
