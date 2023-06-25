@@ -6,6 +6,7 @@ module.exports = {
         bat: path.join(__dirname, 'executables', 'purchase_order', 'test', 'test.bat'),
         exampleHome: path.join(__dirname, 'example.txt'),
     },
+    /// PURCHASE ORDER
     purchaseOrder: {
         bat: path.join(__dirname, 'executables', 'purchase_order', 'create', 'create.bat'),
         batUpdate: path.join(__dirname, 'executables', 'purchase_order', 'update', 'update.bat'),
@@ -20,5 +21,21 @@ module.exports = {
         txtupdate: path.join(__dirname, 'files', 'purchase_order', 'update', 'rdrd.txt'),
         excel: path.join(__dirname, 'helpers', 'templates', 'articles', 'rdr1.xlsx')
     },
+    ///
+    /// RECEPTION
+    recepction: {
+        excel: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt'),
+    },
+    recepctionArticles: {
+        excel: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt'),
+    },
+    batchInfo: {
+        excel: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt'),
+    },
+    lotInfo: {
+        excel: path.join(__dirname, 'files', 'purchase_order', 'create', 'rdrd.txt'),
+    },
+
+    ///
     logs: path.join(__dirname, 'info.log')
 }
