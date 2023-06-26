@@ -12,6 +12,10 @@ const callSAPServer = require('../queries/sapQuery');
 /////////CREATE//////////
 /////////////////////////
 
+receptionRouter.post('/test', (req, res) => {
+  return res.status(200).json({message: "working"})
+})
+
 // Step One
 receptionRouter.post('/create/material', async (req, res) => {
   await logger.log('info', { message: "Hitting route /reception/create" }, {
@@ -29,58 +33,29 @@ receptionRouter.post('/create/material', async (req, res) => {
     return res.status(403).json({ success: false, message: "Please provide reception, batchInfo and receptionArticles" })
   }
 
-  const purchaseOrderTemplate = await readTemplateSingle(filePaths.purchaseOrder.excel);
-  return res.status(403).json({ data: purchaseOrderTemplate })
-  const receptionArticlesTemplate = await readTemplateSingle(filePaths.articles.excel);
-  const lotInfo = await readTemplateSingle(filePaths.articles.excel);
-
-  const purchaseOrderArr = await filteredResArr([purchaseOrder], purchaseOrderTemplate);
-  const articlesArr = await filteredResArr(articles, articlesTemplate);
-
-  await createTxtFile(filePaths.purchaseOrder.txt, purchaseOrderArr);
-  await createTxtFile(filePaths.articles.txt, articlesArr);
-
-  await logger.log('info', { message: "Purchase order + Articles txt files succesfully created" }, {
+  const receptionTemplate = await readTemplateSingle(filePaths.reception.excel);
+  const receptionArticlesTemplate = await readTemplateSingle(filePaths.receptionArticles.excel);
+  
+  // Batch info cuz we are doing material
+  const batchInfoTemplate = await readTemplateSingle(filePaths.batchInfo.excel);
+  
+  // Filtering Value arrays
+  const receptionOrderArr = await filteredResArr([reception], receptionTemplate);
+  const receptionArticlesArr = await filteredResArr(receptionArticles, receptionArticlesTemplate);
+  const batchInfoArr = await filteredResArr(batchInfo, batchInfoTemplate);
+  
+  
+  
+  await createTxtFile(filePaths.reception.txt, receptionOrderArr);
+  await createTxtFile(filePaths.receptionArticles.txt, receptionArticlesArr);
+  await createTxtFile(filePaths.batchInfo.txt, batchInfoArr);
+  
+  await logger.log('info', { message: "Recption + ReceptionArticles + BatchInfo txt files successfully created" }, {
     app: "SAP-API",
     route: "/purchaseOrder/create"
   });
-  // runScript(filePaths.purchaseOrder.bat)
-  // .then(async (stdout) => {
-  //   await logger.log('info', { message: `Succesfully runned script in url: ${filePaths.purchaseOrder.bat}`}, { 
-  //     app: "SAP-API",
-  //     route: "/purchaseOrder/create", 
-  //     stdout: `Output .bat file: ${stdout}` 
-  //   });
-  //   fs.unlink(filePaths.purchaseOrder.txt, async (err) => {
-  //     if (err) {
-  //       await logger.log('info', { message: `Error deleting : ${filePaths.purchaseOrder.bat}`}, { 
-  //         app: "SAP-API",
-  //         route: "/purchaseOrder/create", 
-  //         err: `Error: file ${err}` 
-  //       });
-  //       console.error('Error deleting file:', err);
-  //     } else {
-  //       await logger.log('info', { message: `Succesfully deleted file: ${filePaths.purchaseOrder.bat}`}, { 
-  //         app: "SAP-API",
-  //         route: "/purchaseOrder/create" 
-  //       });
-  //       console.log('File deleted successfully');
-  //     }
-  //   });
-  //   await logger.log('info', { message: `Succesfully created purchase order in SAP`}, { 
-  //     app: "SAP-API",
-  //     route: "/purchaseOrder/create",
-  //     type: "Error",
-  //     stdout: stdout
-  //   });
-  //   return res.status(200).json({message: "Running DTW Sap"})
-  // })
-  // .catch((error) => {
-  //   console.error('Error:', error.message);
-  //   return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
-  // });
-  // Takeout
-  return res.status(200).json({ message: "Text files created in SAP Server" })
+
+  return res.status(200).json({batchInfoArr, message: "Text files created in SAP Server" })
 })
 
 // Step two

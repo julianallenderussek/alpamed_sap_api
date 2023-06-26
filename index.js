@@ -11,6 +11,7 @@ const ExcelJS = require('exceljs');
 const queries = require("./queries/queries");
 const callSAPServer = require("./queries/sapQuery");
 const purchaseOrderRouter = require("./routes/purchaseOrders");
+const receptionOrderRouter = require("./routes/reception");
 const path = require("path");
 const { xml, testModeOn } = require("./filePaths");
 const { log } = require("console");
@@ -23,6 +24,7 @@ const { create } = require('xmlbuilder2');
 const { runScript } = require("./helpers/general/runScript");
 const logsRouter = require("./routes/logs");
 const logger = require("./config/logger");
+const receptionRouter = require("./routes/reception");
 
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -373,6 +375,7 @@ async function createTxtFile(arr1, arr2, arr3) {
 }
 
 app.use('/purchaseOrder', purchaseOrderRouter );
+app.use('/reception', receptionRouter );
 app.use('/logs', logsRouter );
 
 

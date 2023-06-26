@@ -1,0 +1,259 @@
+<Transfer>
+  <Logon>
+    <UserName>manager</UserName>
+    <Password>CJeKhMlMkKHKHN9KpC</Password>
+    <Company>AMD_Entrenamiento</Company>
+    <Server>SAPSERVER</Server>
+    <UserAuthentication>False</UserAuthentication>
+    <Language />
+    <LicenseServer>
+    </LicenseServer>
+    <ChooseDB>False</ChooseDB>
+    <DBType>15</DBType>
+    <DBUser>
+    </DBUser>
+    <SybasePort />
+    <DBPassword>
+    </DBPassword>
+  </Logon>
+  <ObjectCode>oDeliveryNotes</ObjectCode>
+  <FileExtractor>
+    <Extorlogin>
+      <ExID />
+      <ExPW />
+      <ExDSN />
+    </Extorlogin>
+    <FilesTypes>2</FilesTypes>
+    <Files>
+      <Documents>C:\Users\U002\Desktop\Archivos_Prueba\create\documento.txt</Documents>
+    </Files>
+  </FileExtractor>
+  <Map>
+    <Fields>
+      <Documents>
+        <SourceFields>
+          <RecordKey />
+          <DocNum />
+          <DocType />
+          <HandWritten />
+          <Printed />
+          <DocDate />
+          <DocDueDate />
+          <CardCode />
+          <CardName />
+          <Address />
+          <NumAtCard />
+          <DocCurrency />
+          <DocRate />
+          <DocTotal />
+          <Reference1 />
+          <Reference2 />
+          <Comments />
+          <JournalMemo />
+          <PaymentGroupCode />
+          <DocTime />
+          <SalesPersonCode />
+          <TransportationCode />
+          <Confirmed />
+          <ImportFileNum />
+          <SummeryType />
+          <ContactPersonCode />
+          <ShowSCN />
+          <Series />
+          <TaxDate />
+          <PartialSupply />
+          <DocObjectCode />
+          <ShipToCode />
+          <Indicator />
+          <FederalTaxID />
+          <DiscountPercent />
+          <PaymentReference />
+          <DocTotalFc />
+          <Form1099 />
+          <Box1099 />
+          <RevisionPo />
+          <RequriedDate />
+          <CancelDate />
+          <BlockDunning />
+          <Pick />
+          <PaymentMethod />
+          <PaymentBlock />
+          <PaymentBlockEntry />
+          <CentralBankIndicator />
+          <MaximumCashDiscount />
+          <Project />
+          <ExemptionValidityDateFrom />
+          <ExemptionValidityDateTo />
+          <WareHouseUpdateType />
+          <Rounding />
+          <ExternalCorrectedDocNum />
+          <InternalCorrectedDocNum />
+          <DeferredTax />
+          <TaxExemptionLetterNum />
+          <AgentCode />
+          <NumberOfInstallments />
+          <ApplyTaxOnFirstInstallment />
+          <VatDate />
+          <DocumentsOwner />
+          <FolioPrefixString />
+          <FolioNumber />
+          <DocumentSubType />
+          <BPChannelCode />
+          <BPChannelContact />
+          <Address2 />
+          <PayToCode />
+          <ManualNumber />
+          <UseShpdGoodsAct />
+          <IsPayToBank />
+          <PayToBankCountry />
+          <PayToBankCode />
+          <PayToBankAccountNo />
+          <PayToBankBranch />
+          <BPL_IDAssignedToInvoice />
+          <DownPayment />
+          <ReserveInvoice />
+          <LanguageCode />
+          <TrackingNumber />
+          <PickRemark />
+          <ClosingDate />
+          <SequenceCode />
+          <SequenceSerial />
+          <SeriesString />
+          <SubSeriesString />
+          <SequenceModel />
+          <UseCorrectionVATGroup />
+          <DownPaymentAmount />
+          <DownPaymentPercentage />
+          <DownPaymentType />
+          <DownPaymentAmountSC />
+          <DownPaymentAmountFC />
+          <VatPercent />
+          <ServiceGrossProfitPercent />
+          <OpeningRemarks />
+          <ClosingRemarks />
+          <RoundingDiffAmount />
+          <ControlAccount />
+          <InsuranceOperation347 />
+          <ArchiveNonremovableSalesQuotation />
+        </SourceFields>
+        <TargetFields>
+          <RecordKey>RecordKey</RecordKey>
+          <DocNum>DocNum</DocNum>
+          <DocType>DocType</DocType>
+          <HandWritten>HandWritten</HandWritten>
+          <Printed>Printed</Printed>
+          <DocDate>DocDate</DocDate>
+          <DocDueDate>DocDueDate</DocDueDate>
+          <CardCode>CardCode</CardCode>
+          <CardName>CardName</CardName>
+          <Address>Address</Address>
+          <NumAtCard>NumAtCard</NumAtCard>
+          <DocCurrency>DocCurrency</DocCurrency>
+          <DocRate>DocRate</DocRate>
+          <DocTotal>DocTotal</DocTotal>
+          <Reference1>Reference1</Reference1>
+          <Reference2>Reference2</Reference2>
+          <Comments>Comments</Comments>
+          <JournalMemo>JournalMemo</JournalMemo>
+          <PaymentGroupCode>PaymentGroupCode</PaymentGroupCode>
+          <DocTime>DocTime</DocTime>
+          <SalesPersonCode>SalesPersonCode</SalesPersonCode>
+          <TransportationCode>TransportationCode</TransportationCode>
+          <Confirmed>Confirmed</Confirmed>
+          <ImportFileNum>ImportFileNum</ImportFileNum>
+          <SummeryType>SummeryType</SummeryType>
+          <ContactPersonCode>ContactPersonCode</ContactPersonCode>
+          <ShowSCN>ShowSCN</ShowSCN>
+          <Series>Series</Series>
+          <TaxDate>TaxDate</TaxDate>
+          <PartialSupply>PartialSupply</PartialSupply>
+          <DocObjectCode>DocObjectCode</DocObjectCode>
+          <ShipToCode>ShipToCode</ShipToCode>
+          <Indicator>Indicator</Indicator>
+          <FederalTaxID>FederalTaxID</FederalTaxID>
+          <DiscountPercent>DiscountPercent</DiscountPercent>
+          <PaymentReference>PaymentReference</PaymentReference>
+          <DocTotalFc>DocTotalFc</DocTotalFc>
+          <Form1099>Form1099</Form1099>
+          <Box1099>Box1099</Box1099>
+          <RevisionPo>RevisionPo</RevisionPo>
+          <RequriedDate>RequriedDate</RequriedDate>
+          <CancelDate>CancelDate</CancelDate>
+          <BlockDunning>BlockDunning</BlockDunning>
+          <Pick>Pick</Pick>
+          <PaymentMethod>PaymentMethod</PaymentMethod>
+          <PaymentBlock>PaymentBlock</PaymentBlock>
+          <PaymentBlockEntry>PaymentBlockEntry</PaymentBlockEntry>
+          <CentralBankIndicator>CentralBankIndicator</CentralBankIndicator>
+          <MaximumCashDiscount>MaximumCashDiscount</MaximumCashDiscount>
+          <Project>Project</Project>
+          <ExemptionValidityDateFrom>ExemptionValidityDateFrom</ExemptionValidityDateFrom>
+          <ExemptionValidityDateTo>ExemptionValidityDateTo</ExemptionValidityDateTo>
+          <WareHouseUpdateType>WareHouseUpdateType</WareHouseUpdateType>
+          <Rounding>Rounding</Rounding>
+          <ExternalCorrectedDocNum>ExternalCorrectedDocNum</ExternalCorrectedDocNum>
+          <InternalCorrectedDocNum>InternalCorrectedDocNum</InternalCorrectedDocNum>
+          <DeferredTax>DeferredTax</DeferredTax>
+          <TaxExemptionLetterNum>TaxExemptionLetterNum</TaxExemptionLetterNum>
+          <AgentCode>AgentCode</AgentCode>
+          <NumberOfInstallments>NumberOfInstallments</NumberOfInstallments>
+          <ApplyTaxOnFirstInstallment>ApplyTaxOnFirstInstallment</ApplyTaxOnFirstInstallment>
+          <VatDate>VatDate</VatDate>
+          <DocumentsOwner>DocumentsOwner</DocumentsOwner>
+          <FolioPrefixString>FolioPrefixString</FolioPrefixString>
+          <FolioNumber>FolioNumber</FolioNumber>
+          <DocumentSubType>DocumentSubType</DocumentSubType>
+          <BPChannelCode>BPChannelCode</BPChannelCode>
+          <BPChannelContact>BPChannelContact</BPChannelContact>
+          <Address2>Address2</Address2>
+          <PayToCode>PayToCode</PayToCode>
+          <ManualNumber>ManualNumber</ManualNumber>
+          <UseShpdGoodsAct>UseShpdGoodsAct</UseShpdGoodsAct>
+          <IsPayToBank>IsPayToBank</IsPayToBank>
+          <PayToBankCountry>PayToBankCountry</PayToBankCountry>
+          <PayToBankCode>PayToBankCode</PayToBankCode>
+          <PayToBankAccountNo>PayToBankAccountNo</PayToBankAccountNo>
+          <PayToBankBranch>PayToBankBranch</PayToBankBranch>
+          <BPL_IDAssignedToInvoice>BPL_IDAssignedToInvoice</BPL_IDAssignedToInvoice>
+          <DownPayment>DownPayment</DownPayment>
+          <ReserveInvoice>ReserveInvoice</ReserveInvoice>
+          <LanguageCode>LanguageCode</LanguageCode>
+          <TrackingNumber>TrackingNumber</TrackingNumber>
+          <PickRemark>PickRemark</PickRemark>
+          <ClosingDate>ClosingDate</ClosingDate>
+          <SequenceCode>SequenceCode</SequenceCode>
+          <SequenceSerial>SequenceSerial</SequenceSerial>
+          <SeriesString>SeriesString</SeriesString>
+          <SubSeriesString>SubSeriesString</SubSeriesString>
+          <SequenceModel>SequenceModel</SequenceModel>
+          <UseCorrectionVATGroup>UseCorrectionVATGroup</UseCorrectionVATGroup>
+          <DownPaymentAmount>DownPaymentAmount</DownPaymentAmount>
+          <DownPaymentPercentage>DownPaymentPercentage</DownPaymentPercentage>
+          <DownPaymentType>DownPaymentType</DownPaymentType>
+          <DownPaymentAmountSC>DownPaymentAmountSC</DownPaymentAmountSC>
+          <DownPaymentAmountFC>DownPaymentAmountFC</DownPaymentAmountFC>
+          <VatPercent>VatPercent</VatPercent>
+          <ServiceGrossProfitPercent>ServiceGrossProfitPercent</ServiceGrossProfitPercent>
+          <OpeningRemarks>OpeningRemarks</OpeningRemarks>
+          <ClosingRemarks>ClosingRemarks</ClosingRemarks>
+          <RoundingDiffAmount>RoundingDiffAmount</RoundingDiffAmount>
+          <ControlAccount>ControlAccount</ControlAccount>
+          <InsuranceOperation347>InsuranceOperation347</InsuranceOperation347>
+          <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
+        </TargetFields>
+      </Documents>
+    </Fields>
+  </Map>
+  <Run>
+    <Import>0</Import>
+    <Rollback>True</Rollback>
+    <MaxError>10</MaxError>
+    <Update>1</Update>
+    <TestRun>0</TestRun>
+    <AddAllItems>Checked</AddAllItems>
+    <LineData>0</LineData>
+    <DataType>2</DataType>
+    <MultiThread>False</MultiThread>
+    <ThreadNum>4</ThreadNum>
+  </Run>
+</Transfer>
