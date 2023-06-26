@@ -1,4 +1,4 @@
 ParentKey	LineNum	BatchNumber	ManufacturerSerialNumber	InternalSerialNumber	ExpiryDate	ManufacturingDate	AddmisionDate	Location	Notes	Quantity	BaseLineNumber
 DocNum	LineNum	DistNumber	MnfSerial	LotNumber	ExpDate	MnfDate	InDate	Location	Notes	Quantity	DocLineNum
-		JFA12751								150	
-		JFA12712								150	
+1		JFA12751								150	0
+1		JFA12712								150	0
