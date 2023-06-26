@@ -55,7 +55,7 @@ receptionRouter.post('/create/material', async (req, res) => {
     route: "/purchaseOrder/create"
   });
 
-  return res.status(200).json({batchInfoArr, message: "Text files created in SAP Server" })
+  return res.status(200).json({message: "Text files created in SAP Server" })
 })
 
 // Step two
