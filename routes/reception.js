@@ -12,8 +12,10 @@ const callSAPServer = require('../queries/sapQuery');
 /////////CREATE//////////
 /////////////////////////
 
-receptionRouter.post('/test', (req, res) => {
-  return res.status(200).json({message: "working"})
+receptionRouter.post('/test', async (req, res) => {
+  const wms_id = "123"
+  const result = await callSAPServer(`SELECT * FROM ORDN'`)
+  return res.status(200).json({message: result})
 })
 
 // Step One
@@ -23,7 +25,7 @@ receptionRouter.post('/create/material', async (req, res) => {
     route: "/reception/create",
     body: req.body
   });
-  const { receptionArticles, reception, batchInfo, type } = req.body
+  const { receptionArticles, reception, batchInfo } = req.body
 
   if (!receptionArticles || !reception || !batchInfo) {
     await logger.log('info', { message: "User did not provide receptionArticles / reception / batchInfo on req.body" }, {
@@ -44,13 +46,11 @@ receptionRouter.post('/create/material', async (req, res) => {
   const receptionArticlesArr = await filteredResArr(receptionArticles, receptionArticlesTemplate);
   const batchInfoArr = await filteredResArr(batchInfo, batchInfoTemplate);
   
-  
-  
   await createTxtFile(filePaths.reception.txt, receptionOrderArr);
   await createTxtFile(filePaths.receptionArticles.txt, receptionArticlesArr);
   await createTxtFile(filePaths.batchInfo.txt, batchInfoArr);
   
-  await logger.log('info', { message: "Recption + ReceptionArticles + BatchInfo txt files successfully created" }, {
+  await logger.log('info', { message: "Reception + ReceptionArticles + BatchInfo txt files successfully created" }, {
     app: "SAP-API",
     route: "/purchaseOrder/create"
   });
@@ -62,25 +62,25 @@ receptionRouter.post('/create/material', async (req, res) => {
 receptionRouter.post("/runScript/create/wms_id/:wms_id", async function (req, res) {
   const { wms_id } = req.params
 
-  const resultPurchseOrder = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
-  console.log(resultPurchseOrder)
+  const resultReception = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
+  console.log(resultReception)
   if (resultPurchseOrder.length > 0) {
-    return res.status(403).json({ message: "`Purchase Order With ID Already Created in Sap", data: resultPurchseOrder })
+    return res.status(403).json({ message: "`Reception With ID Already Created in Sap", data: resultReception })
   }
-  runScript(filePaths.purchaseOrder.bat)
+  runScript(filePaths.reception.batMaterialCreate)
     .then(async (stdout) => {
       console.log('Output:', stdout);
-      await logger.log('info', { message: `Purchase Order Successfully Created in Sap : ${wms_id}` }, {
+      await logger.log('info', { message: `Reception Successfully Created in Sap : ${wms_id}` }, {
         app: "SAP-API",
         route: "/runScript/create/wms_id/:wms_id",
         stdout: stdout,
         wms_id: wms_id
       });
-      return res.status(200).json({ message: "`Purchase Order Successfully Created in Sap", stdout: stdout, wms_id: wms_id })
+      return res.status(200).json({ message: "`Reception Successfully Created in Sap", stdout: stdout, wms_id: wms_id })
     })
     .catch(async (error) => {
       console.error('Error:', error.message);
-      await logger.log('info', { message: `Purchase Order Failed to Create in Sap : ${wms_id}` }, {
+      await logger.log('info', { message: `Reception Failed to Create in Sap : ${wms_id}` }, {
         app: "SAP-API",
         route: "/runScript/create/wms_id/:wms_id",
         error: error

@@ -29,6 +29,10 @@ module.exports = {
         excel: path.join(__dirname, 'helpers', 'templates', 'reception', 'ordn.xlsx'),
         txt: path.join(__dirname, 'files', 'reception', 'create', 'ordn.txt'),
         txtupdate: path.join(__dirname, 'files', 'reception', 'update', 'ordn.txt'),
+        batMaterialCreate: path.join(__dirname, 'executables', 'reception','material', 'create', 'create.bat'),
+        batMaterialUpdate: path.join(__dirname, 'executables', 'reception', 'material','update', 'update.bat'),
+        batLoadUpdate: path.join(__dirname, 'executables', 'reception', 'load','create', 'create.bat'),
+        batLoadUpdate: path.join(__dirname, 'executables', 'reception', 'load','update', 'update.bat'),
     },
     receptionArticles: {
         excel: path.join(__dirname, 'helpers', 'templates', 'receptionArticles', 'rdn1.xlsx'),
