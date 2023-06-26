@@ -76,7 +76,7 @@ receptionRouter.post("/runScript/create/wms_id/:wms_id", async function (req, re
       console.log('Output:', stdout);
       await logger.log('info', { message: `Reception Successfully Created in Sap : ${wms_id}` }, {
         app: "SAP-API",
-        route: "/runScript/create/wms_id/:wms_id",
+        route: "/reception/runScript/create/wms_id/:wms_id",
         stdout: stdout,
         wms_id: wms_id
       });
@@ -86,7 +86,7 @@ receptionRouter.post("/runScript/create/wms_id/:wms_id", async function (req, re
       console.error('Error:', error.message);
       await logger.log('info', { message: `Reception Failed to Create in Sap : ${wms_id}` }, {
         app: "SAP-API",
-        route: "/runScript/create/wms_id/:wms_id",
+        route: "/reception/runScript/create/wms_id/:wms_id",
         error: error
       });
       return res.status(403).json({ message: "Running DTW Sap", stdout: error.message })
