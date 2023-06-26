@@ -56,10 +56,10 @@ receptionRouter.post('/create/material', async (req, res) => {
   
   await logger.log('info', { message: "Reception + ReceptionArticles + BatchInfo txt files successfully created" }, {
     app: "SAP-API",
-    route: "/purchaseOrder/create"
+    route: "/reception/material/create"
   });
 
-  return res.status(200).json({message: "Text files created in SAP Server" })
+  return res.status(200).json({message: "Reception Text files created in SAP Server" })
 })
 
 // Step two
