@@ -41,11 +41,15 @@ receptionRouter.post('/create/material', async (req, res) => {
   // Batch info cuz we are doing material
   const batchInfoTemplate = await readTemplateSingle(filePaths.batchInfo.excel);
   
+  console.log("Clone Wars AAAAAAAAAAAAAAAAAAAAAAAA", batchInfoTemplate);
+
   // Filtering Value arrays
   const receptionOrderArr = await filteredResArr([reception], receptionTemplate);
   const receptionArticlesArr = await filteredResArr(receptionArticles, receptionArticlesTemplate);
   const batchInfoArr = await filteredResArr(batchInfo, batchInfoTemplate);
   
+  console.log("WHAT UP",batchInfoArr)
+
   await createTxtFile(filePaths.reception.txt, receptionOrderArr);
   await createTxtFile(filePaths.receptionArticles.txt, receptionArticlesArr);
   await createTxtFile(filePaths.batchInfo.txt, batchInfoArr);
