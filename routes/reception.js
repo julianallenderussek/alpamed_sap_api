@@ -66,9 +66,9 @@ receptionRouter.post('/create/material', async (req, res) => {
 receptionRouter.post("/runScript/create/wms_id/:wms_id", async function (req, res) {
   const { wms_id } = req.params
 
-  const resultReception = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
+  const resultReception = await callSAPServer(`SELECT * FROM ORDN WHERE U_ID_WMS='${wms_id}'`)
   console.log(resultReception)
-  if (resultPurchseOrder.length > 0) {
+  if (resultReception.length > 0) {
     return res.status(403).json({ message: "`Reception With ID Already Created in Sap", data: resultReception })
   }
   runScript(filePaths.reception.batMaterialCreate)
