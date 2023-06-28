@@ -18,6 +18,8 @@ receptionRouter.post('/test', async (req, res) => {
   return res.status(200).json({message: result})
 })
 
+///// MATERIAL
+
 // Step One
 receptionRouter.post('/create/material', async (req, res) => {
   await logger.log('info', { message: "Hitting route /reception/create" }, {
@@ -92,6 +94,80 @@ receptionRouter.post("/runScript/create/wms_id/:wms_id", async function (req, re
       return res.status(403).json({ message: "Running DTW Sap", stdout: error.message })
     });
 });
+
+///// CONTAINER
+// Step One
+receptionRouter.post('/create/container', async (req, res) => {
+  await logger.log('info', { message: "Hitting route /container/create" }, {
+    app: "SAP-API",
+    route: "/container/create",
+    body: req.body
+  });
+  const { receptionArticles, reception, lotInfo } = req.body
+
+  if (!receptionArticles || !reception || !lotInfo) {
+    await logger.log('info', { message: "User did not provide receptionArticles / reception / lotInfo on req.body" }, {
+      app: "SAP-API",
+      route: "/lotInfo/create/material"
+    });
+    return res.status(403).json({ success: false, message: "Please provide reception, lotInfo and receptionArticles" })
+  }
+
+  const receptionTemplate = await readTemplateSingle(filePaths.reception.excel);
+  const receptionArticlesTemplate = await readTemplateSingle(filePaths.receptionArticles.excel);
+  
+  // Batch info cuz we are doing material
+  const lotInfoTemplate = await readTemplateSingle(filePaths.lotInfo.excel);
+  
+  // Filtering Value arrays
+  const receptionOrderArr = await filteredResArr([reception], receptionTemplate);
+  const receptionArticlesArr = await filteredResArr(receptionArticles, receptionArticlesTemplate);
+  const lotInfoArr = await filteredResArr(lotInfo, lotInfoTemplate);
+  
+  await createTxtFile(filePaths.reception.txt, receptionOrderArr);
+  await createTxtFile(filePaths.receptionArticles.txt, receptionArticlesArr);
+  await createTxtFile(filePaths.lotInfo.txt, lotInfoArr);
+  
+  await logger.log('info', { message: "Reception + ReceptionArticles + lotInfo txt files successfully created" }, {
+    app: "SAP-API",
+    route: "/container/material/create"
+  });
+
+  return res.status(200).json({message: "Reception Text files created in SAP Server" })
+})
+
+// Step two
+receptionRouter.post("/runScript/create/wms_id/:wms_id", async function (req, res) {
+  const { wms_id } = req.params
+
+  const resultReception = await callSAPServer(`SELECT * FROM ORDN WHERE U_ID_WMS='${wms_id}'`)
+  console.log(resultReception)
+  if (resultReception.length > 0) {
+    return res.status(403).json({ message: "`Reception With ID Already Created in Sap", data: resultReception })
+  }
+  runScript(filePaths.reception.batMaterialCreate)
+    .then(async (stdout) => {
+      console.log('Output:', stdout);
+      await logger.log('info', { message: `Reception Successfully Created in Sap : ${wms_id}` }, {
+        app: "SAP-API",
+        route: "/reception/runScript/create/wms_id/:wms_id",
+        stdout: stdout,
+        wms_id: wms_id
+      });
+      return res.status(200).json({ message: "`Reception Successfully Created in Sap", stdout: stdout, wms_id: wms_id })
+    })
+    .catch(async (error) => {
+      console.error('Error:', error.message);
+      await logger.log('info', { message: `Reception Failed to Create in Sap : ${wms_id}` }, {
+        app: "SAP-API",
+        route: "/reception/runScript/create/wms_id/:wms_id",
+        error: error
+      });
+      return res.status(403).json({ message: "Running DTW Sap", stdout: error.message })
+    });
+});
+
+
 
 /////////////////////////
 /////////UPDATE//////////
