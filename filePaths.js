@@ -31,7 +31,7 @@ module.exports = {
         txtupdate: path.join(__dirname, 'files', 'reception', 'update', 'ordn.txt'),
         batMaterialCreate: path.join(__dirname, 'executables', 'reception','material', 'create', 'create.bat'),
         batMaterialUpdate: path.join(__dirname, 'executables', 'reception', 'material','update', 'update.bat'),
-        batLoadUpdate: path.join(__dirname, 'executables', 'reception', 'load','create', 'create.bat'),
+        batLoadCreate: path.join(__dirname, 'executables', 'reception', 'load','create', 'create.bat'),
         batLoadUpdate: path.join(__dirname, 'executables', 'reception', 'load','update', 'update.bat'),
     },
     receptionArticles: {
