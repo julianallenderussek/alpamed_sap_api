@@ -137,6 +137,7 @@
           <ControlAccount />
           <InsuranceOperation347 />
           <ArchiveNonremovableSalesQuotation />
+          <U_ID_WMS />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -242,6 +243,7 @@
           <ControlAccount>ControlAccount</ControlAccount>
           <InsuranceOperation347>InsuranceOperation347</InsuranceOperation347>
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
+          <U_ID_WMS>U_ID_WMS</U_ID_WMS>
         </TargetFields>
       </Documents>
       <Document_Lines>
