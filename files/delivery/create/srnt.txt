@@ -1,0 +1,3 @@
+ParentKey	LineNum	ManufacturerSerialNumber	InternalSerialNumber	ExpiryDate	ManufactureDate	ReceptionDate	WarrantyStart	WarrantyEnd	Location	Notes	BatchID	SystemSerialNumber	BaseLineNumber
+DocNum	LineNum	MnfSerial	DistNumber	ExpDate	MnfDate	InDate	GrntStart	GrntExp	Location	Notes	LotNumber	SysNumber	DocLineNum
+1			16886818594320										0

@@ -1,7 +1,7 @@
 <Transfer>
   <Logon>
     <UserName>manager</UserName>
-    <Password>DIfLmLiLiMFMDJ8LoD</Password>
+    <Password>DI8MmLhIkKFMCI8LqF</Password>
     <Company>AMD_Entrenamiento</Company>
     <Server>SAPSERVER</Server>
     <UserAuthentication>False</UserAuthentication>
@@ -25,9 +25,9 @@
     </Extorlogin>
     <FilesTypes>2</FilesTypes>
     <Files>
-     <Documents>C:\Users\U002\Desktop\alpamed_sap_api\files\delivery\create\ordn.txt</Documents>
+      <Documents>C:\Users\U002\Desktop\alpamed_sap_api\files\delivery\create\ordn.txt</Documents>
       <Document_Lines>C:\Users\U002\Desktop\alpamed_sap_api\files\delivery\create\rdn1.txt</Document_Lines>
-      <BatchNumbers>C:\Users\U002\Desktop\alpamed_sap_api\files\delivery\create\btnt.txt</BatchNumbers>
+      <SerialNumbers>C:\Users\U002\Desktop\alpamed_sap_api\files\delivery\create\srnt.txt</SerialNumbers>
     </Files>
   </FileExtractor>
   <Map>
@@ -137,7 +137,7 @@
           <ControlAccount />
           <InsuranceOperation347 />
           <ArchiveNonremovableSalesQuotation />
-          <U_ID_WMS/>
+          <U_ID_WMS />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -462,37 +462,41 @@
           <ShipToDescription>ShipToDescription</ShipToDescription>
         </TargetFields>
       </Document_Lines>
-      <BatchNumbers>
+      <SerialNumbers>
         <SourceFields>
           <RecordKey />
           <ParentKey />
           <LineNum />
-          <BatchNumber />
           <ManufacturerSerialNumber />
           <InternalSerialNumber />
           <ExpiryDate />
-          <ManufacturingDate />
-          <AddmisionDate />
+          <ManufactureDate />
+          <ReceptionDate />
+          <WarrantyStart />
+          <WarrantyEnd />
           <Location />
           <Notes />
-          <Quantity />
+          <BatchID />
+          <SystemSerialNumber />
           <BaseLineNumber />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
           <LineNum>LineNum</LineNum>
-          <BatchNumber>BatchNumber</BatchNumber>
           <ManufacturerSerialNumber>ManufacturerSerialNumber</ManufacturerSerialNumber>
           <InternalSerialNumber>InternalSerialNumber</InternalSerialNumber>
           <ExpiryDate>ExpiryDate</ExpiryDate>
-          <ManufacturingDate>ManufacturingDate</ManufacturingDate>
-          <AddmisionDate>AddmisionDate</AddmisionDate>
+          <ManufactureDate>ManufactureDate</ManufactureDate>
+          <ReceptionDate>ReceptionDate</ReceptionDate>
+          <WarrantyStart>WarrantyStart</WarrantyStart>
+          <WarrantyEnd>WarrantyEnd</WarrantyEnd>
           <Location>Location</Location>
           <Notes>Notes</Notes>
-          <Quantity>Quantity</Quantity>
+          <BatchID>BatchID</BatchID>
+          <SystemSerialNumber>SystemSerialNumber</SystemSerialNumber>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
         </TargetFields>
-      </BatchNumbers>
+      </SerialNumbers>
     </Fields>
   </Map>
   <Run>
