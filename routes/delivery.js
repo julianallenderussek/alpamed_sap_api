@@ -14,7 +14,12 @@ const callSAPServer = require('../queries/sapQuery');
 
 deliveryRouter.post('/test', async (req, res) => {
   const wms_id = "123"
-  const result = await callSAPServer(`SELECT * FROM ODLN'`)
+  const result = await callSAPServer(`SELECT * FROM ODLN`)
+  return res.status(200).json({message: result})
+})
+
+deliveryRouter.post('/check/:wms_id', async (req, res) => {
+  const result = await callSAPServer(`SELECT * FROM ODLN WHERE id = ${wms_id}`)
   return res.status(200).json({message: result})
 })
 
