@@ -48,7 +48,7 @@ deliveryRouter.post('/create/material', async (req, res) => {
   const deliveryArticlesArr = await filteredResArr(deliveryArticles, deliveryArticlesTemplate);
   const batchInfoArr = await filteredResArr(batchInfo, batchInfoTemplate);
   
-  await createTxtFile(filePaths.reception.txt, deliveryOrderArr);
+  await createTxtFile(filePaths.delivery.txt, deliveryOrderArr);
   await createTxtFile(filePaths.deliveryArticles.txt, deliveryArticlesArr);
   await createTxtFile(filePaths.batchInfo.txtDelivery, batchInfoArr);
   
@@ -117,10 +117,10 @@ deliveryRouter.post('/create/container', async (req, res) => {
   
   // Filtering Value arrays
   const deliveryOrderArr = await filteredResArr([delivery], deliveryTemplate);
-  const deliveryArticlesArr = await filteredResArr(receptionArticles, deliveryArticlesTemplate);
+  const deliveryArticlesArr = await filteredResArr(deliveryArticles, deliveryArticlesTemplate);
   const lotInfoArr = await filteredResArr(lotInfo, lotInfoTemplate);
   
-  await createTxtFile(filePaths.delivery.txt, receptionOrderArr);
+  await createTxtFile(filePaths.delivery.txt, deliveryOrderArr);
   await createTxtFile(filePaths.deliveryArticles.txt, deliveryArticlesArr);
   await createTxtFile(filePaths.lotInfo.txtDelivery, lotInfoArr);
   

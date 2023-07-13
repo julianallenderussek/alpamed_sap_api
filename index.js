@@ -377,7 +377,7 @@ async function createTxtFile(arr1, arr2, arr3) {
 
 app.use('/purchaseOrder', purchaseOrderRouter );
 app.use('/reception', receptionRouter );
-app.use('/reception', deliveryRouter );
+app.use('/delivery', deliveryRouter );
 app.use('/logs', logsRouter );
 
 
