@@ -25,6 +25,7 @@ const { runScript } = require("./helpers/general/runScript");
 const logsRouter = require("./routes/logs");
 const logger = require("./config/logger");
 const receptionRouter = require("./routes/reception");
+const deliveryRouter = require("./routes/delivery");
 
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -376,6 +377,7 @@ async function createTxtFile(arr1, arr2, arr3) {
 
 app.use('/purchaseOrder', purchaseOrderRouter );
 app.use('/reception', receptionRouter );
+app.use('/reception', deliveryRouter );
 app.use('/logs', logsRouter );
 
 
