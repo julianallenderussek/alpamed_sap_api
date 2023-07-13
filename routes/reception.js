@@ -19,7 +19,7 @@ receptionRouter.post('/test', async (req, res) => {
 })
 
 ///// MATERIAL
-receptionRouter.post('/check/:wms_id', async (req, res) => {
+receptionRouter.get('/check/:wms_id', async (req, res) => {
   const { wms_id } = req.params;
   const result = await callSAPServer(`SELECT * FROM ORDN WHERE U_ID_WMS = ${wms_id}`)
   if (!result) {
