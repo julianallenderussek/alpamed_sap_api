@@ -23,9 +23,9 @@ deliveryRouter.post('/check/:wms_id', async (req, res) => {
   const result = await callSAPServer(`SELECT * FROM ODLN WHERE U_ID_WMS = ${wms_id}`)
   console.log(result, typeof result);
   if (!result) {
-    console.log("result is false")
+  return res.status(404).json({message: `Delivery with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
-  return res.status(200).json({message: result})
+  return res.status(200).json({delivery: result})
 })
 
 ///// MATERIAL
