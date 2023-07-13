@@ -19,6 +19,7 @@ deliveryRouter.post('/test', async (req, res) => {
 })
 
 deliveryRouter.post('/check/:wms_id', async (req, res) => {
+  const { wms_id } = req.params;
   const result = await callSAPServer(`SELECT * FROM ODLN WHERE id = ${wms_id}`)
   return res.status(200).json({message: result})
 })
