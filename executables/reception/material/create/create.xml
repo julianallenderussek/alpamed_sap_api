@@ -16,7 +16,7 @@
     <DBPassword>
     </DBPassword>
   </Logon>
-  <ObjectCode>oDeliveryNotes</ObjectCode>
+  <ObjectCode>oReturns</ObjectCode>
   <FileExtractor>
     <Extorlogin>
       <ExID />
