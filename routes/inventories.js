@@ -18,10 +18,9 @@ inventoryRouter.get('/general', async (req, res) => {
   return res.status(200).json({message: result})
 })
 
-
 inventoryRouter.get('/general/client/:clientId', async (req, res) => {
     const { clientId } = req.params
-    const fullQuery = queries.inventory.getAllGeneralClient + clientId
+    const fullQuery = `${queries.inventory.getAllGeneralClient} '${clientId}'` 
     console.log(fullQuery)
     const result = await callSAPServer(fullQuery)
     return res.status(200).json({message: result})
@@ -32,14 +31,14 @@ inventoryRouter.get('/lots', async (req, res) => {
     return res.status(200).json({message: result})
 })
 
+
 inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
     const { clientId } = req.params
-    const fullQuery = queries.inventory.getLotsPerClient + clientId
+    const fullQuery = `${queries.inventory.getLotsPerClient} '${clientId}'` 
     console.log(fullQuery)
     const result = await callSAPServer(fullQuery)
     return res.status(200).json({message: result})
 })
-
 
 inventoryRouter.get('/series', async (req, res) => {
     const result = await callSAPServer(queries.inventory.getAllSerialNumber)
