@@ -21,6 +21,7 @@ const queries = {
         getTransporte: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@TRANSPORTE]`,
         getPuertoOrigen: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_ORIGEN]`,
         getPuertoDestin: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_DESTINO]`,
+        getClients: `SELECT * FROM dbo.OCRD WHERE CardCode LIKE 'CL%';`
     }
 };
 
