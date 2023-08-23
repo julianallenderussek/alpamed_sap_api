@@ -17,7 +17,7 @@ const sqlConfig = {
 }
 
 const callSAPServer = async (query) => {
- console.log("CALLING SERVER");
+ 
 try {
   // make sure that any items are correctly URL encoded in the connection string
   await sql.connect(sqlConfig)

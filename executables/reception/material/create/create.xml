@@ -16,7 +16,7 @@
     <DBPassword>
     </DBPassword>
   </Logon>
-  <ObjectCode>oDeliveryNotes</ObjectCode>
+  <ObjectCode>oReturns</ObjectCode>
   <FileExtractor>
     <Extorlogin>
       <ExID />
@@ -25,9 +25,9 @@
     </Extorlogin>
     <FilesTypes>2</FilesTypes>
     <Files>
-     <Documents>C:\Users\U002\Desktop\alpamed_sap_api\files\delivery\create\ordn.txt</Documents>
-      <Document_Lines>C:\Users\U002\Desktop\alpamed_sap_api\files\delivery\create\rdn1.txt</Document_Lines>
-      <BatchNumbers>C:\Users\U002\Desktop\alpamed_sap_api\files\delivery\create\btnt.txt</BatchNumbers>
+     <Documents>C:\Users\U002\Desktop\alpamed_sap_api\files\reception\create\ordn.txt</Documents>
+      <Document_Lines>C:\Users\U002\Desktop\alpamed_sap_api\files\reception\create\rdn1.txt</Document_Lines>
+      <BatchNumbers>C:\Users\U002\Desktop\alpamed_sap_api\files\reception\create\btnt.txt</BatchNumbers>
     </Files>
   </FileExtractor>
   <Map>
