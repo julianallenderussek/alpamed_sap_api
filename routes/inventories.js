@@ -13,18 +13,18 @@ const queries = require('../queries/queries');
 /////////CREATE//////////
 /////////////////////////
 
-inventoryRouter.post('/general', async (req, res) => {
+inventoryRouter.get('/general', async (req, res) => {
   const result = await callSAPServer(queries.inventory.getAllGeneral)
   return res.status(200).json({message: result})
 })
 
-inventoryRouter.post('/lots', async (req, res) => {
+inventoryRouter.get('/lots', async (req, res) => {
     const result = await callSAPServer(queries.inventory.getAllLots)
     return res.status(200).json({message: result})
 })
 
 
-inventoryRouter.post('/series', async (req, res) => {
+inventoryRouter.get('/series', async (req, res) => {
     const result = await callSAPServer(queries.inventory.getAllSerialNumber)
     return res.status(200).json({message: result})
 })
