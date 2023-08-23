@@ -12,6 +12,7 @@ const queries = require("./queries/queries");
 const callSAPServer = require("./queries/sapQuery");
 const purchaseOrderRouter = require("./routes/purchaseOrders");
 const receptionOrderRouter = require("./routes/reception");
+const purchaseOrderRouter = require("./routes/purchaseOrders");
 const path = require("path");
 const { xml, testModeOn } = require("./filePaths");
 const { log } = require("console");
@@ -26,6 +27,7 @@ const logsRouter = require("./routes/logs");
 const logger = require("./config/logger");
 const receptionRouter = require("./routes/reception");
 const deliveryRouter = require("./routes/delivery");
+const inventoryRouter = require("./routes/inventories");
 
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -379,6 +381,7 @@ app.use('/purchaseOrder', purchaseOrderRouter );
 app.use('/reception', receptionRouter );
 app.use('/delivery', deliveryRouter );
 app.use('/logs', logsRouter );
+app.use('/inventories', inventoryRouter );
 
 
 app.put("/purchase_order", function (req, res) {

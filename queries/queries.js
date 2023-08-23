@@ -22,6 +22,14 @@ const queries = {
         getPuertoOrigen: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_ORIGEN]`,
         getPuertoDestin: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_DESTINO]`,
         getClients: `SELECT * FROM dbo.OCRD WHERE CardCode LIKE 'CL%';`
+    },
+    inventory: {
+        getAllLots: "SELECT * FROM dbo.IBT1;",
+        getLotsPerClient: "SELECT * FROM dbo.IBT1;",
+        getAllSerialNumber: "SELECT * FROM dbo.SRI1;",
+        getAllSerialNumberClient: `SELECT * FROM dbo.SRI1 WHERE CardCode='CLI0001'`,
+        getAllGeneral: `SELECT * FROM dbo.OITL`,
+        getAllGeneralClient: `SELECT * FROM dbo.OITL WHERE CardCode='CLI0001'`,
     }
 };
 
