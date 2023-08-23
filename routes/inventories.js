@@ -48,7 +48,7 @@ inventoryRouter.get('/series', async (req, res) => {
 
 inventoryRouter.get('/series/client/:clientId', async (req, res) => {
     const { clientId } = req.params
-    const fullQuery = `${queries.inventory.getAllSerialNumberClient} ``` 
+    const fullQuery = `${queries.inventory.getAllSerialNumberClient} '${clientId}'` 
     console.log(fullQuery)
     const result = await callSAPServer(fullQuery)
     return res.status(200).json({message: result})
