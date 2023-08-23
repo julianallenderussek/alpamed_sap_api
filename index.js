@@ -12,7 +12,6 @@ const queries = require("./queries/queries");
 const callSAPServer = require("./queries/sapQuery");
 const purchaseOrderRouter = require("./routes/purchaseOrders");
 const receptionOrderRouter = require("./routes/reception");
-const purchaseOrderRouter = require("./routes/purchaseOrders");
 const path = require("path");
 const { xml, testModeOn } = require("./filePaths");
 const { log } = require("console");
