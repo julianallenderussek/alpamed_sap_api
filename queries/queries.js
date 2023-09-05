@@ -33,7 +33,7 @@ const queries = {
     },
     reception: {
         getReceptionByDocNum: `SELECT U_ID_WMS, DocEntry FROM ORDN WHERE DocNum=`,
-        getReceptionLineArticlesByDocEntry: `SELECT Direction,Quantity, ItemCode FROM dbo.IBT1 WHERE BaseNum=`
+        getReceptionLineArticlesByDocEntry: `SELECT Quantity FROM RDN1 WHERE DocEntry=`
     }
 };
 
