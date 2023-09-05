@@ -32,8 +32,8 @@ const queries = {
         getAllGeneralClient: `SELECT * FROM dbo.OITL WHERE CardCode=`,
     },
     reception: {
-        getReceptionByDocNum: `SELECT U_ID_WMS, DocEntry FROM ORDN WHERE DocNum=`,
-        getReceptionLineArticlesByDocEntry: `SELECT Quantity FROM RDN1 WHERE DocEntry=`
+        getReceptionByDocNum: `SELECT * FROM ORDN WHERE DocNum=`,
+        getReceptionLineArticlesByDocEntry: `SELECT * FROM RDN1 WHERE DocEntry=`
     }
 };
 
