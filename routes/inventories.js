@@ -54,7 +54,7 @@ inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
         
         result.push(obj)
     }
-    return res.status(200).json({result: result})
+    return res.status(200).json({result: result[1]})
 })
 
 inventoryRouter.get('/series', async (req, res) => {
