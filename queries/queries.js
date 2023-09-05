@@ -34,6 +34,10 @@ const queries = {
     reception: {
         getReceptionByDocNum: `SELECT * FROM ORDN WHERE DocNum=`,
         getReceptionLineArticlesByDocEntry: `SELECT * FROM RDN1 WHERE DocEntry=`
+    },
+    delivery: {
+        getReceptionByDocNum: `SELECT * FROM ODLN WHERE DocNum=`,
+        getReceptionLineArticlesByDocEntry: `SELECT * FROM DLN1 WHERE DocEntry=`
     }
 };
 
