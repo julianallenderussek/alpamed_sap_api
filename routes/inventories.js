@@ -35,7 +35,7 @@ inventoryRouter.get('/lots', async (req, res) => {
 inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
     const { clientId } = req.params
     const fullQuery = `${queries.inventory.getLotsPerClient}'${clientId}'` 
-    const lotsQuery = callSAPServer(fullQuery)
+    const lotsQuery = await callSAPServer(fullQuery)
     const result = []
 
     for (let i =0; i < lotsQuery.length; i++) {
