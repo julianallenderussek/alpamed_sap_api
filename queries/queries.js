@@ -30,6 +30,10 @@ const queries = {
         getAllSerialNumberClient: `SELECT * FROM dbo.SRI1 WHERE CardCode=`,
         getAllGeneral: `SELECT * FROM dbo.OITL`,
         getAllGeneralClient: `SELECT * FROM dbo.OITL WHERE CardCode=`,
+    },
+    reception: {
+        getReceptionByDocNum: `SELECT U_ID_WMS, DocEntry FROM ORDN WHERE DocNum=`,
+        getReceptionLineArticlesByDocEntry: `SELECT Direction,Quantity, ItemCode FROM dbo.IBT1 WHERE BaseNum=`
     }
 };
 

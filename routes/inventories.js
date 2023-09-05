@@ -35,9 +35,20 @@ inventoryRouter.get('/lots', async (req, res) => {
 inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
     const { clientId } = req.params
     const fullQuery = `${queries.inventory.getLotsPerClient}'${clientId}'` 
-    console.log(fullQuery)
-    const result = await callSAPServer(fullQuery)
-    console.log(result)
+    const lotsQuery = callSAPServer(fullQuery)
+    const resObj = []
+
+    for (let i =0; i < lotsQuery.length; i++) {
+        let obj = {}
+        const lot = lotsQuery[i];
+        obj.lot = lot
+        if (lot.Direction === 0) {
+            console.log("Reception")
+            console.log(`${queries.reception.getReceptionByDocNum}${lot.BaseNum}`)
+            let receptionQuery = await callSAPServer(`${queries.reception.getReceptionByDocNum}${lot.BaseNum}`)
+            console.log(receptionQuery)
+        }        
+    }
     return res.status(200).json({message: result})
 })
 
