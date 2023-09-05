@@ -46,19 +46,15 @@ inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
         obj.delivery = null
         obj.lineArticles = null
         if (lot.Direction === 0) {
-            console.log("Reception")
-            console.log(`${queries.reception.getReceptionByDocNum}${lot.BaseNum}`)
             let receptionQuery = await callSAPServer(`${queries.reception.getReceptionByDocNum}${lot.BaseNum}`)
             obj.reception = receptionQuery
-            console.log("CHEBIEW")            
-            console.log(receptionQuery)
             let lineArticlesQuery = await callSAPServer(`${queries.reception.getReceptionLineArticlesByDocEntry}${receptionQuery[0].DocEntry}`)
             obj.lineArticles = lineArticlesQuery
         }
         
         result.push(obj)
     }
-    return res.status(200).json({result: result[0].lineArticles})
+    return res.status(200).json({result: result})
 })
 
 inventoryRouter.get('/series', async (req, res) => {
