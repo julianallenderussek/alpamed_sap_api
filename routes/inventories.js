@@ -52,7 +52,7 @@ inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
             obj.reception = receptionQuery
             console.log("CHEBIEW")            
             console.log(receptionQuery)
-            let lineArticlesQuery = await callSAPServer(`${queries.reception.getReceptionLineArticlesByDocEntry}${receptionQuery.DocEntry}`)
+            let lineArticlesQuery = await callSAPServer(`${queries.reception.getReceptionLineArticlesByDocEntry}${receptionQuery[0].DocEntry}`)
             obj.lineArticles = lineArticlesQuery
         }
         
