@@ -16,6 +16,9 @@ pdfRouter.get('/purchase_order/:wms_id', async (req, res) => {
   return res.status(404).json({message: `Reception with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
   
+  console.log("PURCHASE ORDER")
+  console.log(purchase_order)
+
   const lineArticles = await callSAPServer(`SELECT * FROM RDR1 WHERE DocEntry='${purchase_order.DocEntry}'`)
   
   
