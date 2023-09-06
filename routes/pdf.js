@@ -19,14 +19,14 @@ pdfRouter.get('/purchase_order/:wms_id', async (req, res) => {
   console.log("PURCHASE ORDER")
   console.log(purchase_order)
 
-  const lineArticles = await callSAPServer(`SELECT * FROM RDR1 WHERE DocEntry='${purchase_order.DocEntry}'`)
+  const lineArticles = await callSAPServer(`SELECT * FROM RDR1 WHERE DocEntry='${purchase_order[0].DocEntry}'`)
   
   
   console.log("CHEWBACA")
   console.log(lineArticles)
 
   let result = {
-    purchase_order,
+    purchase_order: purchase_order[0],
     lineArticles
   }
 
