@@ -11,17 +11,15 @@ pdfRouter.get('/test', async (req, res) => {
 pdfRouter.get('/purchase_order/:wms_id', async (req, res) => {
   const { wms_id } = req.params;
   console.log(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
-  const reception = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
-  if (!reception) {
+  const purchase_order = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
+  if (!purchase_order) {
   return res.status(404).json({message: `Reception with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
   
-  console.log("CHECK RECEPTION")
-  console.log(reception)
-  const lineArticles = await callSAPServer(`SELECT * FROM RDR1 WHERE DocEntry='${reception.DocEntry}'`)
+  const lineArticles = await callSAPServer(`SELECT * FROM RDR1 WHERE DocEntry='${purchase_order.DocEntry}'`)
   
   let result = {
-    delivery,
+    purchase_order,
     lineArticles
   }
 
@@ -30,11 +28,11 @@ pdfRouter.get('/purchase_order/:wms_id', async (req, res) => {
 
 pdfRouter.get('/reception/:wms_id', async (req, res) => {
   const { wms_id } = req.params;
-  const reception = await callSAPServer(`SELECT * FROM ORDN WHERE U_ID_WMS=${wms_id}`)
+  const reception = await callSAPServer(`SELECT * FROM ORDN WHERE U_ID_WMS='${wms_id}'`)
   if (!reception) {
   return res.status(404).json({message: `Reception with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
-  const lineArticles = await callSAPServer(`SELECT * FROM RDN1 WHERE DocEntry=${reception.DocEntry}`)
+  const lineArticles = await callSAPServer(`SELECT * FROM RDN1 WHERE DocEntry='${reception.DocEntry}'`)
   
   let result = {
     reception,
@@ -47,11 +45,11 @@ pdfRouter.get('/reception/:wms_id', async (req, res) => {
 
 pdfRouter.get('/delivery/:wms_id', async (req, res) => {
   const { wms_id } = req.params;
-  const reception = await callSAPServer(`SELECT * FROM ODLN WHERE U_ID_WMS=${wms_id}`)
-  if (!reception) {
+  const delivery = await callSAPServer(`SELECT * FROM ODLN WHERE U_ID_WMS='${wms_id}'`)
+  if (!delivery) {
   return res.status(404).json({message: `Reception with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
-  const lineArticles = await callSAPServer(`SELECT * FROM DLN1 WHERE DocEntry=${reception.DocEntry}`)
+  const lineArticles = await callSAPServer(`SELECT * FROM DLN1 WHERE DocEntry='${delivery.DocEntry}'`)
   
   let result = {
     delivery,
