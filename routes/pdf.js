@@ -10,7 +10,8 @@ pdfRouter.get('/test', async (req, res) => {
 
 pdfRouter.get('/purchase_order/:wms_id', async (req, res) => {
   const { wms_id } = req.params;
-  const reception = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS=${wms_id}`)
+  console.log(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
+  const reception = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
   if (!reception) {
   return res.status(404).json({message: `Reception with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
