@@ -27,6 +27,7 @@ const logger = require("./config/logger");
 const receptionRouter = require("./routes/reception");
 const deliveryRouter = require("./routes/delivery");
 const inventoryRouter = require("./routes/inventories");
+const pdfRouter = require("./routes/pdf");
 
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -381,6 +382,7 @@ app.use('/reception', receptionRouter );
 app.use('/delivery', deliveryRouter );
 app.use('/logs', logsRouter );
 app.use('/inventories', inventoryRouter );
+app.use('/pdfs', pdfRouter );
 
 
 app.put("/purchase_order", function (req, res) {
