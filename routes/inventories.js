@@ -27,8 +27,31 @@ inventoryRouter.get('/general/client/:clientId', async (req, res) => {
 })
 
 inventoryRouter.get('/lots', async (req, res) => {
-    const result = await callSAPServer(queries.inventory.getAllLots)
-    return res.status(200).json({message: result})
+    const lotsQuery = await callSAPServer(queries.inventory.getAllLots)
+    const result = [];
+    
+    for (let i =0; i < lotsQuery.length; i++) {
+        let obj = {}
+        const lot = lotsQuery[i];
+        obj.lot = lot
+        obj.reception = null
+        obj.delivery = null
+        obj.lineArticles = null
+        if (lot.Direction === 0) {
+            let receptionQuery = await callSAPServer(`${queries.reception.getReceptionByDocNum}${lot.BaseNum}`)
+            obj.reception = receptionQuery[0]
+            let lineArticlesQuery = await callSAPServer(`${queries.reception.getReceptionLineArticlesByDocEntry}${receptionQuery[0].DocEntry}`)
+            obj.lineArticles = lineArticlesQuery
+        }
+        if (lot.Direction === 1) {
+            let deliveryQuery = await callSAPServer(`${queries.delivery.getDeliveryByDocNum}${lot.BaseNum}`)
+            obj.delivery = deliveryQuery[0]
+            let lineArticlesQuery = await callSAPServer(`${queries.delivery.getDeliveryLineArticlesByDocEntry}${deliveryQuery[0].DocEntry}`)
+            obj.lineArticles = lineArticlesQuery
+        }
+        result.push(obj)
+    }
+    return res.status(200).json({result: result})
 })
 
 
@@ -36,7 +59,7 @@ inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
     const { clientId } = req.params
     const fullQuery = `${queries.inventory.getLotsPerClient}'${clientId}'` 
     const lotsQuery = await callSAPServer(fullQuery)
-    const result = []
+    const result = [];
 
     for (let i =0; i < lotsQuery.length; i++) {
         let obj = {}
@@ -63,15 +86,34 @@ inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
 })
 
 inventoryRouter.get('/series', async (req, res) => {
-    const result = await callSAPServer(queries.inventory.getAllSerialNumber)
+    const seriesQuery = await callSAPServer(queries.inventory.getAllSerialNumber)
+    const result = [];
+
+    for (let i =0; i < seriesQuery.length; i++) {
+        let obj = {}
+        const lot = seriesQuery[i];
+        obj.lot = lot
+        obj.reception = null
+        obj.delivery = null
+        obj.lineArticles = null
+        if (lot.Direction === 0) {
+            let receptionQuery = await callSAPServer(`${queries.reception.getReceptionByDocNum}${lot.BaseNum}`)
+            obj.reception = receptionQuery[0]
+            let lineArticlesQuery = await callSAPServer(`${queries.reception.getReceptionLineArticlesByDocEntry}${receptionQuery[0].DocEntry}`)
+            obj.lineArticles = lineArticlesQuery
+        }
+        if (lot.Direction === 1) {
+            let deliveryQuery = await callSAPServer(`${queries.delivery.getDeliveryByDocNum}${lot.BaseNum}`)
+            obj.delivery = deliveryQuery[0]
+            let lineArticlesQuery = await callSAPServer(`${queries.delivery.getDeliveryLineArticlesByDocEntry}${deliveryQuery[0].DocEntry}`)
+            obj.lineArticles = lineArticlesQuery
+        }
+        result.push(obj)
+    }
     return res.status(200).json({message: result})
 })
 
 inventoryRouter.get('/series/client/:clientId', async (req, res) => {
-    
-
-
-
     const { clientId } = req.params
     const fullQuery = `${queries.inventory.getAllSerialNumberClient} '${clientId}'` 
     const seriesQuery = await callSAPServer(fullQuery)
