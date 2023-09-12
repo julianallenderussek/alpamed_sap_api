@@ -215,10 +215,10 @@ deliveryRouter.post('/update', async (req, res) => {
 deliveryRouter.post("/runScript/update/wms_id/:wms_id", async function (req, res) {
   const { wms_id } = req.params
 
-  const resultPurchseOrder = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
-  console.log(resultPurchseOrder)
-  if (resultPurchseOrder.length <= 0) {
-    return res.status(403).json({ message: "`Purchase Order With ID does not exists in Sap", data: resultPurchseOrder })
+  const resultPurchaseOrder = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${wms_id}'`)
+  console.log(resultPurchaseOrder)
+  if (resultPurchaseOrder.length <= 0) {
+    return res.status(403).json({ message: "`Purchase Order With ID does not exists in Sap", data: resultPurchaseOrder })
   }
   runScript(filePaths.purchaseOrder.batUpdate)
     .then(async (stdout) => {
