@@ -1,0 +1,7 @@
+ParentKey	LineNum	BatchNumber	ManufacturerSerialNumber	InternalSerialNumber	ExpiryDate	ManufacturingDate	AddmisionDate	Location	Notes	Quantity	BaseLineNumber
+DocNum	LineNum	DistNumber	MnfSerial	LotNumber	ExpDate	MnfDate	InDate	Location	Notes	Quantity	DocLineNum
+1		168865287253200								67	0
+1		168865287253210								1	1
+1		168865287253211								1	1
+1		168865287253212								1	1
+1		168865287253213								1	1

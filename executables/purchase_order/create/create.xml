@@ -38,6 +38,7 @@
                <SalesPersonCode />
                <DocDueDate />
                <CardName />
+  		<Series />
                <CntctCode />
                <TaxDate />
                <U_ID_OV />
@@ -69,6 +70,7 @@
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
                <DocNum>DocNum</DocNum>
+		<Series>Series</Series>
                <DocDate>DocDate</DocDate>
                <CardCode>CardCode</CardCode>
                <NumAtCard>NumAtCard</NumAtCard>
