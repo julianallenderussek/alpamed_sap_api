@@ -21,7 +21,10 @@ receptionRouter.post('/test', async (req, res) => {
 ///// MATERIAL
 receptionRouter.get('/check/:wms_id', async (req, res) => {
   const { wms_id } = req.params;
-  const result = await callSAPServer(`SELECT * FROM ORDN WHERE U_ID_WMS=${wms_id}`)
+  console.log(wms_id)
+	const finalQuery = `SELECT * FROM ORDN WHERE U_ID_WMS='${wms_id.toString()}'`
+	console.log("Show me the money", finalQuery)
+	const result = await callSAPServer(finalQuery)
   if (!result) {
   return res.status(404).json({message: `Reception with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
