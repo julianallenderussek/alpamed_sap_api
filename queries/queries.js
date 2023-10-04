@@ -38,6 +38,9 @@ const queries = {
     delivery: {
         getDeliveryByDocNum: `SELECT * FROM ODLN WHERE DocNum=`,
         getDeliveryLineArticlesByDocEntry: `SELECT * FROM DLN1 WHERE DocEntry=`
+    },
+    warehouse: {
+        locations: 'SELECT * from dbo.OWHS'
     }
 };
 

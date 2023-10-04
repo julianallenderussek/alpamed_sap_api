@@ -12,6 +12,10 @@ const queries = require('../queries/queries');
 /////////////////////////
 /////////CREATE//////////
 /////////////////////////
+inventoryRouter.get('/warehouses', async (req, res) => {
+    const result = await callSAPServer(queries.warehouse.locations)
+    return res.status(200).json({message: result})
+})
 
 inventoryRouter.get('/general', async (req, res) => {
   const result = await callSAPServer(queries.inventory.getAllGeneral)
