@@ -38,7 +38,7 @@
                <SalesPersonCode />
                <DocDueDate />
                <CardName />
-  		<Series />
+  		         <Series />
                <CntctCode />
                <TaxDate />
                <U_ID_OV />
@@ -66,11 +66,13 @@
                <U_Patente />
                <U_V_Aduana />
                <U_ID_WMS />
+               <U_PuertoDestino />
+               <U_PuertoOrigen />
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
                <DocNum>DocNum</DocNum>
-		<Series>Series</Series>
+		         <Series>Series</Series>
                <DocDate>DocDate</DocDate>
                <CardCode>CardCode</CardCode>
                <NumAtCard>NumAtCard</NumAtCard>
@@ -104,6 +106,8 @@
                <U_Patente>U_Patente</U_Patente>
                <U_V_Aduana>U_V_Aduana</U_V_Aduana>
                <U_ID_WMS>U_ID_WMS</U_ID_WMS>
+               <U_PuertoOrigen><U_PuertoOrigen></U_PuertoOrigen>
+               <U_PuertoDestino><U_PuertoDestino></U_PuertoDestino>
             </TargetFields>
          </Documents>
          <Document_Lines>
