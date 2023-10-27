@@ -19,8 +19,8 @@ const queries = {
         getEstatus: `SELECT FldValue, Descr FROM dbo.UFD1 WHERE TableID LIKE '%ORDR%' AND FieldID = 27`,
         getIMO: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@IMO]`,
         getTransporte: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@TRANSPORTE]`,
-        getPuertoOrigen: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_ORIGEN]`,
-        getPuertoDestin: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_DESTINO]`,
+        getPuertoOrigen: `SELECT [Code] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_ORIGEN]`,
+        getPuertoDestin: `SELECT [Code] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_DESTINO]`,
         getClients: `SELECT * FROM dbo.OCRD WHERE CardCode LIKE 'CL%';`,
         location: 'SELECT WhsCode from dbo.OWHS'
     },
