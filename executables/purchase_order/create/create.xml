@@ -66,8 +66,6 @@
                <U_Patente />
                <U_V_Aduana />
                <U_ID_WMS />
-               <U_PuertoDestino />
-               <U_PuertoOrigen />
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
@@ -106,8 +104,6 @@
                <U_Patente>U_Patente</U_Patente>
                <U_V_Aduana>U_V_Aduana</U_V_Aduana>
                <U_ID_WMS>U_ID_WMS</U_ID_WMS>
-               <U_PuertoOrigen><U_PuertoOrigen></U_PuertoOrigen>
-               <U_PuertoDestino><U_PuertoDestino></U_PuertoDestino>
             </TargetFields>
          </Documents>
          <Document_Lines>
@@ -181,7 +177,8 @@
                <U_NSalida />
                <U_Buque1 />
                <ImportLog />
-	       <U_U_IDL_WMS />
+	            <U_U_IDL_WMS />
+               <U_PaisDestino />
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
@@ -251,7 +248,8 @@
                <U_IGI_actual>U_IGI_actual</U_IGI_actual>
                <U_NSalida>U_NSalida</U_NSalida>
                <U_Buque1>U_Buque1</U_Buque1>
-	       <U_U_IDL_WMS>U_U_IDL_WMS</U_U_IDL_WMS> 
+      	      <U_U_IDL_WMS>U_U_IDL_WMS</U_U_IDL_WMS>
+               <U_PaisDestino>U_PaisDestino</U_PaisDestino> 
             </TargetFields>
          </Document_Lines>
       </Fields>
