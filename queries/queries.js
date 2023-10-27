@@ -21,7 +21,8 @@ const queries = {
         getTransporte: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@TRANSPORTE]`,
         getPuertoOrigen: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_ORIGEN]`,
         getPuertoDestin: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_DESTINO]`,
-        getClients: `SELECT * FROM dbo.OCRD WHERE CardCode LIKE 'CL%';`
+        getClients: `SELECT * FROM dbo.OCRD WHERE CardCode LIKE 'CL%';`,
+        location: 'SELECT WhsCode from dbo.OWHS'
     },
     inventory: {
         getAllLots: "SELECT * FROM dbo.IBT1;",
@@ -38,9 +39,6 @@ const queries = {
     delivery: {
         getDeliveryByDocNum: `SELECT * FROM ODLN WHERE DocNum=`,
         getDeliveryLineArticlesByDocEntry: `SELECT * FROM DLN1 WHERE DocEntry=`
-    },
-    warehouse: {
-        locations: 'SELECT * from dbo.OWHS'
     }
 };
 
