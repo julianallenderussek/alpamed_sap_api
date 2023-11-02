@@ -28,6 +28,7 @@ const receptionRouter = require("./routes/reception");
 const deliveryRouter = require("./routes/delivery");
 const inventoryRouter = require("./routes/inventories");
 const pdfRouter = require("./routes/pdf");
+const clientsRouter = require("./routes/clients");
 
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -379,6 +380,7 @@ async function createTxtFile(arr1, arr2, arr3) {
 
 app.use('/purchaseOrder', purchaseOrderRouter );
 app.use('/reception', receptionRouter );
+app.use('/clients', clientsRouter );
 app.use('/delivery', deliveryRouter );
 app.use('/logs', logsRouter );
 app.use('/inventories', inventoryRouter );

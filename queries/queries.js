@@ -21,7 +21,8 @@ const queries = {
         getTransporte: `SELECT [Code],[Name] FROM [AMD_Entrenamiento].[dbo].[@TRANSPORTE]`,
         getPuertoOrigen: `SELECT [Code] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_ORIGEN]`,
         getPuertoDestin: `SELECT [Code] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_DESTINO]`,
-        getClients: `SELECT * FROM dbo.OCRD WHERE CardCode LIKE 'CL%';`,
+        getClients: `SELECT CardName,CardCode, Country, City, Currency, LicTradNum, Phone1, Phone2, MailZipCod, Address FROM dbo.OCRD`,
+        getClientById: `SELECT CardName,CardCode, Country, City, Currency, LicTradNum, Phone1, Phone2, MailZipCod, Address FROM dbo.OCRD WHERE CardCode=`,
         location: 'SELECT WhsCode from dbo.OWHS'
     },
     inventory: {
