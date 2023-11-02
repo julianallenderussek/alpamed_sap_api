@@ -9,7 +9,7 @@ const { runScript } = require("../helpers/general/runScript");
 const callSAPServer = require('../queries/sapQuery');
 const queries = require('../queries/queries');
 
-clientsRouter.get('/clients:clientId', async (req, res) => {
+clientsRouter.get('/:clientId', async (req, res) => {
     const { clientId } = req.params
     const fullQuery = `${queries.tables.getClientById}'${clientId}'` 
     console.log(fullQuery)
@@ -17,7 +17,7 @@ clientsRouter.get('/clients:clientId', async (req, res) => {
     return res.status(200).json({message: result})
 })
 
-clientsRouter.get('/clients', async (req, res) => {
+clientsRouter.get('/', async (req, res) => {
  const result = await callSAPServer(queries.tables.getClients)
  return res.status(200).json({message: result})
 })
