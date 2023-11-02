@@ -1,6 +1,6 @@
 const readTemplateSingle = require('../helpers/general/readTemplateSingle');
 const { createTxtFiles, createTxtFile } = require('../helpers/general/createTxtFile');
-const inventoryRouter = require('express').Router();
+const clientsRouter = require('express').Router();
 const path = require('path');
 const filePaths = require('../filePaths');
 const logger = require('../config/logger');
