@@ -23,4 +23,4 @@ clientsRouter.get('/clients', async (req, res) => {
 })
 
 
-module.exports = inventoryRouter;
+module.exports = clientsRouter;
