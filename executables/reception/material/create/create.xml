@@ -478,6 +478,7 @@
           <Quantity />
           <BaseLineNumber />
           <MnfSerial/>
+          <WhsCode/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -493,6 +494,7 @@
           <Quantity>Quantity</Quantity>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
           <MnfSerial>MnfSerialM</MnfSerial>
+          <WhsCode>WhsCode</WhsCode>
         </TargetFields>
       </BatchNumbers>
     </Fields>
