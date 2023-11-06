@@ -46,7 +46,11 @@ inventoryRouter.get('/lots', async (req, res) => {
         let obj = {}
         const lot = lotsQuery[i];
         obj.lot = lot
-        obj.lot.MnfSerial = identifiers.find(lotInfo => lotInfo.DistNumber === lot.BatchNumber)
+        const lotID = identifiers.find(lotInfo => lotInfo.DistNumber === lot.BatchNumber)
+        if (lotID) {
+            obj.lot.MnfSerial = lotID 
+            console.log("MATCH", lotID, lot.BatchNumber)
+        }
         obj.reception = null
         obj.delivery = null
         obj.lineArticles = null
@@ -75,10 +79,18 @@ inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
     const lotsQuery = await callSAPServer(fullQuery)
     const result = [];
 
+    const identifiers = await callSAPServer(queries.inventory.getLotIdentifiers)
+    
     for (let i =0; i < lotsQuery.length; i++) {
         let obj = {}
         const lot = lotsQuery[i];
         obj.lot = lot
+        const lotID = identifiers.find(lotInfo => lotInfo.DistNumber === lot.BatchNumber)
+        if (lotID) {
+            console.log("MATCH", lotID, lot.BatchNumber)
+            obj.lot.MnfSerial = lotID 
+        }
+    
         obj.reception = null
         obj.delivery = null
         obj.lineArticles = null
