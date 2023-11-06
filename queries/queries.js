@@ -27,6 +27,7 @@ const queries = {
     },
     inventory: {
         getAllLots: "SELECT * FROM dbo.IBT1;",
+        getLotIdentifiers: "SELECT MnfSerial, DistNumber from OBTN",
         getLotsPerClient: `SELECT * FROM dbo.IBT1 WHERE CardCode=`,
         getAllSerialNumber: "SELECT * FROM dbo.SRI1;",
         getAllSerialNumberClient: `SELECT * FROM dbo.SRI1 WHERE CardCode=`,
