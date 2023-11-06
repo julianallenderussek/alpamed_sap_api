@@ -46,7 +46,9 @@ inventoryRouter.get('/lots', async (req, res) => {
         let obj = {}
         const lot = lotsQuery[i];
         obj.lot = lot
-        const lotID = identifiers.find(lotInfo => lotInfo.DistNumber === lot.BatchNumber)
+        
+        console.log("MATCH", lotID, lot.BatchNumber)
+        const lotID = await identifiers.find(lotInfo => lotInfo.DistNumber === lot.BatchNumber)
         if (lotID) {
             obj.lot.MnfSerial = lotID 
             console.log("MATCH", lotID, lot.BatchNumber)
@@ -85,7 +87,7 @@ inventoryRouter.get('/lots/client/:clientId', async (req, res) => {
         let obj = {}
         const lot = lotsQuery[i];
         obj.lot = lot
-        const lotID = identifiers.find(lotInfo => lotInfo.DistNumber === lot.BatchNumber)
+        const lotID = await identifiers.find(lotInfo => lotInfo.DistNumber === lot.BatchNumber)
         if (lotID) {
             console.log("MATCH", lotID, lot.BatchNumber)
             obj.lot.MnfSerial = lotID 
