@@ -183,6 +183,8 @@
                <U_Buque1 />
                <ImportLog />
 	            <U_U_IDL_WMS />
+	            <U_L_P_Origen/>
+	            <U_L_P_Destino/>
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
@@ -253,7 +255,9 @@
                <U_IGI_actual>U_IGI_actual</U_IGI_actual>
                <U_NSalida>U_NSalida</U_NSalida>
                <U_Buque1>U_Buque1</U_Buque1>
-      	      <U_U_IDL_WMS>U_U_IDL_WMS</U_U_IDL_WMS> 
+      	      <U_U_IDL_WMS>U_U_IDL_WMS</U_U_IDL_WMS>
+               <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
+	            <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino> 
             </TargetFields>
          </Document_Lines>
       </Fields>

@@ -354,6 +354,8 @@
           <AgrementNo />
           <AgreementRowNumber />
           <ShipToDescription />
+          <U_L_P_Origen/>
+	        <U_L_P_Destino/> 
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -460,6 +462,8 @@
           <WithoutInventoryMovement>WithoutInventoryMovement</WithoutInventoryMovement>
           <AgreementRowNumber>AgreementRowNumber</AgreementRowNumber>
           <ShipToDescription>ShipToDescription</ShipToDescription>
+          <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
+          <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino> 
         </TargetFields>
       </Document_Lines>
       <BatchNumbers>
