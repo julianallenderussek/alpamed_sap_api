@@ -30,17 +30,27 @@ inventoryRouter.get('/general/client/:clientId', async (req, res) => {
     return res.status(200).json({message: result})
 })
 
+inventoryRouter.get('/identifiers', async (req, res) => {
+    
+    const identifiers = await callSAPServer(queries.inventory.getAllLots)
+    return res.status(200).json({identifiers: identifiers})
+})
+
 inventoryRouter.get('/lots', async (req, res) => {
     const lotsQuery = await callSAPServer(queries.inventory.getAllLots)
     const result = [];
+
+    const identifiers = await callSAPServer(queries.inventory.getAllLots)
     
     for (let i =0; i < lotsQuery.length; i++) {
         let obj = {}
         const lot = lotsQuery[i];
         obj.lot = lot
+        obj.lot.MnfSerial = identifiers.find(lotInfo => lotInfo.DistNumber === lot.BatchNumber)
         obj.reception = null
         obj.delivery = null
         obj.lineArticles = null
+
         if (lot.Direction === 0) {
             let receptionQuery = await callSAPServer(`${queries.reception.getReceptionByDocNum}${lot.BaseNum}`)
             obj.reception = receptionQuery[0]
