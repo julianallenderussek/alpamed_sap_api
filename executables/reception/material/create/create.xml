@@ -354,8 +354,8 @@
           <AgrementNo />
           <AgreementRowNumber />
           <ShipToDescription />
-          <U_L_P_Origen/>
-	        <U_L_P_Destino/> 
+          <U_L_P_Origen />
+	        <U_L_P_Destino /> 
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
