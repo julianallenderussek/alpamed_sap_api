@@ -493,7 +493,7 @@
           <Notes>Notes</Notes>
           <Quantity>Quantity</Quantity>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
-          <MnfSerial>MnfSerialM</MnfSerial>
+          <MnfSerial>MnfSerial</MnfSerial>
           <WhsCode>WhsCode</WhsCode>
         </TargetFields>
       </BatchNumbers>
