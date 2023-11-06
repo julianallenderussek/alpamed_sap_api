@@ -477,6 +477,7 @@
           <Notes />
           <Quantity />
           <BaseLineNumber />
+          <MnfSerial/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -491,6 +492,7 @@
           <Notes>Notes</Notes>
           <Quantity>Quantity</Quantity>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
+          <MnfSerial>MnfSerialM</MnfSerial>
         </TargetFields>
       </BatchNumbers>
     </Fields>
