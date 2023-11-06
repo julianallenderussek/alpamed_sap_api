@@ -354,6 +354,7 @@
           <AgrementNo />
           <AgreementRowNumber />
           <ShipToDescription />
+          <WhsCode/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -460,6 +461,7 @@
           <WithoutInventoryMovement>WithoutInventoryMovement</WithoutInventoryMovement>
           <AgreementRowNumber>AgreementRowNumber</AgreementRowNumber>
           <ShipToDescription>ShipToDescription</ShipToDescription>
+          <WhsCode>WhsCode</WhsCode>
         </TargetFields>
       </Document_Lines>
       <SerialNumbers>
