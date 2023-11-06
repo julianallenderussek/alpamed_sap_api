@@ -32,7 +32,7 @@ inventoryRouter.get('/general/client/:clientId', async (req, res) => {
 
 inventoryRouter.get('/identifiers', async (req, res) => {
     
-    const identifiers = await callSAPServer(queries.inventory.getAllLots)
+    const identifiers = await callSAPServer(queries.inventory.getLotIdentifiers)
     return res.status(200).json({identifiers: identifiers})
 })
 
@@ -40,7 +40,7 @@ inventoryRouter.get('/lots', async (req, res) => {
     const lotsQuery = await callSAPServer(queries.inventory.getAllLots)
     const result = [];
 
-    const identifiers = await callSAPServer(queries.inventory.getAllLots)
+    const identifiers = await callSAPServer(queries.inventory.getLotIdentifiers)
     
     for (let i =0; i < lotsQuery.length; i++) {
         let obj = {}
