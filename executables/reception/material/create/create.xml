@@ -138,6 +138,7 @@
           <InsuranceOperation347 />
           <ArchiveNonremovableSalesQuotation />
           <U_ID_WMS/>
+          <U_FechaPago />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -244,6 +245,7 @@
           <InsuranceOperation347>InsuranceOperation347</InsuranceOperation347>
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
+          <U_FechaPago>U_FechaPago</U_FechaPago>
         </TargetFields>
       </Documents>
       <Document_Lines>
@@ -353,10 +355,14 @@
           <WithoutInventoryMovement />
           <AgrementNo />
           <AgreementRowNumber />
-          <ShipToDescription />
+          <ShipToDescription />          
+          <WhsCode/>
           <U_L_P_Origen />
 	        <U_L_P_Destino />
-          <U_FechaPago /> 
+          <U_UMComercial/>
+          <U_MontoUSD />
+          <U_FraccionA />
+          <U_NoFactura/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -463,9 +469,13 @@
           <WithoutInventoryMovement>WithoutInventoryMovement</WithoutInventoryMovement>
           <AgreementRowNumber>AgreementRowNumber</AgreementRowNumber>
           <ShipToDescription>ShipToDescription</ShipToDescription>
+          <WhsCode>WhsCode</WhsCode>
           <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
           <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino>
-          <U_FechaPago>U_FechaPago</U_FechaPago> 
+          <U_UMComercial>U_UMComercial</U_UMComercial>
+          <U_MontoUSD >U_MontoUSD</U_MontoUSD>
+          <U_FraccionA>U_FraccionA</U_FraccionA>
+          <U_NoFactura>U_NoFactura</U_NoFactura>
         </TargetFields>
       </Document_Lines>
       <BatchNumbers>
@@ -485,10 +495,7 @@
           <BaseLineNumber />
           <MnfSerial/>
           <WhsCode/>
-           <U_UMcomercial/>
-          <U_MontoUSD />
-          <U_FraccionA />
-          <U_NoFactura/>
+
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -505,10 +512,6 @@
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
           <MnfSerial>MnfSerial</MnfSerial>
           <WhsCode>WhsCode</WhsCode>
-          <U_UMcomercial>U_UMcomercial</U_UMcomercial>
-          <U_MontoUSD >U_MontoUSD</U_MontoUSD>
-          <U_FraccionA>U_FraccionA</U_FraccionA>
-          <U_NoFactura>U_NoFactura</U_NoFactura>
         </TargetFields>
       </BatchNumbers>
     </Fields>

@@ -138,6 +138,7 @@
           <InsuranceOperation347 />
           <ArchiveNonremovableSalesQuotation />
           <U_ID_WMS />
+          <U_FechaPago />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -244,6 +245,7 @@
           <InsuranceOperation347>InsuranceOperation347</InsuranceOperation347>
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
+          <U_FechaPago>U_FechaPago</U_FechaPago>
         </TargetFields>
       </Documents>
       <Document_Lines>
@@ -355,7 +357,12 @@
           <AgreementRowNumber />
           <ShipToDescription />
           <WhsCode />
-          <U_FechaPago />
+          <U_L_P_Origen />
+          <U_L_P_Destino />
+          <U_UMComercial />
+          <U_MontoUSD />
+          <U_FraccionA />
+          <U_NoFactura />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -463,7 +470,12 @@
           <AgreementRowNumber>AgreementRowNumber</AgreementRowNumber>
           <ShipToDescription>ShipToDescription</ShipToDescription>
           <WhsCode>WhsCode</WhsCode>
-          <U_FechaPago>U_FechaPago</U_FechaPago>
+          <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
+          <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino>
+          <U_UMComercial>U_UMComercial</U_UMComercial>
+          <U_MontoUSD >U_MontoUSD</U_MontoUSD>
+          <U_FraccionA>U_FraccionA</U_FraccionA>
+          <U_NoFactura>U_NoFactura</U_NoFactura>
         </TargetFields>
       </Document_Lines>
       <SerialNumbers>
@@ -483,10 +495,6 @@
           <BatchID />
           <SystemSerialNumber />
           <BaseLineNumber />
-          <U_UMcomercial />
-          <U_MontoUSD />
-          <U_FraccionA />
-          <U_NoFactura />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -503,10 +511,7 @@
           <BatchID>BatchID</BatchID>
           <SystemSerialNumber>SystemSerialNumber</SystemSerialNumber>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
-          <U_UMcomercial>U_UMcomercial</U_UMcomercial>
-          <U_MontoUSD >U_MontoUSD</U_MontoUSD>
-          <U_FraccionA>U_FraccionA</U_FraccionA>
-          <U_NoFactura>U_NoFactura</U_NoFactura>
+
         </TargetFields>
       </SerialNumbers>
     </Fields>
