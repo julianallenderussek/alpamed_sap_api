@@ -498,9 +498,9 @@
           <Notes>Notes</Notes>
           <Quantity>Quantity</Quantity>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
-          <U_UMcomercial>U_UMcomercial</U_UMcomercial/>
+          <U_UMcomercial>U_UMcomercial</U_UMcomercial>
           <U_MontoUSD >U_MontoUSD</U_MontoUSD>
-          <U_FraccionA>U_FraccionA</U_FraccionA />
+          <U_FraccionA>U_FraccionA</U_FraccionA>
           <U_NoFactura>U_NoFactura</U_NoFactura>
         </TargetFields>
       </BatchNumbers>
