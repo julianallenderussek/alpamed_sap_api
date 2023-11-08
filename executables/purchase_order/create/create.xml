@@ -68,6 +68,7 @@
                <U_ID_WMS />
                <U_PuertoDestino />
                <U_PuertoOrigen />
+               <U_FechaPago />
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
@@ -108,6 +109,7 @@
                <U_ID_WMS>U_ID_WMS</U_ID_WMS>
                <U_PuertoDestino>U_PuertoDestino</U_PuertoDestino>
                <U_Puerto>U_Puerto</U_Puerto>
+               <U_FechaPago>U_FechaPago</U_FechaPago>
             </TargetFields>
          </Documents>
          <Document_Lines>
@@ -185,6 +187,10 @@
 	            <U_U_IDL_WMS />
 	            <U_L_P_Origen />
 	            <U_L_P_Destino />
+               <U_UMComercial/>
+               <U_MontoUSD />
+               <U_FraccionA />
+               <U_NoFactura/>
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
@@ -258,6 +264,10 @@
       	      <U_U_IDL_WMS>U_U_IDL_WMS</U_U_IDL_WMS>
                <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
 	            <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino> 
+               <U_UMComercial>U_UMComercial</U_UMComercial>
+               <U_MontoUSD >U_MontoUSD</U_MontoUSD>
+               <U_FraccionA>U_FraccionA</U_FraccionA>
+               <U_NoFactura>U_NoFactura</U_NoFactura>
             </TargetFields>
          </Document_Lines>
       </Fields>
