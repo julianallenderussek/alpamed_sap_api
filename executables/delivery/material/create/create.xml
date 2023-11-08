@@ -461,7 +461,8 @@
           <WithoutInventoryMovement>WithoutInventoryMovement</WithoutInventoryMovement>
           <AgreementRowNumber>AgreementRowNumber</AgreementRowNumber>
           <ShipToDescription>ShipToDescription</ShipToDescription>
-          <WhsCode>WhsCode<WhsCode/>
+          <WhsCode>WhsCode</WhsCode>
+          <U_FechaPago>U_FechaPago</U_FechaPago>
         </TargetFields>
       </Document_Lines>
       <BatchNumbers>
@@ -479,6 +480,10 @@
           <Notes />
           <Quantity />
           <BaseLineNumber />
+          <U_UMcomercial />
+          <U_MontoUSD />
+          <U_FraccionA />
+          <U_NoFactura />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -493,6 +498,10 @@
           <Notes>Notes</Notes>
           <Quantity>Quantity</Quantity>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
+          <U_UMcomercial>U_UMcomercial</U_UMcomercial/>
+          <U_MontoUSD >U_MontoUSD</U_MontoUSD>
+          <U_FraccionA>U_FraccionA</U_FraccionA />
+          <U_NoFactura>U_NoFactura</U_NoFactura>
         </TargetFields>
       </BatchNumbers>
     </Fields>

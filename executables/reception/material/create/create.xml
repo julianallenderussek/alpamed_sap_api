@@ -355,7 +355,8 @@
           <AgreementRowNumber />
           <ShipToDescription />
           <U_L_P_Origen />
-	        <U_L_P_Destino /> 
+	        <U_L_P_Destino />
+          <U_FechaPago /> 
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -463,7 +464,8 @@
           <AgreementRowNumber>AgreementRowNumber</AgreementRowNumber>
           <ShipToDescription>ShipToDescription</ShipToDescription>
           <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
-          <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino> 
+          <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino>
+          <U_FechaPago>U_FechaPago</U_FechaPago> 
         </TargetFields>
       </Document_Lines>
       <BatchNumbers>
@@ -483,6 +485,10 @@
           <BaseLineNumber />
           <MnfSerial/>
           <WhsCode/>
+           <U_UMcomercial/>
+          <U_MontoUSD />
+          <U_FraccionA />
+          <U_NoFactura/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -499,6 +505,10 @@
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
           <MnfSerial>MnfSerial</MnfSerial>
           <WhsCode>WhsCode</WhsCode>
+          <U_UMcomercial>U_UMcomercial</U_UMcomercial>
+          <U_MontoUSD >U_MontoUSD</U_MontoUSD>
+          <U_FraccionA>U_FraccionA</U_FraccionA>
+          <U_NoFactura>U_NoFactura</U_NoFactura>
         </TargetFields>
       </BatchNumbers>
     </Fields>

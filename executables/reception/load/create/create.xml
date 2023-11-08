@@ -357,6 +357,7 @@
           <WhsCode/>
           <U_L_P_Origen/>
           <U_L_P_Destino/> 
+          <U_FechaPago/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -466,6 +467,7 @@
           <WhsCode>WhsCode</WhsCode>
           <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
           <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino> 
+          <U_FechaPago>U_FechaPago</U_FechaPago>
         </TargetFields>
       </Document_Lines>
       <SerialNumbers>
@@ -485,6 +487,10 @@
           <BatchID />
           <SystemSerialNumber />
           <BaseLineNumber />
+          <U_UMcomercial />
+          <U_MontoUSD />
+          <U_FraccionA/>
+          <U_NoFactura/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -501,6 +507,10 @@
           <BatchID>BatchID</BatchID>
           <SystemSerialNumber>SystemSerialNumber</SystemSerialNumber>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
+          <U_UMcomercial>U_UMcomercial</U_UMcomercial>
+          <U_MontoUSD >U_MontoUSD</U_MontoUSD>
+          <U_FraccionA>U_FraccionA</U_FraccionA>
+          <U_NoFactura>U_NoFactura</U_NoFactura>
         </TargetFields>
       </SerialNumbers>
     </Fields>
