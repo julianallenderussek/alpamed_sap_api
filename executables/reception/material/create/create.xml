@@ -359,10 +359,10 @@
           <WhsCode/>
           <U_L_P_Origen />
 	        <U_L_P_Destino />
-          <U_UMComercial/>
+          <U_UMComercial />
           <U_MontoUSD />
           <U_FraccionA />
-          <U_NoFactura/>
+          <U_NoFactura />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -495,7 +495,6 @@
           <BaseLineNumber />
           <MnfSerial/>
           <WhsCode/>
-
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
