@@ -356,7 +356,6 @@
           <AgrementNo />
           <AgreementRowNumber />
           <ShipToDescription />
-          <WhsCode/>
           <U_L_P_Origen />
           <U_L_P_Destino /> 
           <U_UMComercial />
@@ -469,7 +468,6 @@
           <WithoutInventoryMovement>WithoutInventoryMovement</WithoutInventoryMovement>
           <AgreementRowNumber>AgreementRowNumber</AgreementRowNumber>
           <ShipToDescription>ShipToDescription</ShipToDescription>
-          <WhsCode>WhsCode</WhsCode>
           <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
           <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino>
           <U_UMComercial>U_UMComercial</U_UMComercial>
