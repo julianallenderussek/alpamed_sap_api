@@ -139,6 +139,8 @@
           <ArchiveNonremovableSalesQuotation />
           <U_ID_WMS />
           <U_FechaPago />
+          <U_C_Provedor/>
+          <U_N_Tarja/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -246,6 +248,8 @@
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
           <U_FechaPago>U_FechaPago</U_FechaPago>
+          <U_C_Provedor>U_C_Provedor</U_C_Provedor>
+          <U_N_Tarja>U_N_Tarja</U_N_Tarja>
         </TargetFields>
       </Documents>
       <Document_Lines>
