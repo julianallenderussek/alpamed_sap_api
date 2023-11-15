@@ -138,7 +138,7 @@
           <InsuranceOperation347 />
           <ArchiveNonremovableSalesQuotation />
           <U_ID_WMS />
-          <U_FechaPago />
+          <U_Fecha_Pago />
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -245,7 +245,7 @@
           <InsuranceOperation347>InsuranceOperation347</InsuranceOperation347>
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
-          <U_FechaPago>U_FechaPago</U_FechaPago>
+          <U_Fecha_Pago>U_Fecha_Pago</U_Fecha_Pago>
         </TargetFields>
       </Documents>
       <Document_Lines>
