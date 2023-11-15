@@ -250,10 +250,10 @@
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
           <U_Fecha_Pago>U_Fecha_Pago</U_Fecha_Pago>
-          <U_C_Provedor>U_C_Provedor</U_C_Provedor>
           <U_N_Tarja>U_N_Tarja</U_N_Tarja>
           <U_Regimen>U_Regimen</U_Regimen>
           <U_Proveedor>U_Proveedor</U_Proveedor>
+          <U_C_Provedor>U_C_Provedor</U_C_Provedor>
         </TargetFields>
       </Documents>
       <Document_Lines>
