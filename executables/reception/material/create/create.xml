@@ -374,7 +374,7 @@
           <U_Placas/>
           <U_N_Operador/>
           <U_BL/>
-          <U_N_pedimento/>
+          <U_N_Pedimento/>
           <U_L_Clave_Pedimento/>
           <U_PaisOrigen/>
           <U_PaisDestino/>
@@ -495,7 +495,7 @@
           <U_Placas>U_Placas</U_Placas>
           <U_N_Operador>U_N_Operador</U_N_Operador>
           <U_BL>U_BL</U_BL>
-          <U_N_pedimento>U_N_pedimento</U_N_pedimento>
+          <U_N_Pedimento>U_N_Pedimento</U_N_Pedimento>
           <U_L_Clave_Pedimento>U_L_Clave_Pedimento</U_L_Clave_Pedimento>
           <U_PaisOrigen>U_PaisOrigen</U_PaisOrigen>
           <U_PaisDestino>U_PaisDestino</U_PaisDestino>
