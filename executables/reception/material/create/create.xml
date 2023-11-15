@@ -514,6 +514,7 @@
           <ManufacturingDate />
           <AddmisionDate />
           <Location />
+          <WarehouseCode />
           <Notes />
           <Quantity />
           <BaseLineNumber />
@@ -530,6 +531,7 @@
           <ManufacturingDate>ManufacturingDate</ManufacturingDate>
           <AddmisionDate>AddmisionDate</AddmisionDate>
           <Location>Location</Location>
+          <WarehouseCode>WarehouseCode</WarehouseCode>
           <Notes>Notes</Notes>
           <Quantity>Quantity</Quantity>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
