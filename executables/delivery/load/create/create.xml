@@ -139,6 +139,10 @@
           <ArchiveNonremovableSalesQuotation />
           <U_ID_WMS />
           <U_Fecha_Pago />
+          <U_C_Provedor/>
+          <U_N_Tarja/>
+          <U_Regimen/>
+          <U_Proveedor/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -246,6 +250,10 @@
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
           <U_Fecha_Pago>U_Fecha_Pago</U_Fecha_Pago>
+          <U_C_Provedor>U_C_Provedor</U_C_Provedor>
+          <U_N_Tarja>U_N_Tarja</U_N_Tarja>
+          <U_Regimen>U_Regimen</U_Regimen>
+          <U_Proveedor>U_Proveedor</U_Proveedor>
         </TargetFields>
       </Documents>
       <Document_Lines>
@@ -362,6 +370,15 @@
           <U_MontoUSD />
           <U_FraccionA />
           <U_NoFactura />
+          <U_transporte />
+          <U_Placas/>
+          <U_N_Operador/>
+          <U_BL/>
+          <U_N_pedimento/>
+          <U_L_Clave_Pedimento/>
+          <U_PaisOrigen/>
+          <U_PaisDestino/>
+          <U_FechaPedimento/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -474,6 +491,15 @@
           <U_MontoUSD >U_MontoUSD</U_MontoUSD>
           <U_FraccionA>U_FraccionA</U_FraccionA>
           <U_NoFactura>U_NoFactura</U_NoFactura>
+          <U_transporte>U_transporte<U_transporte>
+          <U_Placas>U_Placas</U_Placas>
+          <U_N_Operador>U_N_Operador</U_N_Operador>
+          <U_BL>U_BL</U_BL>
+          <U_N_pedimento>U_N_pedimento</U_N_pedimento>
+          <U_L_Clave_Pedimento>U_L_Clave_Pedimento</U_L_Clave_Pedimento>
+          <U_PaisOrigen>U_PaisOrigen</U_PaisOrigen>
+          <U_PaisDestino>U_PaisDestino</U_PaisDestino>
+          <U_FechaPedimento>U_FechaPedimento</U_FechaPedimento>
         </TargetFields>
       </Document_Lines>
       <SerialNumbers>
