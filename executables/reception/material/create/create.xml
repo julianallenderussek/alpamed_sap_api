@@ -513,12 +513,12 @@
           <ExpiryDate />
           <ManufacturingDate />
           <AddmisionDate />
+          <WhsCode/>
           <Location />
           <Notes />
           <Quantity />
           <BaseLineNumber />
           <MnfSerial/>
-          <WhsCode/>
         </SourceFields>
         <TargetFields>
           <RecordKey>RecordKey</RecordKey>
@@ -529,12 +529,12 @@
           <ExpiryDate>ExpiryDate</ExpiryDate>
           <ManufacturingDate>ManufacturingDate</ManufacturingDate>
           <AddmisionDate>AddmisionDate</AddmisionDate>
+          <WhsCode>WhsCode</WhsCode>
           <Location>Location</Location>
           <Notes>Notes</Notes>
           <Quantity>Quantity</Quantity>
           <BaseLineNumber>BaseLineNumber</BaseLineNumber>
           <MnfSerial>MnfSerial</MnfSerial>
-          <WhsCode>WhsCode</WhsCode>
         </TargetFields>
       </BatchNumbers>
     </Fields>
