@@ -63,6 +63,7 @@ inventoryRouter.get('/lots', async (req, res) => {
         }
         if (lot.Direction === 1) {
             let deliveryQuery = await callSAPServer(`${queries.delivery.getDeliveryByDocNum}${lot.BaseNum}`)
+            console.log(deliveryQuery)
             obj.delivery = deliveryQuery[0]
             let lineArticlesQuery = await callSAPServer(`${queries.delivery.getDeliveryLineArticlesByDocEntry}${deliveryQuery[0].DocEntry || ""}`)
             obj.lineArticles = lineArticlesQuery
