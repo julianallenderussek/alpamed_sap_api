@@ -15,7 +15,7 @@ const callSAPServer = require('../queries/sapQuery');
 deliveryRouter.post('/test', async (req, res) => {
   const wms_id = "123"
   const result = await callSAPServer(`SELECT * FROM ODLN`)
-  return res.status(200).json({message: result})
+  return res.status(200).json({ message: result })
 })
 
 deliveryRouter.get('/check/:wms_id', async (req, res) => {
@@ -23,9 +23,9 @@ deliveryRouter.get('/check/:wms_id', async (req, res) => {
   const result = await callSAPServer(`SELECT * FROM ODLN WHERE U_ID_WMS='${wms_id}'`)
   console.log(result, typeof result);
   if (!result) {
-  return res.status(404).json({message: `Delivery with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
+    return res.status(404).json({ message: `Delivery with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
-  return res.status(200).json({delivery: result})
+  return res.status(200).json({ delivery: result })
 })
 
 ///// MATERIAL
@@ -49,25 +49,25 @@ deliveryRouter.post('/create/material', async (req, res) => {
 
   const deliveryTemplate = await readTemplateSingle(filePaths.delivery.excel);
   const deliveryArticlesTemplate = await readTemplateSingle(filePaths.deliveryArticles.excel);
-  
+
   // Batch info cuz we are doing material
   const batchInfoTemplate = await readTemplateSingle(filePaths.batchInfo.excel);
-  
+
   // Filtering Value arrays
   const deliveryOrderArr = await filteredResArr([delivery], deliveryTemplate);
   const deliveryArticlesArr = await filteredResArr(deliveryArticles, deliveryArticlesTemplate);
   const batchInfoArr = await filteredResArr(batchInfo, batchInfoTemplate);
-  
+
   await createTxtFile(filePaths.delivery.txt, deliveryOrderArr);
   await createTxtFile(filePaths.deliveryArticles.txt, deliveryArticlesArr);
   await createTxtFile(filePaths.batchInfo.txtDelivery, batchInfoArr);
-  
+
   await logger.log('info', { message: "Delivery + DeliveryArticles + BatchInfo txt files successfully created" }, {
     app: "SAP-API",
     route: "/delivery/material/create"
   });
 
-  return res.status(200).json({message: "Delivery Text files created in SAP Server" })
+  return res.status(200).json({ message: "Delivery Text files created in SAP Server" })
 })
 
 // Step two
@@ -121,25 +121,25 @@ deliveryRouter.post('/create/container', async (req, res) => {
 
   const deliveryTemplate = await readTemplateSingle(filePaths.delivery.excel);
   const deliveryArticlesTemplate = await readTemplateSingle(filePaths.deliveryArticles.excel);
-  
+
   // Batch info cuz we are doing material
   const lotInfoTemplate = await readTemplateSingle(filePaths.lotInfo.excel);
-  
+
   // Filtering Value arrays
   const deliveryOrderArr = await filteredResArr([delivery], deliveryTemplate);
   const deliveryArticlesArr = await filteredResArr(deliveryArticles, deliveryArticlesTemplate);
   const lotInfoArr = await filteredResArr(lotInfo, lotInfoTemplate);
-  
+
   await createTxtFile(filePaths.delivery.txt, deliveryOrderArr);
   await createTxtFile(filePaths.deliveryArticles.txt, deliveryArticlesArr);
   await createTxtFile(filePaths.lotInfo.txtDelivery, lotInfoArr);
-  
+
   await logger.log('info', { message: "Delivery + DeliveryArticles + lotInfo txt files successfully created" }, {
     app: "SAP-API",
     route: "/container/material/create"
   });
 
-  return res.status(200).json({message: "Delivery Text files created in SAP Server" })
+  return res.status(200).json({ message: "Delivery Text files created in SAP Server" })
 })
 
 // Step two
@@ -253,7 +253,7 @@ deliveryRouter.get("/sap/wms_id/:id", async function (req, res) {
     return res.status(400).json({ message: "Please provide an id" })
   }
   const resultPurchseOrder = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${id}'`)
-  const docEntry = resultPurchseOrder[0].DocEntry; //
+  const docEntry = resultPurchseOrder[0].DocEntry || ""; //
   const resultArticle = await callSAPServer(`SELECT * FROM RDR1 WHERE DocEntry='${docEntry}'`);
 
   return res.status(200).json({ message: "Check this", result: resultPurchseOrder, articles: resultArticle })

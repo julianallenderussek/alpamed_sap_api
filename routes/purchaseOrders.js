@@ -198,14 +198,14 @@ purchaseOrderRouter.get("/sap/wms_id/:id", async function (req, res) {
   try {
     const resultPurchseOrder = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${id}'`)
     console.log(`Searching for this purchase order ${id}`)
-    const docEntry = resultPurchseOrder[0].DocEntry; //
+    const docEntry = resultPurchseOrder[0].DocEntry || ""; //
     console.log(`CHEWBACA result`, resultPurchseOrder, resultPurchseOrder.length)
     const resultArticle = await callSAPServer(`SELECT * FROM RDR1 WHERE DocEntry='${docEntry}'`);
     return res.status(200).json({ message: "Check this", result: resultPurchseOrder, articles: resultArticle })
-  } 
-  
+  }
+
   catch {
-    return res.status(400).json({ message: `Error Querying Purchase order with id ${id}`})
+    return res.status(400).json({ message: `Error Querying Purchase order with id ${id}` })
   }
 
 });

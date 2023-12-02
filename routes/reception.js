@@ -15,21 +15,21 @@ const callSAPServer = require('../queries/sapQuery');
 receptionRouter.post('/test', async (req, res) => {
   const wms_id = "123"
   const result = await callSAPServer(`SELECT * FROM ORDN'`)
-  return res.status(200).json({message: result})
+  return res.status(200).json({ message: result })
 })
 
 ///// MATERIAL
 receptionRouter.get('/check/:wms_id', async (req, res) => {
   const { wms_id } = req.params;
   console.log(wms_id)
-	const finalQuery = `SELECT * FROM ORDN WHERE U_ID_WMS='${wms_id.toString()}'`
-	console.log("Show me the money", finalQuery)
-	const result = await callSAPServer(finalQuery)
+  const finalQuery = `SELECT * FROM ORDN WHERE U_ID_WMS='${wms_id.toString()}'`
+  console.log("Show me the money", finalQuery)
+  const result = await callSAPServer(finalQuery)
   if (!result) {
-  return res.status(404).json({message: `Reception with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
+    return res.status(404).json({ message: `Reception with U_ID_WMS: ${wms_id} does not exists in SAP Database` })
   }
 
-  return res.status(200).json({reception: result})
+  return res.status(200).json({ reception: result })
 })
 
 // Step One
@@ -51,29 +51,29 @@ receptionRouter.post('/create/material', async (req, res) => {
 
   const receptionTemplate = await readTemplateSingle(filePaths.reception.excel);
   const receptionArticlesTemplate = await readTemplateSingle(filePaths.receptionArticles.excel);
-  
+
   // Batch info cuz we are doing material
   const batchInfoTemplate = await readTemplateSingle(filePaths.batchInfo.excel);
-  
+
   console.log("Clone Wars AAAAAAAAAAAAAAAAAAAAAAAA", batchInfoTemplate);
 
   // Filtering Value arrays
   const receptionOrderArr = await filteredResArr([reception], receptionTemplate);
   const receptionArticlesArr = await filteredResArr(receptionArticles, receptionArticlesTemplate);
   const batchInfoArr = await filteredResArr(batchInfo, batchInfoTemplate);
-  
-  console.log("WHAT UP",batchInfoArr)
+
+  console.log("WHAT UP", batchInfoArr)
 
   await createTxtFile(filePaths.reception.txt, receptionOrderArr);
   await createTxtFile(filePaths.receptionArticles.txt, receptionArticlesArr);
   await createTxtFile(filePaths.batchInfo.txt, batchInfoArr);
-  
+
   await logger.log('info', { message: "Reception + ReceptionArticles + BatchInfo txt files successfully created" }, {
     app: "SAP-API",
     route: "/reception/material/create"
   });
 
-  return res.status(200).json({message: "Reception Text files created in SAP Server" })
+  return res.status(200).json({ message: "Reception Text files created in SAP Server" })
 })
 
 // Step two
@@ -81,7 +81,7 @@ receptionRouter.post("/runScript/create/material/wms_id/:wms_id", async function
   const { wms_id } = req.params
 
   const resultReception = await callSAPServer(`SELECT * FROM ORDN WHERE U_ID_WMS='${wms_id}'`)
-  
+
   if (resultReception.length > 0) {
     return res.status(403).json({ message: "`Reception With ID Already Created in Sap", data: resultReception })
   }
@@ -127,25 +127,25 @@ receptionRouter.post('/create/container', async (req, res) => {
 
   const receptionTemplate = await readTemplateSingle(filePaths.reception.excel);
   const receptionArticlesTemplate = await readTemplateSingle(filePaths.receptionArticles.excel);
-  
+
   // Batch info cuz we are doing material
   const lotInfoTemplate = await readTemplateSingle(filePaths.lotInfo.excel);
-  
+
   // Filtering Value arrays
   const receptionOrderArr = await filteredResArr([reception], receptionTemplate);
   const receptionArticlesArr = await filteredResArr(receptionArticles, receptionArticlesTemplate);
   const lotInfoArr = await filteredResArr(lotInfo, lotInfoTemplate);
-  
+
   await createTxtFile(filePaths.reception.txt, receptionOrderArr);
   await createTxtFile(filePaths.receptionArticles.txt, receptionArticlesArr);
   await createTxtFile(filePaths.lotInfo.txt, lotInfoArr);
-  
+
   await logger.log('info', { message: "Reception + ReceptionArticles + lotInfo txt files successfully created" }, {
     app: "SAP-API",
     route: "/container/material/create"
   });
 
-  return res.status(200).json({message: "Reception Text files created in SAP Server" })
+  return res.status(200).json({ message: "Reception Text files created in SAP Server" })
 })
 
 // Step two
@@ -259,7 +259,7 @@ receptionRouter.get("/sap/wms_id/:id", async function (req, res) {
     return res.status(400).json({ message: "Please provide an id" })
   }
   const resultPurchseOrder = await callSAPServer(`SELECT * FROM ORDR WHERE U_ID_WMS='${id}'`)
-  const docEntry = resultPurchseOrder[0].DocEntry; //
+  const docEntry = resultPurchseOrder[0].DocEntry || ""; //
   const resultArticle = await callSAPServer(`SELECT * FROM RDR1 WHERE DocEntry='${docEntry}'`);
 
   return res.status(200).json({ message: "Check this", result: resultPurchseOrder, articles: resultArticle })
