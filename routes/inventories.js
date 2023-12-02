@@ -57,16 +57,19 @@ inventoryRouter.get('/lots', async (req, res) => {
 
         if (lot.Direction === 0) {
             let receptionQuery = await callSAPServer(`${queries.reception.getReceptionByDocNum}${lot.BaseNum}`)
-            obj.reception = receptionQuery[0]
-            let lineArticlesQuery = await callSAPServer(`${queries.reception.getReceptionLineArticlesByDocEntry}${receptionQuery[0].DocEntry || ""}`)
-            obj.lineArticles = lineArticlesQuery
+            if (receptionQuery.length > 0) {
+                obj.reception = receptionQuery[0]
+                let lineArticlesQuery = await callSAPServer(`${queries.reception.getReceptionLineArticlesByDocEntry}${receptionQuery[0].DocEntry || ""}`)
+                obj.lineArticles = lineArticlesQuery
+            }
         }
         if (lot.Direction === 1) {
             let deliveryQuery = await callSAPServer(`${queries.delivery.getDeliveryByDocNum}${lot.BaseNum}`)
-            console.log(deliveryQuery)
-            obj.delivery = deliveryQuery[0]
-            let lineArticlesQuery = await callSAPServer(`${queries.delivery.getDeliveryLineArticlesByDocEntry}${deliveryQuery[0].DocEntry || ""}`)
-            obj.lineArticles = lineArticlesQuery
+            if (deliveryQuery.length > 0) {
+                obj.delivery = deliveryQuery[0]
+                let lineArticlesQuery = await callSAPServer(`${queries.delivery.getDeliveryLineArticlesByDocEntry}${deliveryQuery[0].DocEntry || ""}`)
+                obj.lineArticles = lineArticlesQuery
+            }
         }
         result.push(obj)
     }
