@@ -1,4 +1,3 @@
-ParentKey	LineNum	BatchNumber	ManufacturerSerialNumber	InternalSerialNumber	ExpiryDate	ManufacturingDate	AddmisionDate	Location	Notes	Quantity	BaseLineNumber
-DocNum	LineNum	DistNumber	MnfSerial	LotNumber	ExpDate	MnfDate	InDate	Location	Notes	Quantity	DocLineNum
-1		169928871774800	16Meeting							16	0
-1		169928871774810	8Meeting							8	1
+ParentKey	LineNum	BatchNumber	ManufacturerSerialNumber	InternalSerialNumber	WhsCode	ExpiryDate	ManufacturingDate	AddmisionDate	Location	Notes	Quantity	BaseLineNumber
+DocNum	LineNum	DistNumber	MnfSerial	LotNumber	WhsCode	ExpDate	MnfDate	InDate	Location	Notes	Quantity	DocLineNum
+1		170049476429200	12Loc						06		12	0

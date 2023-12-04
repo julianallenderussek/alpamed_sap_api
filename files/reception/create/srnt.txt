@@ -1,3 +1,4 @@
 ParentKey	LineNum	ManufacturerSerialNumber	InternalSerialNumber	ExpiryDate	ManufactureDate	ReceptionDate	WarrantyStart	WarrantyEnd	Location	Notes	BatchID	SystemSerialNumber	BaseLineNumber
 DocNum	LineNum	MnfSerial	DistNumber	ExpDate	MnfDate	InDate	GrntStart	GrntExp	Location	Notes	LotNumber	SysNumber	DocLineNum
-1			HJYU8765										0
+1			VWA09389										0
+1			LHI27137										1
