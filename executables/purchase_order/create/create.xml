@@ -187,7 +187,7 @@
 	            <U_L_P_Destino />
                <U_UMComercial/>
                <U_MontoUSD />
-               <U_Sellos />
+               <U_U_Sellos />
                <U_FraccionA />
                <U_NoFactura/>
             </SourceFields>
@@ -260,7 +260,7 @@
                <U_IGI_actual>U_IGI_actual</U_IGI_actual>
                <U_NSalida>U_NSalida</U_NSalida>
                <U_Buque1>U_Buque1</U_Buque1>
-               <U_Sellos>U_Sellos</U_Sellos>
+               <U_U_Sellos>U_Sellos</U_Sellos>
       	      <U_U_ID_WMS>U_U_ID_WMS</U_U_ID_WMS>
                <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
 	            <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino> 
