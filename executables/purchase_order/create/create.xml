@@ -48,7 +48,6 @@
                <U_N_Capt />
                <UDF_UUID />
                <U_N_Tarja />
-               <U_Fecha_Pago />
                <U_Naviera />
                <U_Nombre_Consig />
                <U_Direccion_Consig />
@@ -68,12 +67,12 @@
                <U_ID_WMS />
                <U_PuertoDestino />
                <U_PuertoOrigen />
-               <U_Fecha_Pago />
+               <U_FechaPago />
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
                <DocNum>DocNum</DocNum>
-		         <Series>Series</Series>
+		<Series>Series</Series>
                <DocDate>DocDate</DocDate>
                <CardCode>CardCode</CardCode>
                <NumAtCard>NumAtCard</NumAtCard>
@@ -89,7 +88,6 @@
                <U_N_Capt>U_N_Capt</U_N_Capt>
                <UDF_UUID>UDF_UUID</UDF_UUID>
                <U_N_Tarja>U_N_Tarja</U_N_Tarja>
-               <U_Fecha_Pago>U_Fecha_Pago</U_Fecha_Pago>
                <U_Naviera>U_Naviera</U_Naviera>
                <U_Nombre_Consig>U_Nombre_Consig</U_Nombre_Consig>
                <U_Direccion_Consig>U_Direccion_Consig</U_Direccion_Consig>
@@ -109,7 +107,7 @@
                <U_ID_WMS>U_ID_WMS</U_ID_WMS>
                <U_PuertoDestino>U_PuertoDestino</U_PuertoDestino>
                <U_Puerto>U_Puerto</U_Puerto>
-               <U_Fecha_Pago>U_Fecha_Pago</U_Fecha_Pago>
+               <U_FechaPago>U_FechaPago</U_FechaPago>
             </TargetFields>
          </Documents>
          <Document_Lines>
@@ -183,7 +181,7 @@
                <U_NSalida />
                <U_Buque1 />
                <ImportLog />
-	            <U_U_IDL_WMS />
+	            <U_U_ID_WMS />
 	            <U_L_P_Origen />
 	            <U_L_P_Destino />
                <U_UMComercial/>
@@ -259,7 +257,7 @@
                <U_IGI_actual>U_IGI_actual</U_IGI_actual>
                <U_NSalida>U_NSalida</U_NSalida>
                <U_Buque1>U_Buque1</U_Buque1>
-      	      <U_U_IDL_WMS>U_U_IDL_WMS</U_U_IDL_WMS>
+      	      <U_U_ID_WMS>U_U_ID_WMS</U_U_ID_WMS>
                <U_L_P_Origen>U_L_P_Origen</U_L_P_Origen>
 	            <U_L_P_Destino>U_L_P_Destino</U_L_P_Destino> 
                <U_UMComercial>U_UMComercial</U_UMComercial>
