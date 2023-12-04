@@ -72,7 +72,7 @@
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
                <DocNum>DocNum</DocNum>
-		<Series>Series</Series>
+		         <Series>Series</Series>
                <DocDate>DocDate</DocDate>
                <CardCode>CardCode</CardCode>
                <NumAtCard>NumAtCard</NumAtCard>
@@ -120,6 +120,7 @@
                <WarehouseCode />
                <FreeText />
                <DocNum />
+               <SerialNum />
                <LineItem />
                <Price />
                <U_Booking />
@@ -199,6 +200,7 @@
                <DocNum>DocNum</DocNum>
                <LineItem>LineItem</LineItem>
                <Price>Price</Price>
+               <SerialNum>SerialNum</SerialNum>
                <U_Booking>U_Booking</U_Booking>
                <U_IMO>U_IMO</U_IMO>
                <U_transporte>U_transporte</U_transporte>
