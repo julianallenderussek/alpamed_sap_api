@@ -47,7 +47,7 @@
                <U_N_Capt />
                <UDF_UUID />
                <U_N_Tarja />
-               <U_Fecha_Pago />
+               <U_FechaPago />
                <U_Naviera />
                <U_Nombre_Consig />
                <U_Direccion_Consig />
@@ -84,7 +84,7 @@
                <U_N_Capt>U_N_Capt</U_N_Capt>
                <UDF_UUID>UDF_UUID</UDF_UUID>
                <U_N_Tarja>U_N_Tarja</U_N_Tarja>
-               <U_Fecha_Pago>U_Fecha_Pago</U_Fecha_Pago>
+               <U_FechaPago>U_FechaPago</U_FechaPago>
                <U_Naviera>U_Naviera</U_Naviera>
                <U_Nombre_Consig>U_Nombre_Consig</U_Nombre_Consig>
                <U_Direccion_Consig>U_Direccion_Consig</U_Direccion_Consig>

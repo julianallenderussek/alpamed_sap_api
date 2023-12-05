@@ -138,7 +138,7 @@
           <InsuranceOperation347 />
           <ArchiveNonremovableSalesQuotation />
           <U_ID_WMS/>
-          <U_Fecha_Pago />
+          <U_FechaPago />
           <U_N_Tarja/>
           <U_Regimen/>
           <U_Proveedor/>
@@ -249,7 +249,7 @@
           <InsuranceOperation347>InsuranceOperation347</InsuranceOperation347>
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
-          <U_Fecha_Pago>U_Fecha_Pago</U_Fecha_Pago>
+          <U_FechaPago>U_FechaPago</U_FechaPago>
           <U_N_Tarja>U_N_Tarja</U_N_Tarja>
           <U_Regimen>U_Regimen</U_Regimen>
           <U_Proveedor>U_Proveedor</U_Proveedor>

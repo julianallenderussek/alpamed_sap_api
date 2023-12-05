@@ -161,7 +161,7 @@
           <U_DTA />
           <U_Patente />
           <U_V_Aduana />
-          <U_Fecha_Pago />
+          <U_FechaPago />
           <U_ID_WMS />
         </SourceFields>
         <TargetFields>
@@ -291,7 +291,7 @@
           <U_DTA>U_DTA</U_DTA>
           <U_Patente>U_Patente</U_Patente>
           <U_V_Aduana>U_V_aduana</U_V_Aduana>
-          <U_Fecha_Pago>U_Fecha_Pago</U_Fecha_Pago>
+          <U_FechaPago>U_FechaPago</U_FechaPago>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
         </TargetFields>
       </Documents>
