@@ -67,7 +67,7 @@
                <U_ID_WMS />
                <U_PuertoDestino />
                <U_PuertoOrigen />
-               <U_FechaPago />
+               <U_U_Fecha_Pago />
             </SourceFields>
             <TargetFields>
                <RecordKey>RecordKey</RecordKey>
@@ -107,7 +107,7 @@
                <U_ID_WMS>U_ID_WMS</U_ID_WMS>
                <U_PuertoDestino>U_PuertoDestino</U_PuertoDestino>
                <U_Puerto>U_Puerto</U_Puerto>
-               <U_FechaPago>U_FechaPago</U_FechaPago>
+               <U_U_Fecha_Pago>U_U_Fecha_Pago</U_U_Fecha_Pago>
             </TargetFields>
          </Documents>
          <Document_Lines>
