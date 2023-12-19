@@ -138,6 +138,7 @@
           <InsuranceOperation347 />
           <ArchiveNonremovableSalesQuotation />
           <U_ID_WMS />
+          <U_Estatus_contenedor />
           <U_U_Fecha_Pago />
           <U_C_Provedor/>
           <U_N_Tarja/>
@@ -249,6 +250,7 @@
           <InsuranceOperation347>InsuranceOperation347</InsuranceOperation347>
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
+          <U_Estatus_contenedor>U_Estatus_contenedor</U_Estatus_contenedor>
           <U_U_Fecha_Pago>U_U_Fecha_Pago</U_U_Fecha_Pago>
           <U_C_Provedor>U_C_Provedor</U_C_Provedor>
           <U_N_Tarja>U_N_Tarja</U_N_Tarja>
@@ -370,6 +372,7 @@
           <U_MontoUSD />
           <U_FraccionA />
           <U_NoFactura />
+          <U_IMO />
           <U_transporte />
           <U_Placas/>
           <U_N_Operador/>
@@ -491,6 +494,7 @@
           <U_MontoUSD >U_MontoUSD</U_MontoUSD>
           <U_FraccionA>U_FraccionA</U_FraccionA>
           <U_NoFactura>U_NoFactura</U_NoFactura>
+          <U_IMO>U_IMO</U_IMO>
           <U_transporte>U_transporte</U_transporte>
           <U_Placas>U_Placas</U_Placas>
           <U_N_Operador>U_N_Operador</U_N_Operador>
