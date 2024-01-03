@@ -393,7 +393,7 @@ app.put("/purchase_order", function (req, res) {
     .json({ success: true, message: "Integration Server Running" });
 });
 
-const PORT = 4000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
