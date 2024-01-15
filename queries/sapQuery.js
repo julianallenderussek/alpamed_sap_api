@@ -19,10 +19,12 @@ const sqlConfig = {
 const callSAPServer = async (query) => {
  
 try {
-  // make sure that any items are correctly URL encoded in the connection string
-  await sql.connect(sqlConfig)
+  console.log("Calling SAP")
+	// make sure that any items are correctly URL encoded in the connection string
+  const connection = await sql.connect(sqlConfig)
   const result = await sql.query(query)
-  
+  console.log("returned rom sap");
+	await connection.close()
   return result.recordset
  } catch (err) {
   // ... error checks

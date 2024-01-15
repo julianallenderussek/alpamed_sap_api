@@ -1,3 +1,4 @@
 ParentKey	LineNum	BatchNumber	ManufacturerSerialNumber	InternalSerialNumber	WhsCode	ExpiryDate	ManufacturingDate	AddmisionDate	Location	Notes	Quantity	BaseLineNumber
 DocNum	LineNum	DistNumber	MnfSerial	LotNumber	WhsCode	ExpDate	MnfDate	InDate	Location	Notes	Quantity	DocLineNum
-1		170049476429200	12Loc						06		12	0
+1		170302152626000	SV-20								4	0
+1		170302152626001	SV-50								4	0
