@@ -1,9 +1,9 @@
 const sql = require('mssql')
 
 const sqlConfig = {
-  user: "sap",
-  password: "S@p123",
-  database: "AMD_Entrenamiento",
+  user: "U002",
+  password: "sap123",
+  database: "AMD",
   server: "localhost",
   pool: {
     max: 10,
