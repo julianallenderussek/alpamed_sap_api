@@ -25,8 +25,8 @@
     </Extorlogin>
     <FilesTypes>2</FilesTypes>
     <Files>
-      <Documents>C:\Users\U002\Desktop\alpamed_sap_api\executables\purchase_order\update\ordr.txt</Documents>
-      <Document_Lines>C:\Users\U002\Desktop\alpamed_sap_api\executables\purchase_order\update\rdr1.txt</Document_Lines>
+      <Documents>C:\Users\U002\Desktop\API-WMS-SAP\dev\alpamed_sap_api\executables\purchase_order\update\ordr.txt</Documents>
+      <Document_Lines>C:\Users\U002\Desktop\API-WMS-SAP\dev\alpamed_sap_api\executables\purchase_order\update\rdr1.txt</Document_Lines>
     </Files>
   </FileExtractor>
   <Map>
