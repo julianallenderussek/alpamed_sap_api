@@ -2,7 +2,7 @@
   <Logon>
     <UserName>manager</UserName>
     <Password>DI8MmLhIkKFMCI8LqF</Password>
-    <Company>AMD_Entrenamiento</Company>
+    <Company>AMD</Company>
     <Server>SAPSERVER</Server>
     <UserAuthentication>False</UserAuthentication>
     <Language />

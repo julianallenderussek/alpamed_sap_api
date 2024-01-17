@@ -36,7 +36,7 @@ app.use(cors({
   "origin": "*",
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   "preflightContinue": false,
-  "optionsSuccessStatus": 204
+  "optionsSuccessStatus": 204
 }));
 // Middleware
 app.use(bodyParser.json());
@@ -47,14 +47,14 @@ app.get("/", function (req, res) {
     .json({ success: true, message: "Integration Server Running" });
 });
 
-    
+
 
 app.get("/updateBash", async (req, res) => {
-  
+
   const logonObject = {
     UserName: "manager",
     Password: "FKcIkJgJnJHKCIfMnA",
-    Company: "AMD_Entrenamiento",
+    Company: "AMD",
     Server: "SAPSERVER",
     UserAuthentication: "False",
     Language: {},
@@ -71,7 +71,7 @@ app.get("/updateBash", async (req, res) => {
       Logon: {
         ...logonObject
       },
-      ObjectCode : { 
+      ObjectCode: {
         ObjectCode: "oOrders"
       },
       FileExtractor: {
@@ -96,20 +96,20 @@ app.get("/updateBash", async (req, res) => {
       Run: {}
     }
   }
-    
+
   obj.Transfer.FileExtractor.Extorlogin
   obj.Transfer.FileExtractor.Extorlogin.ExID
-  obj.Transfer.FileExtractor.Extorlogin.ExPW 
-  obj.Transfer.FileExtractor.Extorlogin.ExDSN 
+  obj.Transfer.FileExtractor.Extorlogin.ExPW
+  obj.Transfer.FileExtractor.Extorlogin.ExDSN
   obj.Transfer.FileExtractor.FileTypes = 2
   obj.Transfer.FileExtractor.Files
-  obj.Transfer.FileExtractor.Files.Documents = testModeOn ? filePaths.xml.test.purchaseOrder : filePaths.xml.production.purchaseOrder 
+  obj.Transfer.FileExtractor.Files.Documents = testModeOn ? filePaths.xml.test.purchaseOrder : filePaths.xml.production.purchaseOrder
   obj.Transfer.FileExtractor.Files.Document_Lines = testModeOn ? filePaths.xml.test.articles : filePaths.xml.production.articles
-  
+
   const sourceFieldsPurchaseOrder = [
     "RecordKey",
     "DocNum",
-    "DocDate",    
+    "DocDate",
     "DocDueDate",
     "CardCode",
     "CardName",
@@ -130,13 +130,13 @@ app.get("/updateBash", async (req, res) => {
     "U_ID_WMS",
     "U_Puerto"
   ];
-  
-  for (let i =0; i < sourceFieldsPurchaseOrder.length;i++) {
+
+  for (let i = 0; i < sourceFieldsPurchaseOrder.length; i++) {
     const field = sourceFieldsPurchaseOrder[i]
     obj.Transfer.Map.Fields.Documents.SourceFields[field] = {}
   }
 
-  for (let i =0; i < sourceFieldsPurchaseOrder.length;i++) {
+  for (let i = 0; i < sourceFieldsPurchaseOrder.length; i++) {
     const field = sourceFieldsPurchaseOrder[i]
     obj.Transfer.Map.Fields.Documents.TargetFields[field] = field
   }
@@ -151,61 +151,61 @@ app.get("/updateBash", async (req, res) => {
     "FreeText",
     "ImportLog"
   ];
-  
-  for (let i =0; i < sourceFieldsArticles.length;i++) {
+
+  for (let i = 0; i < sourceFieldsArticles.length; i++) {
     const field = sourceFieldsArticles[i]
     obj.Transfer.Map.Fields.Document_Lines.SourceFields[field] = {}
   }
 
-  for (let i =0; i < sourceFieldsArticles.length;i++) {
+  for (let i = 0; i < sourceFieldsArticles.length; i++) {
     const field = sourceFieldsArticles[i]
     obj.Transfer.Map.Fields.Document_Lines.TargetFields[field] = field
   }
 
-  const options = [ 
+  const options = [
     ["Import", 1],
     ["Rollback", "False"],
-    ["MaxError",10],
+    ["MaxError", 10],
     ["Update", 0],
     ["TestRun", 0],
-    ["AddAllItems","Checked"],
-    ["LineData",0],
-    ["DataType",2],
-    ["MultiThread","False"],
+    ["AddAllItems", "Checked"],
+    ["LineData", 0],
+    ["DataType", 2],
+    ["MultiThread", "False"],
     ["ThreadNum", 4]
   ];
-    
-  for (let i =0; i < options.length;i++) {
+
+  for (let i = 0; i < options.length; i++) {
     const option = options[i]
     console.log(option)
     obj.Transfer.Run[option[0]] = option[1]
   }
 
-  
+
   const doc = create(obj);
   const xml = doc.end({ prettyPrint: true });
 
   fs.writeFile(filePaths.xml.production.purchaseOrder, xml, (err) => {
-    if(err) {
+    if (err) {
       return console.log(err);
     }
     console.log(`The file was saved! in ${filePaths.xml.production.purchaseOrder}`);
-    return res.status(200).json({message: "Done updating file"})
+    return res.status(200).json({ message: "Done updating file" })
   })
 
 
 });
 
 app.post("/test", function (req, res) {
-  const { body } = req; 
+  const { body } = req;
   let wb = new ExcelJS.Workbook();
   const fileName = "helpers/templates/purchase_order/ordr.xlsx"
-  
+
   wb.xlsx
     .readFile(fileName)
-    .then( async () => {
+    .then(async () => {
       const ws = await wb.getWorksheet("Sheet1");
-      
+
       let firstRow = ws.getRow(1).values;
       let secondRow = ws.getRow(2).values;
       let thirdRow = ws.getRow(3);
@@ -218,7 +218,7 @@ app.post("/test", function (req, res) {
       let result = [[], [], []];
 
       // Maybe here rearrange the values from the backend 
-      
+
       // Get body values and using mapping - Filter them 
 
       for (let i = 0; i < firstRow.length; i++) {
@@ -245,8 +245,8 @@ app.post("/test", function (req, res) {
     .catch((err) => {
       console.log(err.message);
       return res
-      .status(400)
-      .json({ success: false, message: "Error on integration" });
+        .status(400)
+        .json({ success: false, message: "Error on integration" });
     });
 });
 
@@ -261,22 +261,22 @@ app.post("/runBat", function (req, res) {
       return;
     }
     console.log(`Output: ${stdout}`);
-    return res.status(200).json({result: `Output: ${stdout}`})
+    return res.status(200).json({ result: `Output: ${stdout}` })
   });
 });
 
 app.post("/runScript/test", function (req, res) {
   runScript(filePaths.purchaseOrder.bat)
-  .then((stdout) => {
-    console.log('Output:', stdout);
-    logger.info('info', 'Success: runned /runsScript/test')
-    return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
-  })
-  .catch((error) => {
-    console.error('Error:', error.message);
-    logger.info('info', 'Error: runned /runsScript/rest')
-    return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
-  });  
+    .then((stdout) => {
+      console.log('Output:', stdout);
+      logger.info('info', 'Success: runned /runsScript/test')
+      return res.status(200).json({ message: "Running DTW Sap", stdout: stdout })
+    })
+    .catch((error) => {
+      console.error('Error:', error.message);
+      logger.info('info', 'Error: runned /runsScript/rest')
+      return res.status(403).json({ message: "Running DTW Sap", stdout: error.message })
+    });
 });
 
 app.post("/runScript/deleteFile", function (req, res) {
@@ -284,31 +284,31 @@ app.post("/runScript/deleteFile", function (req, res) {
     if (err) {
       console.error('Error deleting file:', err);
       logger.info('info', 'Error: runned /runScript/deletFile')
-      return res.status(200).json({message: "Error deleting purchase order files"})
+      return res.status(200).json({ message: "Error deleting purchase order files" })
     } else {
       console.log('File deleted successfully');
       logger.info('info', 'Success: runned /runScript/deleteFile')
-      return res.status(200).json({message: "Delete purchase Order Files"})
+      return res.status(200).json({ message: "Delete purchase Order Files" })
     }
   });
 });
 
 app.post("/runScript/integrateSap", function (req, res) {
   runScript(filePaths.purchaseOrder.bat)
-  .then((stdout) => {
-    console.log('Output:', stdout);
-    logger.info('info', `Success: runned /runScript/deleteFile => stdout: ${stdout}`)
-    return res.status(200).json({message: "Running DTW Sap", stdout: stdout})
-  })
-  .catch((error) => {
-    console.error('Error:', error.message);
-    logger.info('info', `Error: runned /runScript/deleteFile => error: ${error.message}`)
-    return res.status(403).json({message: "Running DTW Sap", stdout: error.message})
-  });  
+    .then((stdout) => {
+      console.log('Output:', stdout);
+      logger.info('info', `Success: runned /runScript/deleteFile => stdout: ${stdout}`)
+      return res.status(200).json({ message: "Running DTW Sap", stdout: stdout })
+    })
+    .catch((error) => {
+      console.error('Error:', error.message);
+      logger.info('info', `Error: runned /runScript/deleteFile => error: ${error.message}`)
+      return res.status(403).json({ message: "Running DTW Sap", stdout: error.message })
+    });
 });
 
 app.get("/purchase_order", async function (req, res) {
-  await readXlsxFile("./templates/purchase_order/ordr.xlsx").then( async (data) => {
+  await readXlsxFile("./templates/purchase_order/ordr.xlsx").then(async (data) => {
     const filtered = {
       columns: [],
       columnsTwo: [],
@@ -332,23 +332,23 @@ app.get("/purchase_order", async function (req, res) {
 
 app.get("/sap/queries", async function (req, res) {
   console.log(queries)
-  return res.status(200).json({message: "This are the sap query options", queries})
+  return res.status(200).json({ message: "This are the sap query options", queries })
 });
 
 app.post("/sap/query", async function (req, res) {
   const { table, query } = req.body;
 
   if (!table || !query || !queries[table][query]) {
-    return res.status(400).json({message: "Please provide a valid query"})
+    return res.status(400).json({ message: "Please provide a valid query" })
   }
 
   const sqlQuery = queries[table][query]
   console.log(sqlQuery)
-  const result = await callSAPServer(sqlQuery) 
+  const result = await callSAPServer(sqlQuery)
 
   console.log(result)
 
-  return res.status(200).json({message: "Check this", result: result})
+  return res.status(200).json({ message: "Check this", result: result })
 });
 
 async function createTxtFile(arr1, arr2, arr3) {
@@ -378,13 +378,13 @@ async function createTxtFile(arr1, arr2, arr3) {
   });
 }
 
-app.use('/purchaseOrder', purchaseOrderRouter );
-app.use('/reception', receptionRouter );
-app.use('/clients', clientsRouter );
-app.use('/delivery', deliveryRouter );
-app.use('/logs', logsRouter );
-app.use('/inventories', inventoryRouter );
-app.use('/pdfs', pdfRouter );
+app.use('/purchaseOrder', purchaseOrderRouter);
+app.use('/reception', receptionRouter);
+app.use('/clients', clientsRouter);
+app.use('/delivery', deliveryRouter);
+app.use('/logs', logsRouter);
+app.use('/inventories', inventoryRouter);
+app.use('/pdfs', pdfRouter);
 
 
 app.put("/purchase_order", function (req, res) {
