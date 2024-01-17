@@ -17,33 +17,32 @@ const sqlConfig = {
 }
 
 const callSAPServer = async (query) => {
- 
-try {
-  console.log("Calling SAP")
-	// make sure that any items are correctly URL encoded in the connection string
-  const connection = await sql.connect(sqlConfig)
-  const result = await sql.query(query)
-  console.log("returned rom sap");
-	await connection.close()
-  return result.recordset
- } catch (err) {
-  // ... error checks
-  console.log("ERROR", err)
- }
+
+  try {
+    await sql.connect(sqlConfig)
+    console.log("Calling SAP")
+    // make sure that any items are correctly URL encoded in the connection string
+    const result = await sql.query(query)
+    console.log("returned rom sap");
+    return result.recordset
+  } catch (err) {
+    // ... error checks
+    console.log("ERROR", err)
+  }
 }
 
 queries = {
-    orders: {
-        getAllOrders: `select * from ORDR`,
-        getOrder: `SELECT * FROM ORDR WHERE DocNum = 2`,
-        insertOrder: `INSERT INTO ORDR (DocNum) VALUES (2)` 
-    },
-    articles: {
-        getAllArticles: `select * from RDRI`, 
-    },
-    tables: {
-        getTables: `select * from RDRI`, 
-    }
+  orders: {
+    getAllOrders: `select * from ORDR`,
+    getOrder: `SELECT * FROM ORDR WHERE DocNum = 2`,
+    insertOrder: `INSERT INTO ORDR (DocNum) VALUES (2)`
+  },
+  articles: {
+    getAllArticles: `select * from RDRI`,
+  },
+  tables: {
+    getTables: `select * from RDRI`,
+  }
 }
 
 // Comment
