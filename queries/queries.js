@@ -9,7 +9,8 @@ const queries = {
         getAllArticles: `select * from RDRI`, 
     },
     dropdowns: {
-                getServicesAndContainers: `SELECT * FROM dbo.OITM WHERE ItemCode LIKE '%SER%' OR itemCode LIKE '%CON%';`
+        getServicesAndContainers: `SELECT * FROM dbo.OITM WHERE ItemCode LIKE '%SER%' OR itemCode LIKE '%CON%';`,
+        getChemours: "SELECT * from  UFD1 where FieldID=41 AND TableID='ADOC';"
     },
     tables: {
         getTables: `select * from RDR1`, 
