@@ -10,7 +10,6 @@ const queries = {
     },
     dropdowns: {
         getServicesAndContainers: `SELECT * FROM dbo.OITM WHERE ItemCode LIKE '%SER%' OR itemCode LIKE '%CON%';`,
-        getChemours: "SELECT * from  UFD1 where FieldID=41 AND TableID='ADOC';"
     },
     tables: {
         getTables: `select * from RDR1`, 
@@ -24,7 +23,8 @@ const queries = {
         getPuertoDestin: `SELECT [Code] FROM [AMD_Entrenamiento].[dbo].[@PUERTO_DESTINO]`,
         getClients: `SELECT CardName,CardCode, Country, City, Currency, LicTradNum, Phone1, Phone2, MailZipCod, Address FROM dbo.OCRD`,
         getClientById: `SELECT CardName,CardCode, Country, City, Currency, LicTradNum, Phone1, Phone2, MailZipCod, Address FROM dbo.OCRD WHERE CardCode=`,
-        location: 'SELECT WhsCode from dbo.OWHS'
+        location: 'SELECT WhsCode from dbo.OWHS',
+        getChemours: "SELECT FldValue, Descr FROM dbo.UFD1 WHERE TableID LIKE '%ORDR%' AND FieldID = 41"
     },
     inventory: {
         getAllLots: "SELECT * FROM dbo.IBT1;",
