@@ -139,6 +139,7 @@
           <ArchiveNonremovableSalesQuotation />
           <U_ID_WMS />
           <U_Estatus_contenedor />
+          <U_chemours />
           <U_U_Fecha_Pago />
           <U_C_Provedor/>
           <U_N_Tarja/>
@@ -251,6 +252,7 @@
           <ArchiveNonremovableSalesQuotation>ArchiveNonremovableSalesQuotation</ArchiveNonremovableSalesQuotation>
           <U_ID_WMS>U_ID_WMS</U_ID_WMS>
           <U_Estatus_contenedor>U_Estatus_contenedor</U_Estatus_contenedor>
+          <U_chemours>U_chemours</U_chemours>
           <U_U_Fecha_Pago>U_U_Fecha_Pago</U_U_Fecha_Pago>
           <U_N_Tarja>U_N_Tarja</U_N_Tarja>
           <U_Regimen>U_Regimen</U_Regimen>

@@ -156,6 +156,7 @@
           <U_Regimen />
           <U_H_Solicitado />
           <U_Estatus_contenedor />
+          <U_chemours />
           <U_P_MBV />
           <U_Aduana />
           <U_DTA />
@@ -286,6 +287,7 @@
           <U_Regimen>U_Regimen</U_Regimen>
           <U_H_Solicitado>U_H_Solicitado</U_H_Solicitado>
           <U_Estatus_contenedor>U_Estatus_contenedor</U_Estatus_contenedor>
+          <U_chemours>U_chemours</U_chemours>
           <U_P_MBV>U_P_MBV</U_P_MBV>
           <U_Aduana>U_Aduana</U_Aduana>
           <U_DTA>U_DTA</U_DTA>
